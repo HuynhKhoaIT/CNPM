@@ -1,0 +1,172 @@
+@charset "ISO-8859-1";
+
+* {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+}
+
+.block {
+	display: block;
+}
+
+.flex {
+	display: flex;
+}
+
+.left {
+	float: left;
+}
+
+.add-margin {
+	margin: 20px 0 !important;
+}
+
+.clear {
+	clear: both;
+}
+
+#payment-container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+#payment-main {
+	max-width: 2000px;
+	margin-left: 50%;
+	margin-right: 50%;
+	text-align: center;
+}
+
+.payment-info {
+	width: 1000px;
+	font-size: 30px;
+}
+
+.header {
+	float: left;
+	font-size: 50px;
+	margin-bottom: 20px;
+}
+
+.sub-info {
+	display: block;
+	margin: 10px 0px;
+	height: auto;
+}
+
+.sub-info2 {
+	display: flex;
+	margin: 10px 0px;
+	width: auto;
+}
+
+.sub-name {
+	display: inline-block;
+	flex: 1;
+}
+
+.sub-info2 .sub-name:last-child {
+	margin-left: 50px;
+}
+
+.label {
+	margin: 5px 0;
+}
+
+.sub-name:last-child {
+	margin-left: 10px;
+}
+
+.input {
+	border: 0.1px solid rgb(175, 175, 175);
+	display: block;
+	width: 100%;
+	height: 50px;
+}
+
+.input-check {
+	width: 20px;
+	height: 20px;
+	float: left;
+	margin: 5px 5px 5px 0;
+}
+
+.info {
+	height: 300px;
+}
+
+.input-check-Right {
+	width: 40px;
+	height: 40px;
+	float: left;
+	margin: 8px 0px 8px 8px;
+	text-align: center;
+	justify-content: center;
+}
+
+.center {
+	text-align: center;
+}
+
+.address {
+	font-size: 50px;
+}
+
+.table {
+	border-left: 0.1px solid rgb(226, 226, 226);
+	border-right: 0.1px solid rgb(226, 226, 226);
+	margin-top: 10px;
+	max-width: 1000px;
+	display: block;
+}
+
+.cart_item {
+	display: flex;
+}
+
+.head {
+	max-width: 500px;
+	padding: 10px 10px;
+	background-color: rgb(226, 226, 226);
+	height: 60px;
+	text-align: center;
+	justify-content: center;
+	flex: 1;
+	display: inline-block;
+	width: 478px;
+	box-sizing: content-box;
+	border-right: 0.1px solid rgb(175, 175, 175);
+}
+
+.head1 {
+	max-width: 500px;
+	box-sizing: content-box;
+	text-align: left;
+	width: 478px;
+	flex: 1;
+	padding: 10px 10px;
+	display: inline-block;
+	height: auto;
+	border-right: 0.1px solid rgb(175, 175, 175);
+	border-bottom: 0.1px solid rgb(175, 175, 175);
+}
+
+
+
+p {
+	line-height: 60px;
+}
+
+.button {
+	width: 100%;
+	background-color: antiquewhite;
+	padding: 10px 10px;
+	margin-top: 20px;
+}
+
+.button:hover {
+	background-color: rgb(243, 210, 166);
+}
