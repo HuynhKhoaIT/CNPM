@@ -23,6 +23,7 @@
 <!-- AdminLTE for demo purposes -->
 <script src="${root}asset/dist/js/demo.js"></script>
 <!-- Page specific script -->
+<script src="${root}plugins/chart.js/Chart.min.js"></script>
 <script>
   $(function () {
     $("#example1").DataTable({
