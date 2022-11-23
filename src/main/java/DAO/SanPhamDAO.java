@@ -164,7 +164,7 @@ public class SanPhamDAO
 	public List<DanhMuc> getAlldanhmuc(String maloai)
 	{
 		List<DanhMuc> list = new ArrayList<>();
-		String query = "select * From DanhMuc Where MaLoai=? ";
+		String query = "select * From DanhMuc Where MaLoai=? and isDeleted = 0";
 		try {
 				conn =new ConnectJDBC().getConnection();
 				ps =conn.prepareStatement(query);
@@ -172,7 +172,7 @@ public class SanPhamDAO
 				rs =ps.executeQuery();
 				while(rs.next())
 				{
-					list.add(new DanhMuc(rs.getInt(1),rs.getInt(2),rs.getString(3)));
+					list.add(new DanhMuc(rs.getInt(1),rs.getInt(2),rs.getString(3),rs.getInt(4)));
 				}
 		}
 			catch (Exception e) {
@@ -227,6 +227,7 @@ public class SanPhamDAO
 	}
 	
 //lọc sản phẩm theo giá tiền 
+//lọc sản phẩm theo giá tiền
 	public List<SanPham> getSortSPTangByDM(String sort)
 	{
 		
@@ -411,6 +412,23 @@ public class SanPhamDAO
 
 			ps.setString(1,"1");
 			ps.setString(2,maSP);
+
+			ps.executeUpdate();
+		}
+		catch (Exception e) {
+		}
+	}
+	public  void deleteSPByMaDM(String maDM)
+	{
+		String query = "UPDATE SanPham\n" +
+				"SET isDeleted=?\n" +
+				"WHERE MaDM = ?;";
+		try {
+			conn =new ConnectJDBC().getConnection();
+			ps =conn.prepareStatement(query);
+
+			ps.setString(1,"1");
+			ps.setString(2,maDM);
 
 			ps.executeUpdate();
 		}

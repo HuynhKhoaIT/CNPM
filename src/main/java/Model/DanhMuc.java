@@ -5,13 +5,26 @@ public class DanhMuc {
     int MaLoai;
     String TenDM;
 
-    public DanhMuc(int maDM, int maLoai, String tenDM) {
+    int isDeleted;
+
+    public DanhMuc() {
+    }
+
+    public DanhMuc(int maDM, int maLoai, String tenDM, int isDeleted) {
         MaDM = maDM;
         MaLoai = maLoai;
         TenDM = tenDM;
+        this.isDeleted = isDeleted;
     }
 
-    public DanhMuc() {
+    @Override
+    public String toString() {
+        return "DanhMuc{" +
+                "MaDM=" + MaDM +
+                ", MaLoai=" + MaLoai +
+                ", TenDM='" + TenDM + '\'' +
+                ", isDeleted=" + isDeleted +
+                '}';
     }
 
     public int getMaDM() {
@@ -38,13 +51,12 @@ public class DanhMuc {
         TenDM = tenDM;
     }
 
-    @Override
-    public String toString() {
-        return "DanhMuc{" +
-                "MaDM=" + MaDM +
-                ", MaLoai=" + MaLoai +
-                ", TenDM='" + TenDM + '\'' +
-                '}';
+    public int getIsDeleted() {
+        return isDeleted;
+    }
+
+    public void setIsDeleted(int isDeleted) {
+        this.isDeleted = isDeleted;
     }
 }
 

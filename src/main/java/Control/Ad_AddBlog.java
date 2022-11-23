@@ -23,8 +23,6 @@ public class Ad_AddBlog extends HttpServlet {
         response.setCharacterEncoding("UTF-8");
         response.setContentType("text/html; charset=UTF-8");
 
-
-
         BaiViet baiViet;
         String maBV="";
         String action = request.getParameter("action");

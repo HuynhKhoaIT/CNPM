@@ -98,8 +98,8 @@
                                                 <td>
                                                         ${o.tenDM}
                                                 </td> 
-                                                <td><a href="#">Sửa</a></td>
-                      							<td><a href="#" style="color: red;">Xóa</a></td>
+                                                <td><a href="${root}admin/Ad_AddCategory?maDM=${o.maDM}&action=modify">Sửa</a></td>
+                                                <td><a href="${root}admin/Ad_AddCategory?maDM=${o.maDM}&action=delete" onclick="return confirm('Nếu xóa danh mục này các sản phẩm trong danh mục này cũng sẽ bị xóa')" style="color: red;">Xóa</a></td>
                                             </tr>
                                         </c:forEach>
                                         </tbody>
@@ -107,6 +107,7 @@
                                     </table>
                                 </div>
                             </div>
+
                             <!-- /.card-body -->
                         </div>
                         <!-- /.card -->

@@ -63,30 +63,25 @@
               </div>
               <!-- /.card-header -->
               <!-- form start -->
-              <form action="${root}Ad_AddCategory" method="post">
+              <form action="${root}/admin/Ad_AddCategory" method="post">
                 <div class="card-body">
                   <div class="form-group">
                     <label>Danh mục cha</label>
                     <select class="custom-select form-control-border" id="exampleSelectBorder" name="maLoai">
-                      <%--   <c:forEach items="${listlsp}" var="o">
-                             <a href="?maloai=${o.maLoai}">
-                                 <option>${o.tenLoai}</option>
-                             </a>
-                         </c:forEach> --%>
                       <c:forEach items="${listlsp}" var="l">
-                        <option value="${l.maLoai}">${l.tenLoai}</option>
+                        <option value="${l.maLoai}" ${danhMuc.maLoai == l.maLoai ? 'selected' : ''} >${l.tenLoai}</option>
                       </c:forEach>
                     </select>
                   </div>
                   <div class="form-group">
                     <label for="exampleInputName1">Tên danh mục</label>
-                    <input type="text" class="form-control" id="exampleInputName1" name="tendanhmuc" />
+                    <input type="text" class="form-control" id="exampleInputName1" name="tendanhmuc" value="${danhMuc.tenDM}"/>
                   </div>
                 </div>
                 <!-- /.card-body -->
-
                 <div class="card-footer">
-                  <button type="submit" class="btn btn-primary">Thêm danh mục mới</button>
+                  <input type="hidden" value="${danhMuc.maDM}" name="maDM">
+                  <button type="submit" class="btn btn-primary">${note}</button>
                 </div>
               </form>
             </div>
