@@ -58,7 +58,7 @@
         <div class="row">
           <div class="col-md-6">
             <!-- AREA CHART -->
-            <div class="card card-primary">
+            <div class="card card-primary" style = "display: none;">
               <div class="card-header">
                 <h3 class="card-title">Area Chart</h3>
 
@@ -81,7 +81,7 @@
             <!-- /.card -->
 
             <!-- DONUT CHART -->
-            <div class="card card-danger">
+            <div class="card card-danger" style = "display: none;">
               <div class="card-header">
                 <h3 class="card-title">Donut Chart</h3>
 
@@ -126,7 +126,7 @@
           <!-- /.col (LEFT) -->
           <div class="col-md-6">
             <!-- LINE CHART -->
-            <div class="card card-info">
+            <div class="card card-info" style = "display: none;">
               <div class="card-header">
                 <h3 class="card-title">Line Chart</h3>
 
@@ -172,7 +172,7 @@
             <!-- /.card -->
 
             <!-- STACKED BAR CHART -->
-            <div class="card card-success">
+            <div class="card card-success" style = "display: none;">
               <div class="card-header">
                 <h3 class="card-title">Stacked Bar Chart</h3>
 
@@ -254,7 +254,7 @@
       ]
     }
 
-    var areaChartOptions = {
+  /*   var areaChartOptions = {
       maintainAspectRatio : false,
       responsive : true,
       legend: {
@@ -279,10 +279,10 @@
       type: 'line',
       data: areaChartData,
       options: areaChartOptions
-    })
+    }) */
 
     //-------------
-    //- LINE CHART -
+    /* //- LINE CHART -
     //--------------
     var lineChartCanvas = $('#lineChart').get(0).getContext('2d')
     var lineChartOptions = $.extend(true, {}, areaChartOptions)
@@ -296,7 +296,7 @@
       data: lineChartData,
       options: lineChartOptions
     })
-
+ */
     //-------------
     //- DONUT CHART -
     //-------------
@@ -318,17 +318,17 @@
         }
       ]
     }
-    var donutOptions     = {
+ /*    var donutOptions     = {
       maintainAspectRatio : false,
       responsive : true,
-    }
+    } */
     //Create pie or douhnut chart
     // You can switch between pie and douhnut using the method below.
-    new Chart(donutChartCanvas, {
+  /*   new Chart(donutChartCanvas, {
       type: 'doughnut',
       data: donutData,
       options: donutOptions
-    })
+    }) */
 
     //-------------
     //- PIE CHART -
@@ -371,7 +371,7 @@
     })
 
     //---------------------
-    //- STACKED BAR CHART -
+   /*  //- STACKED BAR CHART -
     //---------------------
     var stackedBarChartCanvas = $('#stackedBarChart').get(0).getContext('2d')
     var stackedBarChartData = $.extend(true, {}, barChartData)
@@ -393,7 +393,7 @@
       type: 'bar',
       data: stackedBarChartData,
       options: stackedBarChartOptions
-    })
+    }) */
   })
 </script>
 </body>

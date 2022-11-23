@@ -77,6 +77,7 @@
                     <th>Giá bán</th>
                     <th>Danh mục</th>
                     <th>Số lượng</th>
+                    <th>Số lượng đã bán</th>
                     <th>Sửa</th>
                     <th>Xóa</th>
                     <!-- <th>Ngày nhập</th> -->
@@ -95,6 +96,7 @@
                         </c:if>
                       </c:forEach>
                       <td>${l.soLuong}</td>
+                      <td>${l.soLuongDaBan}</td>
                       <td><a href="Ad_AddProductControl?maSP=${l.maSP}&action=modify">Sửa</a></td>
                       <td><a href="Ad_AddProductControl?maSP=${l.maSP}&action=delete" style="color: red;">Xóa</a></td>
                     </tr>

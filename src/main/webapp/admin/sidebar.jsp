@@ -136,21 +136,16 @@
                         <li class="nav-item">
                             <a href="${root}admin/doanhthu.jsp" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p>Tất cả doanh thu</p>
+                                <p>Biểu đồ doanh thu</p>
                             </a>
                         </li>
-                        <%-- <li class="nav-item">
-                            <a href="${root}admin/Ad_TaoBaiViet" class="nav-link">
+                        <li class="nav-item">
+                            <a href="${root}admin/doanhthu.jsp" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p>Tạo bài mới</p>
+                                <p>Báo cáo doanh thu</p>
                             </a>
                         </li>
-                        <!-- <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Chuyên mục</p>
-                            </a>
-                        </li> --> --%>
+                                         
                     </ul>
                 </li>
             </ul>
