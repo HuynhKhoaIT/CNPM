@@ -140,7 +140,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="${root}admin/doanhthu.jsp" class="nav-link">
+                            <a href="${root}admin/salesReport.jsp" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Báo cáo doanh thu</p>
                             </a>
