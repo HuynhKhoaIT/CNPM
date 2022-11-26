@@ -23,20 +23,18 @@
 
 
 <div class="d-md-flex half">
-<%--     <div class="bg" style="background-image: url('${root}asset/img/images/iphone.webp');"></div>
-    <div class="contents"> --%>
         <div class="container">
             <div class="row align-items-center justify-content-center">
                 <div class="col-md-12">
                     <div class="form-block mx-auto">
                         <div class="text-center mb-5">
-                            <h3 class="text-uppercase">Verify <strong>APPLEStore</strong></h3>
+                            <h3 class="text-uppercase">Xác Nhận  <strong>Email</strong></h3>
                         </div>
-                        <form action="verify" method="post" id="form-3">
+                        <form action="email" method="post" id="form-4">
                             <p class="form-message">${mess}</p>
                             <div class="form-group first">
-                                <label for="verify">Mã xác nhận</label>
-                                <input type="text" name="verify" class="form-control" placeholder="Mã xác nhận" id="verify">
+                                <label for="verify">Email Đăng Ký</label>
+                                <input type="text" name="email" class="form-control" placeholder="Email đăng ký tài khoản..." id="email">
                                 <span class="form-message"></span>
                             </div>
 
@@ -46,7 +44,6 @@
                 </div>
             </div>
         </div>
- <!--    </div> -->
 </div>
 
 <%--<script src="${root}asset/js/Validator.js"></script>--%>
