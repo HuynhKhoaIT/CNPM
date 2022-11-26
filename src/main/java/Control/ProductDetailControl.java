@@ -26,31 +26,32 @@ public class ProductDetailControl extends HttpServlet {
 
         SanPhamDAO sanPhamDAO = new SanPhamDAO();
         AnhSPDAO anhSPDAO = new AnhSPDAO();
-        String  id_raw =   request.getParameter("maSP");
+        String id_raw = request.getParameter("maSP");
         int id = Integer.parseInt(id_raw);
         String maloai = sanPhamDAO.getmaloaibymasp(id_raw);
         String tenloai = sanPhamDAO.gettenloai(maloai);
-        String tensp =sanPhamDAO.gettensp(id_raw);
+        String tensp = sanPhamDAO.gettensp(id_raw);
         SanPham sanPham = sanPhamDAO.getProductById(id);
-        List<AnhSanPham> listAnhSP= anhSPDAO.getAnhSPByID(id);
+        List<AnhSanPham> listAnhSP = anhSPDAO.getAnhSPByID(id);
         LoaispDAO loaispDAO = new LoaispDAO();
         List<LoaiSP> listlsp = loaispDAO.getAllloaisp();
-        List<SanPham>  listsplq= sanPhamDAO.getAllsanphamtop4theodm(maloai);
+        List<SanPham> listsplq = sanPhamDAO.getAllsanphamtop4theodm(maloai);
 
-        request.setAttribute("listlsp",listlsp);
-        request.setAttribute("ml",maloai);
-        request.setAttribute("tensp",tensp);
-        request.setAttribute("tl",tenloai);
-        request.setAttribute("listAnhSP",listAnhSP);
-        request.setAttribute("listsplq",listsplq);
-        request.setAttribute("SanPham",sanPham);
-        request.getRequestDispatcher("/shop/detail_product.jsp").forward(request,response);
+        request.setAttribute("listlsp", listlsp);
+        request.setAttribute("ml", maloai);
+        request.setAttribute("tensp", tensp);
+        request.setAttribute("tl", tenloai);
+        request.setAttribute("listAnhSP", listAnhSP);
+        request.setAttribute("listsplq", listsplq);
+        request.setAttribute("SanPham", sanPham);
+        request.getRequestDispatcher("/shop/detail_product.jsp").forward(request, response);
     }
+
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-    	request.setCharacterEncoding("UTF-8");
-		response.setCharacterEncoding("UTF-8");
-		response.setContentType("text/html; charset=UTF-8");
+        request.setCharacterEncoding("UTF-8");
+        response.setCharacterEncoding("UTF-8");
+        response.setContentType("text/html; charset=UTF-8");
     }
-    
+
 }

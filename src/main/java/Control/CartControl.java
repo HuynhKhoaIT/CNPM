@@ -22,30 +22,31 @@ public class CartControl extends HttpServlet {
         response.setContentType("text/html; charset=UTF-8");
 
         HttpSession session = request.getSession();
-        Users users = (Users)session.getAttribute("acc");
+        Users users = (Users) session.getAttribute("acc");
 
         SanPhamDAO dao = new SanPhamDAO();
         List<SanPham> list = dao.getAll();
         Cookie[] arr = request.getCookies();
-        String txt="";
-        if(arr!=null){
-            for(Cookie o: arr){
-                if(o.getName().equals("cart")){
-                    txt+=o.getValue();
+        String txt = "";
+        if (arr != null) {
+            for (Cookie o : arr) {
+                if (o.getName().equals("cart")) {
+                    txt += o.getValue();
                 }
             }
         }
         LoaispDAO loaispDAO = new LoaispDAO();
         List<LoaiSP> listlsp = loaispDAO.getAllloaisp();
 
-        request.setAttribute("user",users);
+        request.setAttribute("user", users);
 
-        request.setAttribute("listlsp",listlsp);
-        Cart cart = new Cart(txt,list);
+        request.setAttribute("listlsp", listlsp);
+        Cart cart = new Cart(txt, list);
         cart.getItems().size();
-        request.setAttribute("cart",cart);
-        request.getRequestDispatcher("/shop/cart.jsp").forward(request,response);
+        request.setAttribute("cart", cart);
+        request.getRequestDispatcher("/shop/cart.jsp").forward(request, response);
     }
+
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     }

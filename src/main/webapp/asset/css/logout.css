@@ -1,10 +1,10 @@
-.logout-admin button{
+.logout-admin button {
     border: none;
     background: none;
     padding: 8px 8px;
 }
 
-.logout-admin button:hover{
+.logout-admin button:hover {
     background: #0664f9;
     color: #fff;
     border-radius: 6px;

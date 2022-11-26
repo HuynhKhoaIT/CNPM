@@ -1,6 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<c:url value="/" var="root" />
+<c:url value="/" var="root"/>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -24,7 +24,7 @@
 <body>
 <div id="main">
     <c:set var="items" value="${listlsp}" scope="request"/>
-    <jsp:include page="./header2.jsp" />
+    <jsp:include page="./header2.jsp"/>
     <div id="detail">
         <div class="detail-heading">
             <div class="detail-breadcrumb">
@@ -52,7 +52,7 @@
                                     <div class="swiper-wrapper">
                                         <c:forEach var="a" items="${listAnhSP}">
                                             <div class="swiper-slide">
-                                                <img src="${a.anh}" />
+                                                <img src="${a.anh}"/>
                                             </div>
                                         </c:forEach>
                                         <%--                                      o day ne kiem dau the--%>
@@ -65,7 +65,7 @@
                                     <div class="swiper-wrapper">
                                         <c:forEach var="a" items="${listAnhSP}">
                                             <div class="swiper-slide">
-                                                <img src="${a.anh}" />
+                                                <img src="${a.anh}"/>
                                             </div>
                                         </c:forEach>
                                     </div>
@@ -108,8 +108,10 @@
                                 <input hidden="" type="text" name="idproduct" id="id-product" value="36690">
                                 <input hidden="" type="text" name="product-variant" id="product-variant" value="641711">
                                 <input hidden="" type="text" name="product-sku" id="product-sku" value="00773146">
-                                <input hidden="" type="text" name="product-url" id="product-url" value="iphone-13-128gb">
-                                <input hidden="" type="text" name="nameproduct" id="name-product" value="iPhone 13 128GB">
+                                <input hidden="" type="text" name="product-url" id="product-url"
+                                       value="iphone-13-128gb">
+                                <input hidden="" type="text" name="nameproduct" id="name-product"
+                                       value="iPhone 13 128GB">
                                 <!--  <div class="">
                                      <div class="item active" data-price="18990000.0000" data-pricemarket="24990000.0000" data-stock="1639" data-id="641711" data-urlbuy="/gio-hang-v2/them-vao-don-hang?product=36690_1_641711" data-urltragop="https://fptshop.com.vn/dien-thoai/iphone-13-128gb/641711/tra-gop" data-sku="00773146" data-varian="641711" data-productid="36690" ,="" data-productname="iPhone 13 128GB" data-catenameascii="iphone" data-isbusiness="False" data-isnerverbusiness="False" data-iscommingsoon="False" data-ispreorder="False" data-isinstallment="True" data-stockquantity="1639" data-priceonline="18990000.0000" data-producturl="iphone-13-128gb">
                                          <span style="background-color:#FADDD7"></span>
@@ -150,16 +152,16 @@
                                 <div class="renderboxbtn">
                                     <div class="action" style="display:flex">
                                         <form action="buy" method="post" class="btn btn-link btn-xl btn-buy col-12">
-                                            <input type="hidden" name = "id" value="${p.maSP}"/>
-                                            <input type="hidden" name = "num" value="1"/>
-                                            <input type="hidden" name = "check" value="0"/>
-                                            <input type="submit" class="detailbtn" value="Thêm vào giỏ hàng" >
+                                            <input type="hidden" name="id" value="${p.maSP}"/>
+                                            <input type="hidden" name="num" value="1"/>
+                                            <input type="hidden" name="check" value="0"/>
+                                            <input type="submit" class="detailbtn" value="Thêm vào giỏ hàng">
                                         </form>
                                         <form action="buy" method="post" class="btn btn-link btn-xl btn-buy col-12">
-                                            <input type="hidden" name = "id" value="${p.maSP}"/>
-                                            <input type="hidden" name = "num" value="1"/>
-                                            <input type="hidden" name = "check" value="1"/>
-                                            <input class="detailbtn" type="submit" value="Mua ngay" >
+                                            <input type="hidden" name="id" value="${p.maSP}"/>
+                                            <input type="hidden" name="num" value="1"/>
+                                            <input type="hidden" name="check" value="1"/>
+                                            <input class="detailbtn" type="submit" value="Mua ngay">
                                         </form>
                                     </div>
                                 </div>
@@ -183,7 +185,7 @@
                                 <span>Sản phẩm khác</span>
                             </div>
                             <div class="row no-gutter pro-list">
-                                <c:forEach items="${listsplq}" var="o" >
+                                <c:forEach items="${listsplq}" var="o">
                                     <div class="col-md-3 col-6">
                                         <a href="ProductDetailControl?maSP=${o.maSP}" class="product-item">
                                             <div class="product-img">
@@ -244,7 +246,7 @@
         </div>
     </div>
 
-    <%@include file="./footer2.jsp"%>
+    <%@include file="./footer2.jsp" %>
 </div>
 </div>
 <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>

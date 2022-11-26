@@ -18,73 +18,71 @@ import java.io.IOException;
  */
 @WebServlet("/shop/signup")
 public class SignUpControl extends HttpServlet {
-	private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
 
-	/**
-	 * @see HttpServlet#HttpServlet()
-	 */
-	public SignUpControl() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public SignUpControl() {
+        super();
+        // TODO Auto-generated constructor stub
+    }
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.getRequestDispatcher("/shop/signup.jsp").forward(request, response);
-	}
+    /**
+     * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+     */
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.getRequestDispatcher("/shop/signup.jsp").forward(request, response);
+    }
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.setCharacterEncoding("UTF-8");
-		response.setCharacterEncoding("UTF-8");
-		response.setContentType("text/html; charset=UTF-8");
+    /**
+     * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+     */
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.setCharacterEncoding("UTF-8");
+        response.setCharacterEncoding("UTF-8");
+        response.setContentType("text/html; charset=UTF-8");
 
-		String fullname = request.getParameter("fullname");
-		String username = request.getParameter("username");
-		String email = request.getParameter("email");
-		String phone = request.getParameter("phone");
-		String password = request.getParameter("password");
-		String repassword = request.getParameter("repassword");
+        String fullname = request.getParameter("fullname");
+        String username = request.getParameter("username");
+        String email = request.getParameter("email");
+        String phone = request.getParameter("phone");
+        String password = request.getParameter("password");
+        String repassword = request.getParameter("repassword");
 
-		MD5 lib = new MD5();
-		String passMD5 = lib.md5(password);
-		String repassMD5 = lib.md5(repassword);
+        MD5 lib = new MD5();
+        String passMD5 = lib.md5(password);
+        String repassMD5 = lib.md5(repassword);
 
-		SignUpDAO dao = new SignUpDAO();
-		Users a = dao.CheckUserExist(username);
-		if(a==null) {
+        SignUpDAO dao = new SignUpDAO();
+        Users a = dao.CheckUserExist(username);
+        if (a == null) {
 
-			int veri = lib.getRandom();
+            int veri = lib.getRandom();
 
-			HttpSession session = request.getSession();
-			session.setAttribute("fullname", fullname);
-			session.setAttribute("username", username);
-			session.setAttribute("email", email);
-			session.setAttribute("phone", phone);
-			session.setAttribute("password", passMD5);
-			session.setAttribute("repassword", repassMD5);
-			session.setAttribute("verify", veri);
+            HttpSession session = request.getSession();
+            session.setAttribute("fullname", fullname);
+            session.setAttribute("username", username);
+            session.setAttribute("email", email);
+            session.setAttribute("phone", phone);
+            session.setAttribute("password", passMD5);
+            session.setAttribute("repassword", repassMD5);
+            session.setAttribute("verify", veri);
 
 
-			SendMail sm = new SendMail();
-			Boolean test = sm.sendMail(email, veri, fullname);
+            SendMail sm = new SendMail();
+            Boolean test = sm.sendMail(email, veri, fullname);
 
-			if(test == false) {
-				request.setAttribute("mess", "Email không chính xác");
-				request.getRequestDispatcher("/shop/signup.jsp").forward(request, response);
-			}
-			else {
-				response.sendRedirect("/Apple_store/shop/verify.jsp");
-			}
-		}
-		else {
-			request.setAttribute("mess", "Tài khoản đã tồn tại");
-			request.getRequestDispatcher("/shop/signup.jsp").forward(request, response);
-		}
-	}
+            if (test == false) {
+                request.setAttribute("mess", "Email không chính xác");
+                request.getRequestDispatcher("/shop/signup.jsp").forward(request, response);
+            } else {
+                response.sendRedirect("/Apple_store/shop/verify.jsp");
+            }
+        } else {
+            request.setAttribute("mess", "Tài khoản đã tồn tại");
+            request.getRequestDispatcher("/shop/signup.jsp").forward(request, response);
+        }
+    }
 
 }

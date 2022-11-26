@@ -17,8 +17,8 @@ import Model.MD5;
  */
 @WebServlet("/shop/changepass")
 public class ChangePassControl extends HttpServlet {
-	private static final long serialVersionUID = 1L;
-       
+    private static final long serialVersionUID = 1L;
+
     /**
      * @see HttpServlet#HttpServlet()
      */
@@ -27,39 +27,39 @@ public class ChangePassControl extends HttpServlet {
         // TODO Auto-generated constructor stub
     }
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.getRequestDispatcher("/shop/changepass.jsp").forward(request, response);
-	}
+    /**
+     * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+     */
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.getRequestDispatcher("/shop/changepass.jsp").forward(request, response);
+    }
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.setCharacterEncoding("UTF-8");
-		response.setCharacterEncoding("UTF-8");
-		response.setContentType("text/html; charset=UTF-8");
-		
-		String pass = request.getParameter("password");
-		
-		MD5 lib = new MD5();
-		
-		String passMD5 = lib.md5(pass);
-		
-		HttpSession session = request.getSession();
-		
-		int id = Integer.parseInt(session.getAttribute("MaKH").toString());
-		
-		LoginDAO dao = new LoginDAO();
-		
-		dao.ChangePass(id, passMD5);
-		
-		session.removeAttribute("MaKH");
-		session.removeAttribute("i");
-		
-		response.sendRedirect("http://localhost:8080/Apple_store");
-	}
+    /**
+     * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+     */
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.setCharacterEncoding("UTF-8");
+        response.setCharacterEncoding("UTF-8");
+        response.setContentType("text/html; charset=UTF-8");
+
+        String pass = request.getParameter("password");
+
+        MD5 lib = new MD5();
+
+        String passMD5 = lib.md5(pass);
+
+        HttpSession session = request.getSession();
+
+        int id = Integer.parseInt(session.getAttribute("MaKH").toString());
+
+        LoginDAO dao = new LoginDAO();
+
+        dao.ChangePass(id, passMD5);
+
+        session.removeAttribute("MaKH");
+        session.removeAttribute("i");
+
+        response.sendRedirect("http://localhost:8080/Apple_store");
+    }
 
 }

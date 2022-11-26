@@ -18,27 +18,27 @@ import Model.DonHang;
  */
 @WebServlet(name = "Ad_NewOrder", value = "/admin/newOrder")
 public class Ad_NewOrder extends HttpServlet {
-	private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
 
-		request.setCharacterEncoding("UTF-8");
-		response.setCharacterEncoding("UTF-8");
-		response.setContentType("text/html; charset=UTF-8");
+        request.setCharacterEncoding("UTF-8");
+        response.setCharacterEncoding("UTF-8");
+        response.setContentType("text/html; charset=UTF-8");
 
-		List<DonHang> list = new ArrayList<DonHang>();
-		DonHangDAO dao = new DonHangDAO();
-		list = dao.loadTop10Order();
+        List<DonHang> list = new ArrayList<DonHang>();
+        DonHangDAO dao = new DonHangDAO();
+        list = dao.loadTop10Order();
 
-		request.setAttribute("list",list);
-		request.setAttribute("size",list.size());
-		request.getRequestDispatcher("/admin/newOrders.jsp").forward(request, response);
-	}
+        request.setAttribute("list", list);
+        request.setAttribute("size", list.size());
+        request.getRequestDispatcher("/admin/newOrders.jsp").forward(request, response);
+    }
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
 
-	}
+    }
 
 }

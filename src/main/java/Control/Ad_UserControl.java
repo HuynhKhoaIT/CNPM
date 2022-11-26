@@ -25,28 +25,25 @@ public class Ad_UserControl extends HttpServlet {
         KhachHangDAO khachHangDAO = new KhachHangDAO();
         String u = request.getParameter("u");
         List<Users> listKH;
-        if(u.equals("1"))
-        {
+        if (u.equals("1")) {
             listKH = khachHangDAO.getAllKhachHangQuen();
-        }
-        else if(u.equals("2")){
+        } else if (u.equals("2")) {
             listKH = khachHangDAO.getAllKhachHang();
-        }
-        else {
+        } else {
             listKH = khachHangDAO.getAllKhachHangLa();
         }
-
 
 
         LoaispDAO loaispDAO = new LoaispDAO();
         List<LoaiSP> listlsp = loaispDAO.getAllloaisp();
 
-        request.setAttribute("listlsp",listlsp);
+        request.setAttribute("listlsp", listlsp);
 
-        request.setAttribute("listKhachHang",listKH);
+        request.setAttribute("listKhachHang", listKH);
 
-        request.getRequestDispatcher("/admin/user.jsp").forward(request,response);
+        request.getRequestDispatcher("/admin/user.jsp").forward(request, response);
     }
+
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 

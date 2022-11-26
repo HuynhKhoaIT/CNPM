@@ -25,9 +25,9 @@ public class Ad_ProductControl extends HttpServlet {
         DanhMucDAO danhMucDAO = new DanhMucDAO();
         List<DanhMuc> listDanhMuc = danhMucDAO.getAllDanhMuc();
 
-        request.setAttribute("listDanhMuc",listDanhMuc);
-        request.setAttribute("listSanPham",listSanPham);
-        request.getRequestDispatcher("/admin/product.jsp").forward(request,response);
+        request.setAttribute("listDanhMuc", listDanhMuc);
+        request.setAttribute("listSanPham", listSanPham);
+        request.getRequestDispatcher("/admin/product.jsp").forward(request, response);
     }
 
     @Override

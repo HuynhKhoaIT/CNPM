@@ -19,8 +19,8 @@ public class Ad_Blog extends HttpServlet {
 
         BaiVietDAO baiVietDAO = new BaiVietDAO();
         List<BaiViet> listBaiViet = baiVietDAO.getAllBaiViet();
-        request.setAttribute("listBaiViet",listBaiViet);
-        request.getRequestDispatcher("/admin/blog.jsp").forward(request,response);
+        request.setAttribute("listBaiViet", listBaiViet);
+        request.getRequestDispatcher("/admin/blog.jsp").forward(request, response);
     }
 
     @Override

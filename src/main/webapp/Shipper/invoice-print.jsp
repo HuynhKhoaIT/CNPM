@@ -7,7 +7,7 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<c:url value="/" var="root" />
+<c:url value="/" var="root"/>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,7 +16,8 @@
     <title>AdminLTE 3 | Invoice Print</title>
 
     <!-- Google Font: Source Sans Pro -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="${root}plugins/fontawesome-free/css/all.min.css">
     <!-- Theme style -->
@@ -130,7 +131,8 @@
                 <img src="../../asset/dist/img/credit/paypal2.png" alt="Paypal">
 
                 <p class="text-muted well well-sm shadow-none" style="margin-top: 10px;">
-                    Etsy doostang zoodles disqus groupon greplin oooj voxy zoodles, weebly ning heekya handango imeem plugg dopplr
+                    Etsy doostang zoodles disqus groupon greplin oooj voxy zoodles, weebly ning heekya handango imeem
+                    plugg dopplr
                     jibjab, movity jajah plickers sifteo edmodo ifttt zimbra.
                 </p>
             </div>

@@ -1,4 +1,3 @@
-
 <%--
   Created by IntelliJ IDEA.
   User: admin
@@ -8,33 +7,34 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<c:url value="/" var="root" />
+<c:url value="/" var="root"/>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <title>AdminLTE 3 | DataTables</title>
 
     <!-- Google Font: Source Sans Pro -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback" />
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback"/>
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="${root}plugins/fontawesome-free/css/all.min.css" />
+    <link rel="stylesheet" href="${root}plugins/fontawesome-free/css/all.min.css"/>
     <!-- DataTables -->
-    <link rel="stylesheet" href="${root}plugins/datatables-bs4/css/dataTables.bootstrap4.min.css" />
-    <link rel="stylesheet" href="${root}plugins/datatables-responsive/css/responsive.bootstrap4.min.css" />
-    <link rel="stylesheet" href="${root}plugins/datatables-buttons/css/buttons.bootstrap4.min.css" />
+    <link rel="stylesheet" href="${root}plugins/datatables-bs4/css/dataTables.bootstrap4.min.css"/>
+    <link rel="stylesheet" href="${root}plugins/datatables-responsive/css/responsive.bootstrap4.min.css"/>
+    <link rel="stylesheet" href="${root}plugins/datatables-buttons/css/buttons.bootstrap4.min.css"/>
     <!-- Theme style -->
-    <link rel="stylesheet" href="${root}asset/dist/css/adminlte.min.css" />
+    <link rel="stylesheet" href="${root}asset/dist/css/adminlte.min.css"/>
 </head>
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
     <!-- Navbar -->
-    <%@include file="./ad_header.jsp"%>
+    <%@include file="./ad_header.jsp" %>
     <!-- /.navbar -->
 
     <!-- Main Sidebar Container -->
-    <%@include file="./sidebar.jsp"%>
+    <%@include file="./sidebar.jsp" %>
 
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
@@ -81,24 +81,28 @@
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    	<c:forEach var="i" begin="0" end="${size-1 }">
-												<tr>
+                                    <c:forEach var="i" begin="0" end="${size-1 }">
+                                        <tr>
 
-													<td><a href="Ad_AccountControl?maKH=${list[i].getMaKH()}">${list[i].getMaKH()}</a></td>
-													<td><a href="Ad_invoiceControl?maDH=${list[i].getMaDH()}">${list[i].getMaDH()}</a></td>
-													<td data-type="money">${list[i].getTongTien()}</td>
-													<td>${list[i].getThoiGian()}</td>
-													<c:choose>
-														<c:when test="${list[i].getMaTrangThai()==1}">
-															<td><span class="badge badge-success">Chưa xác nhận</span></td>
-														</c:when>
-														<c:otherwise>
-															<td><span class="badge badge-success">Đã Xác Nhận</span></td>
-														</c:otherwise>
-													</c:choose>
-												
-												</tr>
-											</c:forEach>
+                                            <td>
+                                                <a href="Ad_AccountControl?maKH=${list[i].getMaKH()}">${list[i].getMaKH()}</a>
+                                            </td>
+                                            <td>
+                                                <a href="Ad_invoiceControl?maDH=${list[i].getMaDH()}">${list[i].getMaDH()}</a>
+                                            </td>
+                                            <td data-type="money">${list[i].getTongTien()}</td>
+                                            <td>${list[i].getThoiGian()}</td>
+                                            <c:choose>
+                                                <c:when test="${list[i].getMaTrangThai()==1}">
+                                                    <td><span class="badge badge-success">Chưa xác nhận</span></td>
+                                                </c:when>
+                                                <c:otherwise>
+                                                    <td><span class="badge badge-success">Đã Xác Nhận</span></td>
+                                                </c:otherwise>
+                                            </c:choose>
+
+                                        </tr>
+                                    </c:forEach>
                                     </tbody>
 
                                     <tfoot></tfoot>
@@ -118,7 +122,7 @@
         <!-- /.content -->
     </div>
     <!-- /.content-wrapper -->
-    <%@include file="./ad_footer.jsp"%>
+    <%@include file="./ad_footer.jsp" %>
 
     <!-- Control Sidebar -->
     <aside class="control-sidebar control-sidebar-dark">
@@ -128,6 +132,6 @@
 </div>
 <!-- ./wrapper -->
 
-<%@include file="./jqueryScript.jsp"%>
+<%@include file="./jqueryScript.jsp" %>
 </body>
 </html>

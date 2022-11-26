@@ -17,9 +17,9 @@ import java.time.LocalDateTime;  // Import the LocalDateTime class
 import java.time.format.DateTimeFormatter;  // Import the DateTimeFormatter class
 
 @WebServlet(name = "Ad_AddProductControl", value = "/admin/Ad_AddProductControl")
-@MultipartConfig(fileSizeThreshold = 1024*1024*2,
-        maxFileSize = 1024*1024*10,
-        maxRequestSize = 1024*1024*50)
+@MultipartConfig(fileSizeThreshold = 1024 * 1024 * 2,
+        maxFileSize = 1024 * 1024 * 10,
+        maxRequestSize = 1024 * 1024 * 50)
 public class Ad_AddProductControl extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -29,33 +29,26 @@ public class Ad_AddProductControl extends HttpServlet {
 
         String maLoai = request.getParameter("maLoai");
         String action = request.getParameter("action");
-        if(action == null)
-        {
-            action ="";
+        if (action == null) {
+            action = "";
         }
         String maSP;
         SanPham sanPham;
         int maDM;
 
-        if(action.equals("delete"))
-        {
+        if (action.equals("delete")) {
             maSP = request.getParameter("maSP");
             SanPhamDAO sanPhamDAO = new SanPhamDAO();
             sanPhamDAO.deleteSP(maSP);
             response.sendRedirect("Ad_ProductControl");
-        }
-        else {
-            if(action.equals("modify"))
-            {
+        } else {
+            if (action.equals("modify")) {
                 maSP = request.getParameter("maSP");
                 SanPhamDAO sanPhamDAO = new SanPhamDAO();
                 sanPham = sanPhamDAO.getProductById(Integer.parseInt(maSP));
-            }
-            else
-            {
+            } else {
                 sanPham = new SanPham();
-                if(maLoai==null || maLoai.equals(""))
-                {
+                if (maLoai == null || maLoai.equals("")) {
                     maLoai = "1";
                 }
             }
@@ -65,13 +58,14 @@ public class Ad_AddProductControl extends HttpServlet {
 //            List<DanhMuc> listDanhMuc = danhMucDAO.getDanhMucByMaLoai(maLoai);
             List<DanhMuc> listDanhMuc = danhMucDAO.getAllDanhMuc();
 
-            request.setAttribute("sanPham",sanPham);
-            request.setAttribute("maLoai",maLoai);
-            request.setAttribute("listDanhMuc",listDanhMuc);
-            request.setAttribute("listLoaiSP",listLoaiSP);
-            request.getRequestDispatcher("/admin/add_product.jsp").forward(request,response);
+            request.setAttribute("sanPham", sanPham);
+            request.setAttribute("maLoai", maLoai);
+            request.setAttribute("listDanhMuc", listDanhMuc);
+            request.setAttribute("listLoaiSP", listLoaiSP);
+            request.getRequestDispatcher("/admin/add_product.jsp").forward(request, response);
         }
     }
+
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setCharacterEncoding("UTF-8");
@@ -89,40 +83,40 @@ public class Ad_AddProductControl extends HttpServlet {
         String soluong = request.getParameter("soluong");
         String oldImage = request.getParameter("oldImage");
         String motangan = request.getParameter("motangan");
-        String anh ;
+        String anh;
 
         // get images
         Collection<Part> fileParts = request.getParts();
         int index = 0;
-        for(int i =index ; i<fileParts.size();i++)
-        {
+        for (int i = index; i < fileParts.size(); i++) {
             Part part = (Part) fileParts.toArray()[i];
-            if(!part.getName().equals("multiPartServlet"))
-            {
+            if (!part.getName().equals("multiPartServlet")) {
                 System.out.println(part.getName());
                 fileParts.remove(part);
-                i = index-1;
+                i = index - 1;
             }
         }
 
         // create a folder containing images
         LoaispDAO loaispDAO = new LoaispDAO();
-        String tenLoai = loaispDAO.getLoaispByMaDM(maDM).trim().replace("/","");;
+        String tenLoai = loaispDAO.getLoaispByMaDM(maDM).trim().replace("/", "");
+        ;
 
         DanhMucDAO danhMucDAO = new DanhMucDAO();
-        String tenDM = danhMucDAO.getDanhMucByID(maDM).getTenDM().trim().replace("/","");;
+        String tenDM = danhMucDAO.getDanhMucByID(maDM).getTenDM().trim().replace("/", "");
+        ;
 
         LocalDateTime myDateObj = LocalDateTime.now();
         DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("dd-MM-yyyy HHmmss");
 
         String formattedDate = myDateObj.format(myFormatObj);
 
-        String path = "uploads"+"/"+tenLoai+"/"+tenDM+"/"+"date "+formattedDate;
+        String path = "uploads" + "/" + tenLoai + "/" + tenDM + "/" + "date " + formattedDate;
 
         List<String> images = new ArrayList<>();
-        if(!fileParts.isEmpty()) {
+        if (!fileParts.isEmpty()) {
 
-            String realPath = request.getServletContext().getRealPath("/"+path);
+            String realPath = request.getServletContext().getRealPath("/" + path);
             if (!Files.exists(Paths.get(realPath))) {
                 Files.createDirectories(Paths.get(realPath));
             } // tao folder
@@ -132,34 +126,29 @@ public class Ad_AddProductControl extends HttpServlet {
                 String filename
                         = Paths.get(part.getSubmittedFileName()).getFileName().toString();
                 part.write(realPath + "/" + filename);
-                images.add(path+"/"+filename);
+                images.add(path + "/" + filename);
             }
             anh = images.get(0);
-        }
-        else {
+        } else {
             anh = oldImage;
         }
         SanPhamDAO sanPhamDAO = new SanPhamDAO();
-        if(maSP.equals("") || maSP == null || maSP.equals("0"))
-        {
-            sanPhamDAO.addSanPham(maDM,tensanpham,motasanpham,giagoc,giabanthuong,giakhuyenmai,soluong,anh,motangan);
+        if (maSP.equals("") || maSP == null || maSP.equals("0")) {
+            sanPhamDAO.addSanPham(maDM, tensanpham, motasanpham, giagoc, giabanthuong, giakhuyenmai, soluong, anh, motangan);
             SanPham sanPham = sanPhamDAO.getNewSP();
             AnhSPDAO anhSPDAO = new AnhSPDAO();
-            for(String image : images)
-            {
-                anhSPDAO.addAnhSP(sanPham.getMaSP(),image);
+            for (String image : images) {
+                anhSPDAO.addAnhSP(sanPham.getMaSP(), image);
             }
             System.out.println(sanPham.getAnh());
 
-        }
-        else {
-            sanPhamDAO.updateSanPham(maDM,tensanpham,motasanpham,giagoc,giabanthuong,giakhuyenmai,soluong,anh,motangan,maSP);
+        } else {
+            sanPhamDAO.updateSanPham(maDM, tensanpham, motasanpham, giagoc, giabanthuong, giakhuyenmai, soluong, anh, motangan, maSP);
             SanPham sanPham = sanPhamDAO.getProductById(Integer.parseInt(maSP));
             AnhSPDAO anhSPDAO = new AnhSPDAO();
             anhSPDAO.deleteAnhSP(sanPham.getMaSP());
-            for(String image : images)
-            {
-                anhSPDAO.addAnhSP(sanPham.getMaSP(),image);
+            for (String image : images) {
+                anhSPDAO.addAnhSP(sanPham.getMaSP(), image);
             }
         }
         response.sendRedirect("Ad_ProductControl");

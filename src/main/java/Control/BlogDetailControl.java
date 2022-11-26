@@ -24,15 +24,15 @@ public class BlogDetailControl extends HttpServlet {
 
         BaiVietDAO baiVietDAO = new BaiVietDAO();
         BaiViet baiViet = baiVietDAO.getBaiVietByID(maBV);
-        
+
 
         LoaispDAO loaispDAO = new LoaispDAO();
         List<LoaiSP> listlsp = loaispDAO.getAllloaisp();
 
-        request.setAttribute("listlsp",listlsp);
+        request.setAttribute("listlsp", listlsp);
 
-        request.setAttribute("baiViet",baiViet);
-        request.getRequestDispatcher("/shop/detail_blog.jsp").forward(request,response);
+        request.setAttribute("baiViet", baiViet);
+        request.getRequestDispatcher("/shop/detail_blog.jsp").forward(request, response);
     }
 
     @Override

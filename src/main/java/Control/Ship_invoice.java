@@ -41,7 +41,6 @@ public class Ship_invoice extends HttpServlet {
         List<ChiTietDonHang> list = dao.getChiTietSanPhamID(Integer.parseInt(maDH));
 
 
-
         for (ChiTietDonHang o : list) {
             SanPhamDAO d = new SanPhamDAO();
             listSP.add(d.getProductById(o.getMaSP()));
@@ -64,23 +63,26 @@ public class Ship_invoice extends HttpServlet {
         response.setContentType("text/html; charset=UTF-8");
 
         HttpSession session = request.getSession();
-        Users users = (Users)session.getAttribute("acc");
+        session.removeAttribute("accad");
+        session.removeAttribute("acc");
+        if (session.getAttribute("accship") == null) {
+            response.sendRedirect("http://localhost:8080/Apple_store/shop/loginship");
+        } else {
+            String maDH = request.getParameter("maDH");
+            String maTT = request.getParameter("maTT");
 
-        String maDH = request.getParameter("maDH");
-        String maTT = request.getParameter("maTT");
+            DonHangDAO donhangDAO = new DonHangDAO();
+            Users users = (Users) session.getAttribute("accship");
 
-        DonHangDAO donhangDAO = new DonHangDAO();
-
-        if(maTT.equals("2"))
-        {
-            donhangDAO.TrangThaiDangGiao(maDH,String.valueOf(users.getMaKH()));
+            if (maTT.equals("2")) {
+                donhangDAO.TrangThaiDangGiao(maDH, String.valueOf(users.getMaKH()));
+            } else {
+                donhangDAO.TrangThaiDaGiao(maDH);
+            }
+            response.sendRedirect("/Apple_store/Ship_invoice?maDH=" + maDH);
+            request.setCharacterEncoding("UTF-8");
+            response.setCharacterEncoding("UTF-8");
+            response.setContentType("text/html; charset=UTF-8");
         }
-        else{
-            donhangDAO.TrangThaiDaGiao(maDH);
-        }
-        response.sendRedirect("/Apple_store/Ship_invoice?maDH="+maDH);
-        request.setCharacterEncoding("UTF-8");
-		response.setCharacterEncoding("UTF-8");
-		response.setContentType("text/html; charset=UTF-8");
     }
 }
