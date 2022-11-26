@@ -44,8 +44,8 @@ public class LogOutControl extends HttpServlet {
 		}
 		HttpSession session = request.getSession();
 		session.removeAttribute("acc");
-		session.removeAttribute("newrole");
-		session.removeAttribute("newrole2");
+		session.removeAttribute("accad");
+		session.removeAttribute("accship");
 
 		response.sendRedirect("http://localhost:8080/Apple_store");
 	}

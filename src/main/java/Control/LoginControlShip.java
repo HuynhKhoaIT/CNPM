@@ -15,14 +15,14 @@ import java.io.IOException;
 /**
  * Servlet implementation class LoginControl
  */
-@WebServlet("/shop/login")
-public class LoginControl extends HttpServlet {
+@WebServlet("/shop/loginship")
+public class LoginControlShip extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
-	public LoginControl() {
+	public LoginControlShip() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
@@ -40,7 +40,7 @@ public class LoginControl extends HttpServlet {
 			response.sendRedirect("http://localhost:8080/Apple_store");
 		}
 		else {
-			request.getRequestDispatcher("/shop/loginuser.jsp").forward(request, response);
+			request.getRequestDispatcher("/shop/loginship.jsp").forward(request, response);
 		}
 		//request.getRequestDispatcher("/shop/login.jsp").forward(request, response);
 	}
@@ -67,16 +67,16 @@ public class LoginControl extends HttpServlet {
 		}
 		else {
 			HttpSession session = request.getSession();
-			session.setAttribute("acc", a);
 			int user = a.getIsUser();
 			int admin = a.getIsAdmin();
 			int shipper = a.getIsShiper();
-			if (user==1 && admin == 0 && shipper == 0) {
-				response.sendRedirect("http://localhost:8080/Apple_store");
+			if(user == 1 && admin == 0 && shipper == 1) {
+				session.setAttribute("accship", a);
+				response.sendRedirect("http://localhost:8080/Apple_store/shipper");
 			}
 			else {
-				request.setAttribute("mess", "Bạn phải là User");
-				request.getRequestDispatcher("/shop/loginuser.jsp").forward(request, response);
+				request.setAttribute("mess", "Bạn phải là shipper");
+				request.getRequestDispatcher("/shop/loginship.jsp").forward(request, response);
 			}
 			//response.sendRedirect("http://localhost:8080/Apple_store");
 		}

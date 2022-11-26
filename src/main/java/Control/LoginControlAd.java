@@ -15,14 +15,14 @@ import java.io.IOException;
 /**
  * Servlet implementation class LoginControl
  */
-@WebServlet("/shop/login")
-public class LoginControl extends HttpServlet {
+@WebServlet("/shop/loginad")
+public class LoginControlAd extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
-	public LoginControl() {
+	public LoginControlAd() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
@@ -40,7 +40,7 @@ public class LoginControl extends HttpServlet {
 			response.sendRedirect("http://localhost:8080/Apple_store");
 		}
 		else {
-			request.getRequestDispatcher("/shop/loginuser.jsp").forward(request, response);
+			request.getRequestDispatcher("/shop/loginad.jsp").forward(request, response);
 		}
 		//request.getRequestDispatcher("/shop/login.jsp").forward(request, response);
 	}
@@ -63,20 +63,20 @@ public class LoginControl extends HttpServlet {
 		Users a = dao.login(username, passMD5);
 		if(a == null) {
 			request.setAttribute("mess", "Sai tên đăng nhập hoặc mật khẩu");
-			request.getRequestDispatcher("/shop/loginuser.jsp").forward(request, response);
+			request.getRequestDispatcher("/shop/loginad.jsp").forward(request, response);
 		}
 		else {
 			HttpSession session = request.getSession();
-			session.setAttribute("acc", a);
 			int user = a.getIsUser();
 			int admin = a.getIsAdmin();
 			int shipper = a.getIsShiper();
-			if (user==1 && admin == 0 && shipper == 0) {
-				response.sendRedirect("http://localhost:8080/Apple_store");
+			if(user == 1 && admin == 1 && shipper == 0) {
+				session.setAttribute("accad", a);
+				response.sendRedirect("http://localhost:8080/Apple_store/admin");
 			}
 			else {
-				request.setAttribute("mess", "Bạn phải là User");
-				request.getRequestDispatcher("/shop/loginuser.jsp").forward(request, response);
+				request.setAttribute("mess", "Bạn phải là Admin");
+				request.getRequestDispatcher("/shop/loginad.jsp").forward(request, response);
 			}
 			//response.sendRedirect("http://localhost:8080/Apple_store");
 		}

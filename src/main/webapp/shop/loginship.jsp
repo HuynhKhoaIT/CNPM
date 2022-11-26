@@ -34,7 +34,7 @@
               <div class="text-center mb-5">
                 <h3 class="text-uppercase">Login SHIPPER <strong>APPLEStore</strong></h3>
               </div>
-              <form action="login" method="POST" id="form-2">
+              <form action="loginship" method="POST" id="form-2">
                 <div class="form-group first">
                	  <p class="form-message">${mess}</p>
                   <label for="username">Tên đăng nhập</label>
@@ -47,14 +47,14 @@
                   <span class="form-message"></span>
                 </div>
                 
-                <div class="d-sm-flex mb-5 align-items-center">
+                <!-- <div class="d-sm-flex mb-5 align-items-center">
                   <label class="control control--checkbox mb-3 mb-sm-0"><span class="caption">Remember me</span>
                     <input type="checkbox" checked="checked"/>
                     <div class="control__indicator"></div>
                   </label>
                   <span class="ml-auto"><a href="#" class="forgot-pass">Quên mật khẩu</a></span>
                   <span class="ml-auto"><a href="/Apple_store/shop/signup" class="forgot-pass">Chưa có tài khoản</a></span> 
-                </div>
+                </div> -->
 
                 <button class="btn btn-block py-2 btn-primary" type="submit" >Đăng nhập</button>
 
