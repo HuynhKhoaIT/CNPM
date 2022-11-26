@@ -1,4 +1,4 @@
-@@ -0,0 +1,69 @@
+
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page contentType="text/html;charset=UTF-8" language="java"%>
 <c:url value="/" var="root" />

@@ -21,8 +21,6 @@
     <title>Login</title>
 </head>
 <body>
-	  
-
   <div class="d-md-flex half">
     <div class="bg" style="background-image: url('${root}asset/img/images/iphone.webp');"></div>
     <div class="contents">
@@ -52,7 +50,7 @@
                     <input type="checkbox" checked="checked"/>
                     <div class="control__indicator"></div>
                   </label>
-                  <span class="ml-auto"><a href="/Apple_store/shop/passforget" class="forgot-pass">Quên mật khẩu</a></span>
+                  <span class="ml-auto"><a href="/Apple_store/shop/email" class="forgot-pass">Quên mật khẩu</a></span>
                   <span class="ml-auto"><a href="/Apple_store/shop/signup" class="forgot-pass">Chưa có tài khoản</a></span> 
                 </div>
 
