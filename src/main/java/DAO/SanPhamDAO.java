@@ -119,7 +119,11 @@ public class SanPhamDAO
 	public List<SanPham> getAllsanphamtheodm(String maloai)
 	{
 		List<SanPham> list = new ArrayList<>();
-		String query = "select * From SanPham inner join DanhMuc on SanPham.MaDM=DanhMuc.MaDM Where MaLoai=? and isDeleted=0";
+		String query = "select * From SanPham inner join DanhMuc on SanPham.MaDM=DanhMuc.MaDM Where MaLoai=? and SanPham.isDeleted=0";
+//		String query = "select SanPham.MaSP, SanPham.MaDM,SanPham.TenSP, SanPham.MoTa,SanPham.GiaGoc,SanPham.GiaBanThuong,SanPham.GiaKhuyenMai,"
+//				+ "SanPham.SoLuong,SanPham.Anh,SanPham.MoTaNgan,SanPham.isDeleted,SanPham.SoLuongDaBan " +
+//				"From SanPham inner join DanhMuc on SanPham.MaDM=DanhMuc.MaDM Where MaLoai=? and SanPham.isDeleted=0";
+
 		try {
 				conn =new ConnectJDBC().getConnection();
 				ps =conn.prepareStatement(query);
@@ -142,7 +146,7 @@ public class SanPhamDAO
 	{
 		
 		List<SanPham> list = new ArrayList<>();
-		String query = "select top 4 * From SanPham inner join DanhMuc on SanPham.MaDM=DanhMuc.MaDM  Where MaLoai=? and isDeleted=0 ";
+		String query = "select top 4 * From SanPham inner join DanhMuc on SanPham.MaDM=DanhMuc.MaDM  Where MaLoai=? and SanPham.isDeleted=0 ";
 		try {
 				conn =new ConnectJDBC().getConnection();
 				ps =conn.prepareStatement(query);
@@ -304,8 +308,10 @@ public class SanPhamDAO
 	{
 
 		List<SanPham> list = new ArrayList<>();
-		String query = "SELECT SanPham.MaSP, SanPham.MaDM,SanPham.TenSP,SanPham.MoTa,SanPham.GiaGoc,SanPham.GiaBanThuong,SanPham.GiaKhuyenMai,SanPham.SoLuong,SanPham.Anh,SanPham.MoTaNgan,SanPham.isDeleted,SanPham.SoLuongDaBan\n" +
-				"\t\t\t\tFROM SanPham INNER JOIN DanhMuc ON DanhMuc.MaDM = SanPham.MaDM  where MaLoai = ? and isDeleted=0 order by GiaBanThuong asc ";
+//		String query = "SELECT SanPham.MaSP, SanPham.MaDM,SanPham.TenSP,SanPham.MoTa,SanPham.GiaGoc,SanPham.GiaBanThuong,SanPham.GiaKhuyenMai,SanPham.SoLuong,SanPham.Anh,SanPham.MoTaNgan,SanPham.isDeleted,SanPham.SoLuongDaBan\n" +
+//				"\t\t\t\tFROM SanPham INNER JOIN DanhMuc ON DanhMuc.MaDM = SanPham.MaDM  where MaLoai = ? and isDeleted=0 order by GiaBanThuong asc ";
+		String query = "SELECT *" +
+				"\t\t\t\tFROM SanPham INNER JOIN DanhMuc ON DanhMuc.MaDM = SanPham.MaDM  where MaLoai = ? and SanPham.isDeleted=0 order by GiaBanThuong asc ";
 		try {
 			conn =new ConnectJDBC().getConnection();
 			ps =conn.prepareStatement(query);
@@ -330,8 +336,10 @@ public class SanPhamDAO
 
 
 		List<SanPham> list = new ArrayList<>();
-		String query = "SELECT SanPham.MaSP, SanPham.MaDM,SanPham.TenSP,SanPham.MoTa,SanPham.GiaGoc,SanPham.GiaBanThuong,SanPham.GiaKhuyenMai,SanPham.SoLuong,SanPham.Anh, SanPham.MoTaNgan,SanPham.isDeleted,SanPham.SoLuongDaBan\n" +
-				"\t\t\t\tFROM SanPham INNER JOIN DanhMuc ON DanhMuc.MaDM = SanPham.MaDM  where MaLoai = ? and isDeleted=0 order by GiaBanThuong DESC ";
+//		String query = "SELECT SanPham.MaSP, SanPham.MaDM,SanPham.TenSP,SanPham.MoTa,SanPham.GiaGoc,SanPham.GiaBanThuong,SanPham.GiaKhuyenMai,SanPham.SoLuong,SanPham.Anh, SanPham.MoTaNgan,SanPham.isDeleted,SanPham.SoLuongDaBan\n" +
+//				"\t\t\t\tFROM SanPham INNER JOIN DanhMuc ON DanhMuc.MaDM = SanPham.MaDM  where MaLoai = ? and isDeleted=0 order by GiaBanThuong DESC ";
+		String query = "SELECT *" +
+				"\t\t\t\tFROM SanPham INNER JOIN DanhMuc ON DanhMuc.MaDM = SanPham.MaDM  where MaLoai = ? and SanPham.isDeleted=0 order by GiaBanThuong DESC ";
 		try {
 			conn =new ConnectJDBC().getConnection();
 			ps =conn.prepareStatement(query);
