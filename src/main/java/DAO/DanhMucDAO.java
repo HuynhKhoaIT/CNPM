@@ -109,7 +109,6 @@ public class DanhMucDAO {
         }
         catch (Exception e) {
         }
-
     }
     public static void main(String[] args) {
         DanhMucDAO danhMucDAO = new DanhMucDAO();

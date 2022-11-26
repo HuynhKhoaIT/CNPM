@@ -45,14 +45,13 @@ public class AnhSPDAO {
         catch (Exception e) {
         }
     }
-    public void deleteAnhSP(int id, String anh)
+    public void deleteAnhSP(int id)
     {
-        String query = "DELETE FROM AnhSanPham WHERE MaSP = ? and Anh=?; ";
+        String query = "DELETE FROM AnhSanPham WHERE MaSP = ?; ";
         try {
             conn =new ConnectJDBC().getConnection();
             ps =conn.prepareStatement(query);
             ps.setInt(1,id);
-            ps.setString(2,anh);
             ps.executeUpdate();
         }
         catch (Exception e) {
@@ -62,7 +61,7 @@ public class AnhSPDAO {
 
     public static void main(String[] args) {
         AnhSPDAO anhSPDAO = new AnhSPDAO();
-        List<AnhSanPham> list = anhSPDAO.getAnhSPByID(6);
+        List<AnhSanPham> list = anhSPDAO.getAnhSPByID(27);
         for(AnhSanPham o:list){
             System.out.println(o);
         }

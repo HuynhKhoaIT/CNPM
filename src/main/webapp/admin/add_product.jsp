@@ -14,7 +14,7 @@
     <!-- Theme style -->
     <link rel="stylesheet" href="${root}asset/dist/css/adminlte.min.css">
     <link rel="stylesheet" href="${root}asset/dist/css/style.css">
-    <script src="https://cdn.tiny.cloud/1/2bx6jc8z08uypematg3cwy3p25otto1in889fkegl99djs2r/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+    <script src="https://cdn.tiny.cloud/1/781p7i27bbwdg757ok7m74oq4ml6c276q7hqp1940jb3stfi/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
 </head>
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
@@ -106,7 +106,8 @@
                                         <%--                      <form action="/action_page.php">--%>
                                         <form>
                                             <input type="hidden" value="${sanPham.anh}" name="oldImage">
-                                            <input type="file" name="image"/><br><br>
+                                            <input type="file" name="multiPartServlet" multiple="multiple"/>
+<%--                                            <input type="file" name="image"/><br><br>--%>
                                         </form>
                                     </div>
                                     <div class="form-group">
@@ -147,6 +148,18 @@
     </aside>
     <!-- /.control-sidebar -->
 </div>
+<!-- Ajax to Java File Upload Logic -->
+<script>
+    async function uploadFile() {
+        let formData = new FormData();
+        formData.append("file", ajaxfile.files[0]);
+        await fetch('/admin/Ad_AddProductControl', {
+            method: "POST",
+            body: formData
+        });
+        alert('The file upload with Ajax and Java was a success!');
+    }
+</script>
 <!-- ./wrapper -->
 <!-- jQuery -->
 <script src="${root}plugins/jquery/jquery.min.js"></script>
