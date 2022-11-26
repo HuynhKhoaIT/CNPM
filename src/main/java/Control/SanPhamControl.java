@@ -94,7 +94,7 @@ public class SanPhamControl extends HttpServlet{
         request.setAttribute("sort", sort);
         request.setAttribute("ml", ml);
         request.setAttribute("tl", tl);
-        request.getRequestDispatcher("/shop/product.jsp").forward(request, response);
+request.getRequestDispatcher("/shop/product.jsp").forward(request, response);
         
     }
 	@Override

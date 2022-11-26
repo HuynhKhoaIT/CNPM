@@ -126,7 +126,7 @@
 														<td>${listDetail[i].getSoLuong()}</td>
 														<td>${listSP[i].getTenSP()}</td>
 														<td>${listSP[i].getMaSP()}</td>
-														<td>${listDetail[i].getTongTien()} VND</td>
+														<td data-type="money">${listDetail[i].getTongTien()}</td>
 													</tr>
 												</c:forEach>
 												
@@ -144,7 +144,7 @@
 											<table class="table">
 												<tr>
 													<th style="width: 50%">Tổng tiền:</th>
-													<td>${donHang.getTongTien()} VND</td>
+													<td data-type="money">${donHang.getTongTien()}</td>
 													<c:if test="${donHang.phuongThucThanhToan == 0}">
 														<td>Tiền mặt</td>
 													</c:if>
@@ -271,6 +271,13 @@
 				responsive : true,
 			});
 		});
+	</script>
+	<script>
+ 
+		document.querySelectorAll('[data-type="money"]').forEach(item =>{
+		 
+		 item.innerHTML = new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'vnd' }).format(item.innerHTML);
+	 })
 	</script>
 </body>
 </html>

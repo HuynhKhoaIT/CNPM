@@ -86,7 +86,7 @@
                                             <td>${l.tenNguoiNhan}</td>
                                             <c:choose>
                                                 <c:when test="${l.phuongThucThanhToan == 0}">
-                                                    <td>${l.tongTien}</td>
+                                                    <td data-type="money">${l.tongTien}</td>
                                                 </c:when>
                                                 <c:otherwise>
                                                     <td>0</td>
@@ -126,5 +126,12 @@
 <!-- ./wrapper -->
 
 <%@include file="./jqueryScript.jsp"%>
+<script>
+ 
+	document.querySelectorAll('[data-type="money"]').forEach(item =>{
+	 
+	 item.innerHTML = new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'vnd' }).format(item.innerHTML);
+ })
+</script>
 </body>
 </html>

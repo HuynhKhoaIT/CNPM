@@ -21,8 +21,6 @@
     <title>Login</title>
 </head>
 <body>
-	  
-
   <div class="d-md-flex half">
     <div class="bg" style="background-image: url('${root}asset/img/images/iphone.webp');"></div>
     <div class="contents">
@@ -34,7 +32,7 @@
               <div class="text-center mb-5">
                 <h3 class="text-uppercase">Login to <strong>APPLEStore</strong></h3>
               </div>
-              <form action="login" method="POST" id="form-2">
+              <form action="loginuser" method="POST" id="form-2">
                 <div class="form-group first">
                	  <p class="form-message">${mess}</p>
                   <label for="username">Tên đăng nhập</label>
@@ -52,7 +50,7 @@
                     <input type="checkbox" checked="checked"/>
                     <div class="control__indicator"></div>
                   </label>
-                  <span class="ml-auto"><a href="#" class="forgot-pass">Quên mật khẩu</a></span>
+                  <span class="ml-auto"><a href="/Apple_store/shop/email" class="forgot-pass">Quên mật khẩu</a></span>
                   <span class="ml-auto"><a href="/Apple_store/shop/signup" class="forgot-pass">Chưa có tài khoản</a></span> 
                 </div>
 
@@ -65,8 +63,8 @@
                 <a href="#" class="btn btn-block py-2 btn-facebook">
                   <span class="icon-facebook mr-3"></span> Đăng nhập với Facebook
                 </a>
-                <a href="#" class="btn btn-block py-2 btn-google"><span class="icon-google mr-3"></span> Đăng nhập với google</a>
-                </div> -->
+                <a href="#" class="btn btn-block py-2 btn-google"><span class="icon-google mr-3"></span> Đăng nhập với google</a> -->
+                </div>
               </form>
             </div>
           </div>

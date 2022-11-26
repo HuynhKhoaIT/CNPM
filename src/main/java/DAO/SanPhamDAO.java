@@ -230,7 +230,7 @@ public class SanPhamDAO
 
 	}
 	
-//lọc sản phẩm theo giá tiền 
+//lọc sản phẩm theo giá tiền
 //lọc sản phẩm theo giá tiền
 	public List<SanPham> getSortSPTangByDM(String sort)
 	{
@@ -322,7 +322,7 @@ public class SanPhamDAO
 				list.add(new SanPham(rs.getInt(1),rs.getInt(2),
 						rs.getString(3),rs.getString(4),
 						rs.getInt(5),rs.getInt(6),rs.getInt(7),rs.getInt(8),
-						rs.getString(9), rs.getString(10),
+rs.getString(9), rs.getString(10),
 						rs.getInt(11),rs.getInt(12)));
 			}
 		}
@@ -415,7 +415,7 @@ public class SanPhamDAO
 				"SET isDeleted=?\n" +
 				"WHERE MaSP = ?;";
 		try {
-			conn =new ConnectJDBC().getConnection();
+conn =new ConnectJDBC().getConnection();
 			ps =conn.prepareStatement(query);
 
 			ps.setString(1,"1");
@@ -532,9 +532,7 @@ public int TotalChiPhi() {
 		SanPhamDAO sanPhamDAO = new SanPhamDAO();
 		List<SanPham> list = sanPhamDAO.getSortSPGiamTheoMaLoai("1");
 		for (SanPham o:list){
-			System.out.println(o);
+System.out.println(o);
 		}
 	}
 }
-	
-

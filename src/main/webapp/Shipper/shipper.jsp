@@ -137,7 +137,7 @@
 													<td><span class="badge badge-success">0</span></td>
 												</c:when>
 												<c:otherwise>
-													<td><span class="badge badge-success">${l.tongTien}</span></td>
+													<td><span class="badge badge-success" data-type="money">${l.tongTien}</span></td>
 												</c:otherwise>
 											</c:choose>
 											<td>${l.thoiGian}</td>
@@ -173,6 +173,13 @@
 	$.widget.bridge('uibutton', $.ui.button)
 </script>
 <script src="${root}asset/dist/js/adminlte.js"></script>
+<script>
+ 
+	document.querySelectorAll('[data-type="money"]').forEach(item =>{
+	 
+	 item.innerHTML = new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'vnd' }).format(item.innerHTML);
+ })
+</script>
 <%@include file="./jqueryScript.jsp"%>
 </body>
 </html>
