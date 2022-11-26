@@ -31,7 +31,7 @@
           <div class="col-md-12">
             <div class="form-block mx-auto">
               <div class="text-center mb-5">
-                <h3 class="text-uppercase">Sign Up <strong>APPLEStore</strong></h3>
+                <h3 class="text-uppercase">Đăng ký <strong>APPLEStore</strong></h3>
               </div>
               <form action="signup" method="post" id="form-1">
               <p class="form-message">${mess}</p>
