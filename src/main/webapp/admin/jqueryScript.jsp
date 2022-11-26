@@ -41,3 +41,10 @@
     });
   });
 </script>
+<script>
+ 
+	document.querySelectorAll('[data-type="money"]').forEach(item =>{
+	 
+	 item.innerHTML = new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'vnd' }).format(item.innerHTML);
+ })
+</script>

@@ -1,4 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<link rel="stylesheet" href="${root}asset/css/logout.css">
 
 
 <aside class="main-sidebar sidebar-dark-primary elevation-4">

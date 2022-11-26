@@ -101,7 +101,7 @@
 													</c:choose>
 													<td><a
 														href="Ad_invoiceControl?maDH=${list[i].getMaDH()}">${list[i].getMaDH()}</a></td>
-													<td>${list[i].getTongTien()}</td>
+													<td data-type="money">${list[i].getTongTien()}</td>
 													<td>${list[i].getThoiGian()}</td>
 													<c:forEach items="${listTrangThai}" var="tt">
 														<c:if test="${tt.maTrangThai == list[i].getMaTrangThai()}">

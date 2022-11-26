@@ -98,7 +98,7 @@ public class DanhMucDAO {
         }
     }
     public void deleteDanhMuc(String maDM){
-        String query = "UPDATE DanhMuc set isDeleted= ? where MaDM = ?";
+String query = "UPDATE DanhMuc set isDeleted= ? where MaDM = ?";
         try {
             conn =new ConnectJDBC().getConnection();
             ps =conn.prepareStatement(query);

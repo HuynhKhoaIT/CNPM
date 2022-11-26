@@ -89,7 +89,7 @@
                     <tr>
                       <td><a href="http://localhost:8080/Apple_store/ProductDetailControl?maSP=${l.maSP}">${l.maSP}</a></td>
                       <td>${l.tenSP}</td>
-                      <td>${l.giaKhuyenMai}</td>
+                      <td data-type="money">${l.giaKhuyenMai}</td>
                       <c:forEach var="d" items="${listDanhMuc}">
                         <c:if test="${d.maDM == l.maDM}">
                           <td>${d.tenDM}</td>
