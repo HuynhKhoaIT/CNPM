@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import DAO.LoaispDAO;
-import DAO.SearchDAO;
+import DAO.SanPhamDAO;
 import Model.LoaiSP;
 import Model.SanPham;
 
@@ -27,8 +27,8 @@ public class SearchControl extends HttpServlet {
 
 		String txtSearch = request.getParameter("txt");
 
-		SearchDAO searchdao = new SearchDAO();
-		List<SanPham> list = searchdao.searchByName(txtSearch);
+		SanPhamDAO sanPhamDAO = new SanPhamDAO();
+		List<SanPham> list = sanPhamDAO.searchByName(txtSearch);
 		LoaispDAO loaispDAO = new LoaispDAO();
 		List<LoaiSP> listlsp = loaispDAO.getAllloaisp();
 

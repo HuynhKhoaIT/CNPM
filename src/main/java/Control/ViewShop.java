@@ -10,8 +10,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import DAO.BaiVietDAO;
-import DAO.NewProductDAO;
 import DAO.LoaispDAO;
+import DAO.SanPhamDAO;
 import Model.BaiViet;
 import Model.LoaiSP;
 import Model.SanPham;
@@ -27,9 +27,10 @@ public class ViewShop extends HttpServlet {
 		response.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html; charset=UTF-8");
 
-		NewProductDAO newproducdao = new NewProductDAO();
+
 		LoaispDAO sanphamdao = new LoaispDAO();
-		List<SanPham> list = newproducdao.newProduct();
+		SanPhamDAO sanPhamDAO = new SanPhamDAO();
+		List<SanPham> list = sanPhamDAO.newProduct();
 		List<LoaiSP> listlsp = sanphamdao.getAllloaisp();
 		BaiVietDAO baiVietDAO = new BaiVietDAO();
 
