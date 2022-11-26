@@ -2,7 +2,7 @@ package Control;
 
 import java.io.IOException;
 import java.util.List;
-import java.text.DecimalFormat;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -84,11 +84,7 @@ public class SanPhamControl extends HttpServlet{
         	tl =sanphamdao.gettenloai(ml);
         } 
         
-//        if(sort!=null && madm==null) {
-//        	listsp = sanphamdao.getSortSPTang(sort);
-//        	System.out.println(listsp);
-//        }
-        
+
         System.out.println(listsp);
         request.setAttribute("maDM",madmInt);
         request.setAttribute("maLoai",maLoaiInt);
@@ -98,17 +94,9 @@ public class SanPhamControl extends HttpServlet{
         request.setAttribute("sort", sort);
         request.setAttribute("ml", ml);
         request.setAttribute("tl", tl);
-        request.getRequestDispatcher("/shop/product.jsp").forward(request, response);
+request.getRequestDispatcher("/shop/product.jsp").forward(request, response);
         
     }
-	 public static void main(String[] args)
-	    {
-	        // Định dạng số ở dạng tiền tệ
-		 DecimalFormat formatter = new DecimalFormat("###,###,###.00");
-
-		 System.out.println(formatter.format(1000000)+" VNĐ");
-
-	    }
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		processRequest(req, resp);

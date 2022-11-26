@@ -46,15 +46,7 @@
                   <input type="password" name="password" class="form-control" placeholder="Mật khẩu của bạn..." id="password">
                   <span class="form-message"></span>
                 </div>
-                
-                <!-- <div class="d-sm-flex mb-5 align-items-center">
-                  <label class="control control--checkbox mb-3 mb-sm-0"><span class="caption">Remember me</span>
-                    <input type="checkbox" checked="checked"/>
-                    <div class="control__indicator"></div>
-                  </label>
-                  <span class="ml-auto"><a href="#" class="forgot-pass">Quên mật khẩu</a></span>
-                  <span class="ml-auto"><a href="/Apple_store/shop/signup" class="forgot-pass">Chưa có tài khoản</a></span> 
-                </div> -->
+
 
                 <button class="btn btn-block py-2 btn-primary" type="submit" >Đăng nhập</button>
 
@@ -65,8 +57,8 @@
                 <a href="#" class="btn btn-block py-2 btn-facebook">
                   <span class="icon-facebook mr-3"></span> Đăng nhập với Facebook
                 </a>
-                <a href="#" class="btn btn-block py-2 btn-google"><span class="icon-google mr-3"></span> Đăng nhập với google</a>
-                </div> -->
+                <a href="#" class="btn btn-block py-2 btn-google"><span class="icon-google mr-3"></span> Đăng nhập với google</a> -->
+                </div>
               </form>
             </div>
           </div>

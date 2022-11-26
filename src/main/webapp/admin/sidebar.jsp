@@ -134,13 +134,13 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="${root}admin/doanhthu.jsp" class="nav-link">
+                            <a href="${root}Ad_doanhThu" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Biểu đồ doanh thu</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="${root}admin/salesReport.jsp" class="nav-link">
+                            <a href="${root}Ad_SaleReport" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Báo cáo doanh thu</p>
                             </a>
