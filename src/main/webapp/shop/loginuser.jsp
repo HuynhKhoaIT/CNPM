@@ -52,7 +52,7 @@
                     <input type="checkbox" checked="checked"/>
                     <div class="control__indicator"></div>
                   </label>
-                  <span class="ml-auto"><a href="#" class="forgot-pass">Quên mật khẩu</a></span>
+                  <span class="ml-auto"><a href="/Apple_store/shop/email" class="forgot-pass">Quên mật khẩu</a></span>
                   <span class="ml-auto"><a href="/Apple_store/shop/signup" class="forgot-pass">Chưa có tài khoản</a></span> 
                 </div>
 
