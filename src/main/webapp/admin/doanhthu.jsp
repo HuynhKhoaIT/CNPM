@@ -6,7 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <c:url value="/" var="root" />
 <!DOCTYPE html>
 <html lang="en">
@@ -214,24 +214,7 @@
 <!-- ./wrapper -->
 <%@include file="./jqueryScript.jsp"%>
 <script>
-
-
   $(function () {
-	  
-	  var ChiPhiThang = [
-		    <c:forEach items="${ChiPhi}" var="hero">'<c:out value="${hero}" />',</c:forEach>
-		 ];
-	  var DoanhThuThang = [
-		    <c:forEach items="${doanhThu}" var="a">'<c:out value="${a}" />',</c:forEach>
-		 ];
-	  
-	  
-	  var ChiPhiQuy = [
-		    <c:forEach items="${ChiPhiQuy}" var="x">'<c:out value="${x}" />',</c:forEach>
-		 ];
-	  var DoanhThuQuy = [
-		    <c:forEach items="${doanhThuQuy}" var="y">'<c:out value="${y}" />',</c:forEach>
-		 ];
     /* ChartJS
      * -------
      * Here we will create a few charts using ChartJS
@@ -256,7 +239,7 @@
           pointStrokeColor    : 'rgba(60,141,188,1)',
           pointHighlightFill  : '#fff',
           pointHighlightStroke: 'rgba(60,141,188,1)',
-          data                : DoanhThuThang
+          data                : [28, 48, 40, 19, 86, 27, 90, 28, 48, 40, 19, 86, 27, 90]
         },
         {
           label               : 'Chi phí',
@@ -267,15 +250,58 @@
           pointStrokeColor    : '#c1c7d1',
           pointHighlightFill  : '#fff',
           pointHighlightStroke: 'rgba(220,220,220,1)',
-          data                :ChiPhiThang
+          data                : [65, 59, 80, 81, 56, 55, 40, 65, 59, 80, 81, 56, 55, 40]
         },
       ]
     }
 
-  
-    
-    
-    
+  /*   var areaChartOptions = {
+      maintainAspectRatio : false,
+      responsive : true,
+      legend: {
+        display: false
+      },
+      scales: {
+        xAxes: [{
+          gridLines : {
+            display : false,
+          }
+        }],
+        yAxes: [{
+          gridLines : {
+            display : false,
+          }
+        }]
+      }
+    }
+
+    // This will get the first returned node in the jQuery collection.
+    new Chart(areaChartCanvas, {
+      type: 'line',
+      data: areaChartData,
+      options: areaChartOptions
+    }) */
+
+    //-------------
+    /* //- LINE CHART -
+    //--------------
+    var lineChartCanvas = $('#lineChart').get(0).getContext('2d')
+    var lineChartOptions = $.extend(true, {}, areaChartOptions)
+    var lineChartData = $.extend(true, {}, areaChartData)
+    lineChartData.datasets[0].fill = false;
+    lineChartData.datasets[1].fill = false;
+    lineChartOptions.datasetFill = false
+
+    var lineChart = new Chart(lineChartCanvas, {
+      type: 'line',
+      data: lineChartData,
+      options: lineChartOptions
+    })
+ */
+    //-------------
+    //- DONUT CHART -
+    //-------------
+    // Get context with jQuery - using jQuery's .get() method.
     var donutChartCanvas = $('#donutChart').get(0).getContext('2d')
     var donutData        = {
       labels: [
@@ -285,16 +311,27 @@
       ],
       datasets: [
         {
-          data:DoanhThuQuy,
+          data: [100,300,400],
           backgroundColor : ['#f56954', '#00a65a', '#f39c12'],
         }
       ]
     }
- 
+ /*    var donutOptions     = {
+      maintainAspectRatio : false,
+      responsive : true,
+    } */
+    //Create pie or douhnut chart
+    // You can switch between pie and douhnut using the method below.
+  /*   new Chart(donutChartCanvas, {
+      type: 'doughnut',
+      data: donutData,
+      options: donutOptions
+    }) */
 
-    
-    
-    
+    //-------------
+    //- PIE CHART -
+    //-------------
+    // Get context with jQuery - using jQuery's .get() method.
     var pieChartCanvas = $('#pieChart').get(0).getContext('2d')
     var pieData        = donutData;
     var pieOptions     = {
@@ -331,10 +368,30 @@
       options: barChartOptions
     })
 
-    
+    //---------------------
+    //- STACKED BAR CHART -
+    //---------------------
+   /*  var stackedBarChartCanvas = $('#stackedBarChart').get(0).getContext('2d')
+    var stackedBarChartData = $.extend(true, {}, barChartData)
 
-    
-    
+    var stackedBarChartOptions = {
+      responsive              : true,
+      maintainAspectRatio     : false,
+      scales: {
+        xAxes: [{
+          stacked: true,
+        }],
+        yAxes: [{
+          stacked: true
+        }]
+      }
+    }
+
+    new Chart(stackedBarChartCanvas, {
+      type: 'bar',
+      data: stackedBarChartData,
+      options: stackedBarChartOptions
+    })  */
   })
 </script>
 </body>
