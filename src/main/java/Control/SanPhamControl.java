@@ -84,11 +84,7 @@ public class SanPhamControl extends HttpServlet{
         	tl =sanphamdao.gettenloai(ml);
         } 
         
-//        if(sort!=null && madm==null) {
-//        	listsp = sanphamdao.getSortSPTang(sort);
-//        	System.out.println(listsp);
-//        }
-        
+
         System.out.println(listsp);
         request.setAttribute("maDM",madmInt);
         request.setAttribute("maLoai",maLoaiInt);

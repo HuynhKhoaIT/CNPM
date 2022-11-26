@@ -32,7 +32,7 @@
                         <div class="text-center mb-5">
                             <h3 class="text-uppercase">Verify <strong>APPLEStore</strong></h3>
                         </div>
-                        <form action="verify" method="post" id="form-3">
+                        <form action="verifypass" method="post" id="form-5">
                             <p class="form-message">${mess}</p>
                             <div class="form-group first">
                                 <label for="verify">Mã xác nhận</label>

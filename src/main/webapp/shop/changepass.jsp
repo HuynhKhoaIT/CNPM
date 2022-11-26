@@ -24,7 +24,7 @@
 	  
 
   <div class="d-md-flex half">
-<%--     <div class="bg" style="background-image: url('${root}asset/img/images/iphone.webp');"></div>
+<%--     <div class="bg" style="background-image: url('${root}asset/img/ipad.webp');"></div>
     <div class="contents"> --%>
 
       <div class="container">
@@ -32,33 +32,33 @@
           <div class="col-md-12">
             <div class="form-block mx-auto">
               <div class="text-center mb-5">
-                <h3 class="text-uppercase">Login to <strong>APPLEStore</strong></h3>
+                <h3 class="text-uppercase">Change Pass <strong>APPLEStore</strong></h3>
               </div>
-              <form action="login" method="POST" id="form-2">
+              <form action="changepass" method="POST" id="form-6">
                 <div class="form-group first">
                	  <p class="form-message">${mess}</p>
-                  <label for="username">Tên đăng nhập</label>
-                  <input type="text" name="username" class="form-control" placeholder="Tên đăng nhập của bạn..." id="username">
+                  <label for="password">Mật Khẩu</label>
+                  <input type="password" name="password" class="form-control" placeholder="Mật khẩu mới của bạn..." id="password">
                   <span class="form-message"></span>
                 </div>
                 <div class="form-group last mb-3">
-                  <label for="password">Mật khẩu</label>
-                  <input type="password" name="password" class="form-control" placeholder="Mật khẩu của bạn..." id="password">
+                  <label for="repassword">Nhập Lại Mật khẩu</label>
+                  <input type="password" name="repassword" class="form-control" placeholder="Nhập lại mật khẩu..." id="repassword">
                   <span class="form-message"></span>
                 </div>
                 
-                <div class="d-sm-flex mb-5 align-items-center">
+                <!-- <div class="d-sm-flex mb-5 align-items-center">
                   <label class="control control--checkbox mb-3 mb-sm-0"><span class="caption">Remember me</span>
                     <input type="checkbox" checked="checked"/>
                     <div class="control__indicator"></div>
                   </label>
-                  <span class="ml-auto"><a href="/Apple_store/shop/email" class="forgot-pass">Quên mật khẩu</a></span>
+                  <span class="ml-auto"><a href="#" class="forgot-pass">Quên mật khẩu</a></span>
                   <span class="ml-auto"><a href="/Apple_store/shop/signup" class="forgot-pass">Chưa có tài khoản</a></span> 
-                </div>
+                </div> -->
 
                 <button class="btn btn-block py-2 btn-primary" type="submit" >Đăng nhập</button>
 
-                <!-- <span class="text-center my-3 d-block">or</span>
+               <!--  <span class="text-center my-3 d-block">or</span>
                 
                 
                 <div class="">
