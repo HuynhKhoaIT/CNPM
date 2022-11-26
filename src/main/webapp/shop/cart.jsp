@@ -63,10 +63,10 @@
 									</div>
 									<div class="items-price">
 										<p class="end-price">
-											<span>${i.product.giaKhuyenMai}</span> <sup>đ</sup>
+											<span data-type="money">${i.product.giaKhuyenMai}</span>
 										</p>
 										<p class="price">
-											<span>${i.product.giaBanThuong}</span> <sup>đ</sup>
+											<span data-type="money">${i.product.giaBanThuong}</span>
 										</p>
 										<p class="discount inline-block">Giảm
 											${i.product.giaKhuyenMai - i.product.giaBanThuong}</p>
@@ -116,15 +116,15 @@
 							<ul class="bill-detal">
 								<li class="temp-price"><label>Tạm tính:</label>
 									<p>
-										<span>${o.getFirstMoney()}</span><sup>đ</sup>
+										<span data-type="money">${o.getFirstMoney()}</span>
 									</p></li>
 								<li class="promo-price"><label>Khuyến mãi:</label>
 									<p>
-										<span>${o.getTotalMoney() - o.getFirstMoney()}</span><sup>đ</sup>
+										<span data-type="money">${o.getTotalMoney() - o.getFirstMoney()}</span>
 									</p></li>
 								<li class="last-price"><label>Tổng tiền:</label>
 									<p>
-										<span>${o.getTotalMoney()}</span><sup>đ</sup>
+										<span data-type="money">${o.getTotalMoney()}</span>
 									</p></li>
 							</ul>
 						</div>
@@ -255,6 +255,13 @@
 				document.getElementById('cart-not-empty').style.display = "none";
 				document.getElementById('cart-empty').style.display = "block"
 			}
+		</script>
+		<script>
+ 
+			document.querySelectorAll('[data-type="money"]').forEach(item =>{
+			 
+			 item.innerHTML = new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'vnd' }).format(item.innerHTML);
+		 })
 		</script>
 	</div>
 	</div>

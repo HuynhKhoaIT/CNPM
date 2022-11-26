@@ -76,7 +76,7 @@
                             <div class="wrapper">
                                 <h1 class="h1 name">${p.tenSP}</h1>
                                 <div class="price">
-                                    <div class="text text-primary txtprice">${p.giaKhuyenMai}đ</div>
+                                    <div class="text text-primary txtprice" data-type="money">${p.giaKhuyenMai}</div>
                                     <!-- <div class="sub">
                                     <div class="text">Trả góp chỉ từ</div>
                                     <div class="text"> <strong>2.030.000đ</strong>/tháng</div>

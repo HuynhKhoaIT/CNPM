@@ -113,3 +113,10 @@
       <p>Apple, the Apple logo are trademark of Apple inc, registered in the US, and other countries</p>
    </div>
 </div>
+<script>
+ 
+	document.querySelectorAll('[data-type="money"]').forEach(item =>{
+	 
+	 item.innerHTML = new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'vnd' }).format(item.innerHTML);
+ })
+</script>

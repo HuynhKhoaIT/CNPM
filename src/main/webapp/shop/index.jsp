@@ -115,7 +115,7 @@
                                             </div>
                                             <div class="product-price">
 		                                        <div class="text">Giá chỉ: </div>
-		                                        <div class="price">${o.giaBanThuong}đ</div>
+		                                        <div class="price" data-type="money">${o.giaBanThuong}</div>
 		                                    </div>
                                             <div class="pro-add">
                                                 <span>Xem chi tiết</span>
