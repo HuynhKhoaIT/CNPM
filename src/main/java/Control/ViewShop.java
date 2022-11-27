@@ -14,6 +14,7 @@ import DAO.BannerDAO;
 import DAO.LoaispDAO;
 import DAO.SanPhamDAO;
 import Model.BaiViet;
+import Model.Banner;
 import Model.LoaiSP;
 import Model.SanPham;
 
@@ -29,8 +30,16 @@ public class ViewShop extends HttpServlet {
         response.setContentType("text/html; charset=UTF-8");
 
 
+        String banner ;
         BannerDAO bannerDAO = new BannerDAO();
-        String banner = bannerDAO.getBannerNewBanner().getAnh();
+        Banner b = bannerDAO.getBannerNewBanner();
+        if(b == null)
+        {
+            banner = ""; // mặt định
+        }
+        else {
+            banner = b.getAnh();
+        }
 
         LoaispDAO sanphamdao = new LoaispDAO();
         SanPhamDAO sanPhamDAO = new SanPhamDAO();
