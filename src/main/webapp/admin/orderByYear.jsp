@@ -70,7 +70,7 @@
 
                         <div class="card">
                             <div class="card-header">
-                                <h3 class="card-title">Đơn hàng theo tháng</h3>
+                                <h3 class="card-title">Tất cả đơn hàng của năm ${year }</h3>
                             </div>
                             <!-- /.card-header -->
                             <div class="card-body">
@@ -82,7 +82,6 @@
                                         <th>Mã Đơn Hàng</th>
                                         <th>Tổng Tiền</th>
                                         <th>Thời Gian</th>
-                                        <th>Tình Trạng</th>
                                     </tr>
                                     </thead>
                                     <tbody>
@@ -106,31 +105,6 @@
                                             </td>
                                             <td data-type="money">${list[i].getTongTien()}</td>
                                             <td>${list[i].getThoiGian()}</td>
-                                            <c:forEach items="${listTrangThai}" var="tt">
-                                                <c:if test="${tt.maTrangThai == list[i].getMaTrangThai()}">
-                                                    <c:if test="${list[i].getMaTrangThai() == 1}">
-                                                        <td><span class="badge badge-success">${tt.tenTrangThai}</span>
-                                                        </td>
-                                                    </c:if>
-                                                    <c:if test="${list[i].getMaTrangThai() == 2}">
-                                                        <td><span class="badge badge-success"
-                                                                  style="background : black">${tt.tenTrangThai}</span>
-                                                        </td>
-                                                    </c:if>
-                                                    <c:if test="${list[i].getMaTrangThai() == 3}">
-                                                        <td><span class="badge badge-success"
-                                                                  style="background : blue">${tt.tenTrangThai}</span>
-                                                        </td>
-                                                    </c:if>
-                                                    <c:if test="${list[i].getMaTrangThai() == 4}">
-                                                        <td><span class="badge badge-success"
-                                                                  style="background : red">${tt.tenTrangThai}</span>
-                                                        </td>
-                                                    </c:if>
-                                                </c:if>
-
-
-                                            </c:forEach>
                                         </tr>
                                     </c:forEach>
                                     </tbody>

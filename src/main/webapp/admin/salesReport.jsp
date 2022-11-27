@@ -95,7 +95,7 @@
 											<tbody>
 												<c:forEach var="i" begin="0" end="11">
 													<tr>
-														<td>${i+1}</td>
+														<td><a href="${root}admin/OrderMonthly?month=${i+1}">${i+1}</a></td>
 														<td data-type="money">${doanhThu[i]}</td>
 														<td data-type="money">${ChiPhi[i]}</td>
 														<td data-type="money">${doanhThu[i]-ChiPhi[i]}</td>
@@ -121,7 +121,7 @@
 											<tbody>
 												<c:forEach var="i" begin="0" end="2">
 													<tr>
-														<td>${i+1}</td>
+														<td><a href="${root}admin/OrderQuy?quy=${i+1}">${i+1}</a></td>
 														<td data-type="money">${doanhThuQuy[i]}</td>
 														<td data-type="money">${ChiPhiQuy[i]}</td>
 														<td data-type="money">${doanhThuQuy[i]-ChiPhiQuy[i]}</td>
@@ -148,7 +148,7 @@
 											<tbody>
 												<c:forEach var="i" begin="0" end="5">
 													<tr>
-														<td>${year[i]}</td>
+														<td><a href="${root}admin/OrderYear?year=${year[i]}">${year[i]}</a></td>
 														<td data-type="money">${doanhThuNam[i]}</td>
 														<td data-type="money">${ChiPhiNam[i]}</td>
 														<td data-type="money">${doanhThuNam[i]-ChiPhiNam[i]}</td>

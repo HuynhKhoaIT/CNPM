@@ -44,9 +44,9 @@
 
                 </tbody>
             </table>
-
-            <a href="http://localhost:8080/Apple_store/shop/UserPage"
-               class="btn btn-sm btn-secondary ">Quay lại</a>
+            <a href="${root}">
+            	<button class="btn-continuel">Tiếp Tục Mua Hàng</button>
+            </a>
         </div>
     </div>
 </div>

@@ -15,20 +15,26 @@
           href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
     <link rel="stylesheet" href="${root}asset/dist/css/adminlte.min.css">
     <link href="<c:url value="asset/style.css" />" rel="stylesheet">
+        <link rel="stylesheet" href="${root}asset/style.css">
+    
     <title>Insert title here</title>
 </head>
 <body>
-<div class="main">
+<div class="main" style="font-size: 24px; margin: 0 15px;">
 	<c:set var="items" value="${listlsp}" scope="request"/>
     <div class="content">
-           <div class="row">
+           <div class="row" style="justify-content: space-between;">
            	<h3>Khách hàng: ${sessionScope.a.getTenKH()}</h3>
+           	<a href="${root}">
+            	<button class="btn-continuel">Tiếp Tục Mua Hàng</button>
+            </a>
            	<div class="table-responsive">
             <table class="table m-0">
                 <thead>
                 <tr>
                     <th>Mã đơn hàng</th>
                     <th>Trạng thái</th>
+                    <th>Ngày mua</th>
                     <th>Tổng Tiền</th>
                 </tr>
                 </thead>
@@ -41,6 +47,7 @@
 	                        		<td>${o.tenTrangThai}</td>
 	                        	</c:if>
 	                        </c:forEach>
+	                         <td>${list.thoiGian}</td>
 	                        <td data-type="money">${list.getTongTien()}</td>
 	                    </tr>
                 	</c:forEach>
@@ -48,6 +55,7 @@
             </table>
            </div>
     	</div>
+    	
 	</div>
 </div>
 </body>
