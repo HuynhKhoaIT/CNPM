@@ -22,6 +22,7 @@ public class CartControl extends HttpServlet {
         response.setContentType("text/html; charset=UTF-8");
 
         HttpSession session = request.getSession();
+      
         Users users = (Users) session.getAttribute("acc");
 
         SanPhamDAO dao = new SanPhamDAO();
