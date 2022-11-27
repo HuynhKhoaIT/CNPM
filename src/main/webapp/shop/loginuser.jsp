@@ -75,9 +75,6 @@
 <!--     </div> -->
 </div>
 
-
-</div>
-<!--
   <script src="${root}asset/js/Validator.js"></script>
 
   <script>
@@ -99,7 +96,5 @@
       });
 
   </script>
-
--->
 </body>
 </html>

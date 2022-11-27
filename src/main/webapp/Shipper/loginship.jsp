@@ -34,7 +34,7 @@
                         <div class="text-center mb-5">
                             <h3 class="text-uppercase">Đăng nhập SHIPPER <strong>APPLEStore</strong></h3>
                         </div>
-                        <form action="loginship" method="POST" id="form-2">
+                        <form action="loginship" method="POST" id="form-7">
                             <div class="form-group first">
                                 <p class="form-message">${mess}</p>
                                 <label for="username">Tên đăng nhập</label>
@@ -70,7 +70,7 @@
 
 
 </div>
-<!--
+
   <script src="${root}asset/js/Validator.js"></script>
 
   <script>
@@ -79,7 +79,7 @@
         // Mong muốn của chúng ta
       //   Đăng nhập
         Validator({
-          form: '#form-2',
+          form: '#form-7',
           formGroupSelector: '.form-group',
           errorSelector: '.form-message',
           rules: [
@@ -93,6 +93,5 @@
 
   </script>
 
--->
 </body>
 </html>

@@ -86,7 +86,6 @@
 <script src="${root}asset/js/Validator.js"></script>
 
 <script>
-
     document.addEventListener('DOMContentLoaded', function () {
         // Mong muốn của chúng ta
         //   Đăng ký

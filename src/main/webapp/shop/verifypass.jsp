@@ -49,23 +49,22 @@
     <!--    </div> -->
 </div>
 
-<%--<script src="${root}asset/js/Validator.js"></script>--%>
-
-<%--<script>--%>
-<%--    document.addEventListener('DOMContentLoaded', function () {--%>
-<%--        // Mong muốn của chúng ta--%>
-<%--        //   Đăng ký--%>
-<%--        Validator({--%>
-<%--            form: '#form-3',--%>
-<%--            formGroupSelector: '.form-group',--%>
-<%--            errorSelector: '.form-message',--%>
-<%--            rules: [--%>
-<%--                Validator.isRequired('#verify', 'Vui lòng nhập mã xác nhận'),--%>
-<%--            ],--%>
-<%--        });--%>
-<%--        //   Đăng ký--%>
-<%--    });--%>
-<%--</script>--%>
+<script src="${root}asset/js/Validator.js"></script>
+<script>
+   document.addEventListener('DOMContentLoaded', function () {
+       // Mong muốn của chúng ta
+       //   Đăng ký
+       Validator({
+           form: '#form-5',
+           formGroupSelector: '.form-group',
+           errorSelector: '.form-message',
+           rules: [
+               Validator.isRequired('#verify', 'Vui lòng nhập mã xác nhận'),
+           ],
+       });
+       //   Đăng ký
+   });
+</script>
 
 
 </body>
