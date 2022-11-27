@@ -18,14 +18,14 @@
     <!-- Style -->
     <link rel="stylesheet" href="${root}asset/cssacc/style.css">
 
-    <title>Login</title>
+    <title>Login Shipper</title>
 </head>
 <body>
 
 
 <div class="d-md-flex half">
-    <div class="bg" style="background-image: url('${root}asset/img/ip14-s.webp');"></div>
-    <div class="contents">
+<%--     <div class="bg" style="background-image: url('${root}asset/img/ip14-s.webp');"></div>
+    <div class="contents"> --%>
 
         <div class="container">
             <div class="row align-items-center justify-content-center">
@@ -65,7 +65,7 @@
                 </div>
             </div>
         </div>
-    </div>
+<!--     </div> -->
 </div>
 
 

@@ -34,7 +34,7 @@ public class Ship_PageControl extends HttpServlet {
 		session.removeAttribute("accad");
 		session.removeAttribute("acc");
 		if (session.getAttribute("accship") == null) {
-			response.sendRedirect("http://localhost:8080/Apple_store/shop/loginship");
+			response.sendRedirect("http://localhost:8080/Apple_store/Shipper/loginship");
 		} else {
 			Users shipper = (Users) session.getAttribute("accship");
 			// don hang dang giao cua shipper :

@@ -15,7 +15,7 @@ import java.io.IOException;
 /**
  * Servlet implementation class LoginControl
  */
-@WebServlet("/shop/loginship")
+@WebServlet("/Shipper/loginship")
 public class LoginControlShip extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
@@ -39,7 +39,7 @@ public class LoginControlShip extends HttpServlet {
         if (session.getAttribute("acc") != null) {
             response.sendRedirect("http://localhost:8080/Apple_store");
         } else {
-            request.getRequestDispatcher("/shop/loginship.jsp").forward(request, response);
+            request.getRequestDispatcher("/Shipper/loginship.jsp").forward(request, response);
         }
         //request.getRequestDispatcher("/shop/login.jsp").forward(request, response);
     }
@@ -62,7 +62,7 @@ public class LoginControlShip extends HttpServlet {
         Users a = dao.login(username, passMD5);
         if (a == null) {
             request.setAttribute("mess", "Sai tên đăng nhập hoặc mật khẩu");
-            request.getRequestDispatcher("/shop/loginuser.jsp").forward(request, response);
+            request.getRequestDispatcher("/Shipper/loginuser.jsp").forward(request, response);
         } else {
             HttpSession session = request.getSession();
             int user = a.getIsUser();
@@ -73,7 +73,7 @@ public class LoginControlShip extends HttpServlet {
                 response.sendRedirect("http://localhost:8080/Apple_store/shipper");
             } else {
                 request.setAttribute("mess", "Bạn phải là shipper");
-                request.getRequestDispatcher("/shop/loginship.jsp").forward(request, response);
+                request.getRequestDispatcher("/Shipper/loginship.jsp").forward(request, response);
             }
             //response.sendRedirect("http://localhost:8080/Apple_store");
         }

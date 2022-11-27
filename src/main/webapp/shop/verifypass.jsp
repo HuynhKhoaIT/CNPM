@@ -17,7 +17,7 @@
     <!-- Style -->
     <link rel="stylesheet" href="${root}asset/cssacc/style.css">
 
-    <title>Verify</title>
+    <title>Verify Pass</title>
 </head>
 <body>
 

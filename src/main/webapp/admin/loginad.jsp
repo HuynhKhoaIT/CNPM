@@ -18,15 +18,15 @@
     <!-- Style -->
     <link rel="stylesheet" href="${root}asset/cssacc/style.css">
 
-    <title>Login</title>
+    <title>Login Admin</title>
 </head>
 <body>
 
 
 <div class="d-md-flex half">
-    <div class="bg" style="background-image: url('${root}asset/img/ipad.webp');"></div>
+<%--     <div class="bg" style="background-image: url('${root}asset/img/ipad.webp');"></div>
     <div class="contents">
-
+ --%>
         <div class="container">
             <div class="row align-items-center justify-content-center">
                 <div class="col-md-12">
@@ -59,12 +59,12 @@
                               <span class="icon-facebook mr-3"></span> Đăng nhập với Facebook
                             </a>
                             <a href="#" class="btn btn-block py-2 btn-google"><span class="icon-google mr-3"></span> Đăng nhập với google</a> -->
-                    </div>
-                    </form>
+                    		</div>
+                    	</form>
                 </div>
             </div>
         </div>
-    </div>
+<!--     </div> -->
 </div>
 
 

@@ -17,7 +17,7 @@
     <!-- Style -->
     <link rel="stylesheet" href="${root}asset/cssacc/style.css">
 
-    <title>Verify</title>
+    <title>Email</title>
 </head>
 <body>
 

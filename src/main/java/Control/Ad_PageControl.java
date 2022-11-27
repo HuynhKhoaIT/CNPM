@@ -33,7 +33,7 @@ public class Ad_PageControl extends HttpServlet {
         session.removeAttribute("accship");
         session.removeAttribute("acc");
         if (session.getAttribute("accad") == null) {
-            response.sendRedirect("http://localhost:8080/Apple_store/shop/loginad");
+            response.sendRedirect("http://localhost:8080/Apple_store/admin/loginad");
         } else {
             List<DonHang> list = new ArrayList<DonHang>();
             DonHangDAO dao = new DonHangDAO();

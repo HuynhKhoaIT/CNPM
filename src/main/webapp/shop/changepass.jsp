@@ -18,7 +18,7 @@
     <!-- Style -->
     <link rel="stylesheet" href="${root}asset/cssacc/style.css">
 
-    <title>Login</title>
+    <title>Change Password</title>
 </head>
 <body>
 
