@@ -125,6 +125,30 @@
                         </li> -->
                     </ul>
                 </li>
+                
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-table"></i>
+                        <p>
+                            Baner
+                            <i class="fas fa-angle-left right"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="${root}admin/banner.jsp" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Tất cả banner</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="${root}admin/add_banner.jsp" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Thêm banner</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
 
                 <li class="nav-item">
                     <a href="#" class="nav-link">
