@@ -32,7 +32,7 @@
                         <div class="text-center mb-5">
                             <h3 class="text-uppercase">Login to <strong>APPLEStore</strong></h3>
                         </div>
-                        <form action="loginuser" method="POST" id="form-2">
+                        <form action="login" method="POST" id="form-2">
                             <div class="form-group first">
                                 <p class="form-message">${mess}</p>
                                 <label for="username">Tên đăng nhập</label>
@@ -67,8 +67,8 @@
                               <span class="icon-facebook mr-3"></span> Đăng nhập với Facebook
                             </a>
                             <a href="#" class="btn btn-block py-2 btn-google"><span class="icon-google mr-3"></span> Đăng nhập với google</a> -->
+                        </form>
                     </div>
-                    </form>
                 </div>
             </div>
         </div>

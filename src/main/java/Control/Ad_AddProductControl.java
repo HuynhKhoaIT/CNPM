@@ -4,10 +4,12 @@ import DAO.*;
 import Model.DanhMuc;
 import Model.LoaiSP;
 import Model.SanPham;
+import org.apache.commons.io.FileUtils;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
+import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -143,8 +145,15 @@ public class Ad_AddProductControl extends HttpServlet {
             System.out.println(sanPham.getAnh());
 
         } else {
-            sanPhamDAO.updateSanPham(maDM, tensanpham, motasanpham, giagoc, giabanthuong, giakhuyenmai, soluong, anh, motangan, maSP);
             SanPham sanPham = sanPhamDAO.getProductById(Integer.parseInt(maSP));
+
+            String[] arrOfStr = sanPham.getAnh().split("/");
+            String folder = sanPham.getAnh().replace("/"+arrOfStr[arrOfStr.length-1],"");
+            FileUtils.deleteDirectory(new File(request.getServletContext().getRealPath(folder)));
+
+
+            sanPhamDAO.updateSanPham(maDM, tensanpham, motasanpham, giagoc, giabanthuong, giakhuyenmai, soluong, anh, motangan, maSP);
+            sanPham = sanPhamDAO.getProductById(Integer.parseInt(maSP));
             AnhSPDAO anhSPDAO = new AnhSPDAO();
             anhSPDAO.deleteAnhSP(sanPham.getMaSP());
             for (String image : images) {
