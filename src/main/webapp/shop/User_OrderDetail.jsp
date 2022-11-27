@@ -37,7 +37,7 @@
                         <td>${listDetail[i].getMaDH()}</td>
                         <td>${listName[i]}</td>
                         <td>${listDetail[i].getSoLuong()}</td>
-                        <td>${listDetail[i].getTongTien()}</td>
+                        <td data-type="money">${listDetail[i].getTongTien()}</td>
 
                     </tr>
                 </c:forEach>
@@ -50,5 +50,12 @@
         </div>
     </div>
 </div>
+<script>
+
+    document.querySelectorAll('[data-type="money"]').forEach(item => {
+
+        item.innerHTML = new Intl.NumberFormat('vi-VN', {style: 'currency', currency: 'vnd'}).format(item.innerHTML);
+    })
+</script>
 </body>
 </html>

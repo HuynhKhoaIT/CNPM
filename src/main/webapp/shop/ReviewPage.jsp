@@ -109,7 +109,7 @@
                     <c:forEach items="${o.items}" var="i">
                         <tr class="cart_item">
                             <td class="product-total head1">${i.product.tenSP}</td>
-                            <td class="product-total head1">${i.product.giaBanThuong}</td>
+                            <td class="product-total head1" data-type="money">${i.product.giaBanThuong}</td>
                             <td class="product-total head1">${i.quantity}</td>
                         </tr>
                     </c:forEach>
@@ -120,18 +120,18 @@
 
                     <tr class="cart_item">
                         <td class="product-name head"><p class="left">Tạm tính:</p></td>
-                        <td class="product-total head"><p class="left">${o.getFirstMoney()}</p></td>
+                        <td class="product-total head"><p class="left" data-type="money">${o.getFirstMoney()}</p></td>
                     </tr>
 
                     <tr class="cart_item">
                         <td class="product-name head"><p class="left">Khuyến mãi:</p></td>
-                        <td class="product-total head"><p class="left">${o.getTotalMoney() - o.getFirstMoney()}
+                        <td class="product-total head"><p class="left" data-type="money">${o.getTotalMoney() - o.getFirstMoney()}
                             VND</p></td>
                     </tr>
 
                     <tr class="cart_item">
                         <td class="product-name head"><p class="left">Tổng</p></td>
-                        <td class="product-total head"><p class="left">${o.getTotalMoney()}</p></td>
+                        <td class="product-total head"><p class="left" data-type="money">${o.getTotalMoney()}</p></td>
                     </tr>
 
                     </tfoot>
@@ -154,5 +154,12 @@
             return false;
         }
     }
+</script>
+<script>
+
+    document.querySelectorAll('[data-type="money"]').forEach(item => {
+
+        item.innerHTML = new Intl.NumberFormat('vi-VN', {style: 'currency', currency: 'vnd'}).format(item.innerHTML);
+    })
 </script>
 </html>

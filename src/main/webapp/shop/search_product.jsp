@@ -112,7 +112,7 @@
                                         </div>
                                         <div class="product-price">
                                             <div class="text">Giá chỉ:</div>
-                                            <div class="price">${o.giaBanThuong}đ</div>
+                                            <div class="price" data-type="money">${o.giaBanThuong}</div>
                                         </div>
                                     </div>
                                     <div class="product-detai">
@@ -156,5 +156,6 @@
         },
     });
 </script>
+
 </body>
 </html>
