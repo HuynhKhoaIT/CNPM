@@ -20,19 +20,30 @@
                             </a>
                         </div>
                         <div class="col-1">
-                            <a href="${root}cart.jsp" class="cart-1">
+                            <a href="${root}show" class="cart-1">
                                 <div class="sec-icon cart">
                                     <i class="ti-shopping-cart"></i>
                                 </div>
                             </a>
                         </div>
-                        <div class="col-1">
-                            <a href="${root}user.jsp" class="user-1">
-                                <div class="sec-icon user">
-                                    <i class="ti-user"></i>
-                                </div>
-                            </a>
-                        </div>
+                        <c:if test="${sessionScope.acc != null}">
+	                        <div class="col-1">
+	                            <a href="/Apple_store/shop/UserPage" class="user-1">
+	                                <div class="sec-icon user">
+	                                    <i class="ti-user"></i>
+	                                </div>
+	                            </a>
+	                        </div>
+                    	</c:if>
+                        <c:if test="${sessionScope.acc == null}">
+	                        <div class="col-1">
+	                            <a href="/Apple_store/shop/login" class="user-1">
+	                                <div class="sec-icon user">
+	                                    <i class="ti-user"></i>
+	                                </div>
+	                            </a>
+	                        </div>
+                        </c:if>
 
                     </div>
                 </div>

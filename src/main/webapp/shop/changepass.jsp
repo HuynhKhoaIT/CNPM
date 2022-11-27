@@ -18,7 +18,7 @@
     <!-- Style -->
     <link rel="stylesheet" href="${root}asset/cssacc/style.css">
 
-    <title>Login</title>
+    <title>Change Password</title>
 </head>
 <body>
 
@@ -32,7 +32,7 @@
             <div class="col-md-12">
                 <div class="form-block mx-auto">
                     <div class="text-center mb-5">
-                        <h3 class="text-uppercase">Change Pass <strong>APPLEStore</strong></h3>
+                        <h3 class="text-uppercase">Đổi Mật Khẩu <strong>APPLEStore</strong></h3>
                     </div>
                     <form action="changepass" method="POST" id="form-6">
                         <div class="form-group first">
@@ -58,7 +58,7 @@
                           <span class="ml-auto"><a href="/Apple_store/shop/signup" class="forgot-pass">Chưa có tài khoản</a></span>
                         </div> -->
 
-                        <button class="btn btn-block py-2 btn-primary" type="submit">Đăng nhập</button>
+                        <button class="btn btn-block py-2 btn-primary" type="submit">Đổi Mật Khẩu</button>
 
                         <!--  <span class="text-center my-3 d-block">or</span>
 
@@ -78,7 +78,6 @@
 
 
 </div>
-<!--
   <script src="${root}asset/js/Validator.js"></script>
 
   <script>
@@ -87,12 +86,15 @@
         // Mong muốn của chúng ta
       //   Đăng nhập
         Validator({
-          form: '#form-2',
+          form: '#form-6',
           formGroupSelector: '.form-group',
           errorSelector: '.form-message',
           rules: [
-            Validator.isRequired('#username', 'Vui lòng nhập tên đăng nhập'),
-            Validator.isRequired('#password', 'Vui lòng nhập mật khẩu'),
+        	  Validator.minLength('#password', 6),
+              Validator.isRequired('#repassword'),
+              Validator.isConfirmed('#repassword', function () {
+                  return document.querySelector('#form-6 #password').value;
+              }, 'Mật khẩu nhập lại không chính xác')
           ],
         });
       //   Đăng nhập
@@ -101,6 +103,6 @@
 
   </script>
 
--->
+
 </body>
 </html>

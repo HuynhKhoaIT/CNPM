@@ -17,7 +17,7 @@
     <!-- Style -->
     <link rel="stylesheet" href="${root}asset/cssacc/style.css">
 
-    <title>Verify</title>
+    <title>Verify Pass</title>
 </head>
 <body>
 
@@ -30,7 +30,7 @@
             <div class="col-md-12">
                 <div class="form-block mx-auto">
                     <div class="text-center mb-5">
-                        <h3 class="text-uppercase">Verify <strong>APPLEStore</strong></h3>
+                        <h3 class="text-uppercase">Xác nhận đổi mật khẩu <strong>APPLEStore</strong></h3>
                     </div>
                     <form action="verifypass" method="post" id="form-5">
                         <p class="form-message">${mess}</p>
@@ -49,23 +49,22 @@
     <!--    </div> -->
 </div>
 
-<%--<script src="${root}asset/js/Validator.js"></script>--%>
-
-<%--<script>--%>
-<%--    document.addEventListener('DOMContentLoaded', function () {--%>
-<%--        // Mong muốn của chúng ta--%>
-<%--        //   Đăng ký--%>
-<%--        Validator({--%>
-<%--            form: '#form-3',--%>
-<%--            formGroupSelector: '.form-group',--%>
-<%--            errorSelector: '.form-message',--%>
-<%--            rules: [--%>
-<%--                Validator.isRequired('#verify', 'Vui lòng nhập mã xác nhận'),--%>
-<%--            ],--%>
-<%--        });--%>
-<%--        //   Đăng ký--%>
-<%--    });--%>
-<%--</script>--%>
+<script src="${root}asset/js/Validator.js"></script>
+<script>
+   document.addEventListener('DOMContentLoaded', function () {
+       // Mong muốn của chúng ta
+       //   Đăng ký
+       Validator({
+           form: '#form-5',
+           formGroupSelector: '.form-group',
+           errorSelector: '.form-message',
+           rules: [
+               Validator.isRequired('#verify', 'Vui lòng nhập mã xác nhận'),
+           ],
+       });
+       //   Đăng ký
+   });
+</script>
 
 
 </body>

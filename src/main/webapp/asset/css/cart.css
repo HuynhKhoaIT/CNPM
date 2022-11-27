@@ -172,7 +172,6 @@ a {
 }
 
 .items {
-    height: 132px;
     padding: 15px;
     position: relative;
     border-top: 1px solid rgba(0, 0, 0, .125);
@@ -249,8 +248,6 @@ a {
 
 .items {
     width: 100%;
-    display: flex;
-    justify-content: space-between;
 }
 
 
@@ -560,9 +557,21 @@ a.float-right.home-link {
     color: #0070c9;
 }
 
-.subnav .avatar-user {
-    padding: 15px;
-    height: 181.8px;
+.logout-shop{
+    background: #0664f9;
+    border: none;
+    padding: 4px 8px;
+    border-radius: 4px;
+    color: #fff;
+}
+
+
+.title-order div{
+    font-size: 16px;
+    background: #0664f9;
+    color: #fff;
+    font-weight: 600;
+    padding: 4px 2px;
 }
 
 .tab-orders,
@@ -620,9 +629,22 @@ a.float-right.home-link {
     justify-content: flex-end;
 }
 
-.pro-btn-container .save {
+.pro-btn-container .save{
+    border: none;
     color: #fff;
+    background: #0664f9;
+    padding: 4px 8px;
+    margin-right: 10px;
+}
+.pro-btn-container .cancel{
     background-color: #e62143;
+    border: none;
+    padding: 4px 8px;
+    color: #fff;
+}
+
+.pro-btn-container .cancel:hover{
+    background-color: #b81a35;
 }
 
 .show-password {
@@ -701,5 +723,12 @@ a.float-right.home-link {
 
     button#order-fast {
         width: 100%;
+    }
+}
+
+/* css cho điện thoại nè  */
+@media (max-width: 480px) {
+    .items-amount{
+    	display: none;
     }
 }

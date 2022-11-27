@@ -63,9 +63,9 @@
                                 <li class="tab-item"><a href="search?sort=0&txt=${txtS}">Mới
                                     Nhất</a></li>
                                 <li class="tab-item"><a href="search?sort=1&txt=${txtS}">Giá
-                                    cao đến thấp</a></li>
-                                <li class="tab-item"><a href="search?sort=-1&txt=${txtS}">Giá
                                     thấp đến cao</a></li>
+                                <li class="tab-item"><a href="search?sort=-1&txt=${txtS}">Giá
+                                    cao đến thấp</a></li>
                             </ul>
                         </div>
                     </div>

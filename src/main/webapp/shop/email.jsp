@@ -17,7 +17,7 @@
     <!-- Style -->
     <link rel="stylesheet" href="${root}asset/cssacc/style.css">
 
-    <title>Verify</title>
+    <title>Email</title>
 </head>
 <body>
 
@@ -47,23 +47,23 @@
     </div>
 </div>
 
-<%--<script src="${root}asset/js/Validator.js"></script>--%>
+<script src="${root}asset/js/Validator.js"></script>
 
-<%--<script>--%>
-<%--    document.addEventListener('DOMContentLoaded', function () {--%>
-<%--        // Mong muốn của chúng ta--%>
-<%--        //   Đăng ký--%>
-<%--        Validator({--%>
-<%--            form: '#form-3',--%>
-<%--            formGroupSelector: '.form-group',--%>
-<%--            errorSelector: '.form-message',--%>
-<%--            rules: [--%>
-<%--                Validator.isRequired('#verify', 'Vui lòng nhập mã xác nhận'),--%>
-<%--            ],--%>
-<%--        });--%>
-<%--        //   Đăng ký--%>
-<%--    });--%>
-<%--</script>--%>
+<script>
+   document.addEventListener('DOMContentLoaded', function () {
+       // Mong muốn của chúng ta
+       //   Đăng ký
+       Validator({
+           form: '#form-4',
+           formGroupSelector: '.form-group',
+           errorSelector: '.form-message',
+           rules: [
+               Validator.isRequired('#email', 'Vui lòng nhập email'),
+           ],
+       });
+       //   Đăng ký
+   });
+</script>
 
 
 </body>

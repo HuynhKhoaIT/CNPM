@@ -41,9 +41,9 @@ public class SendMailPass {
                     Message.RecipientType.TO,
                     InternetAddress.parse(email)
             );
-            message.setSubject("Pass Verification");
-            message.setText("Dear " + name + ","
-                    + "\n\n Your code to verify your password is: " + veri);
+            message.setSubject("THAY ĐỔI MẬT KHẨU");
+            message.setText("Chào " + name + ","
+                    + "\n\n Mã thay đổi mật khẩu của bạn là: " + veri);
 
             Transport.send(message);
 

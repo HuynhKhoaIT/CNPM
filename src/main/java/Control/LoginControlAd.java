@@ -15,7 +15,7 @@ import java.io.IOException;
 /**
  * Servlet implementation class LoginControl
  */
-@WebServlet("/shop/loginad")
+@WebServlet("/admin/loginad")
 public class LoginControlAd extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
@@ -39,7 +39,7 @@ public class LoginControlAd extends HttpServlet {
         if (session.getAttribute("acc") != null) {
             response.sendRedirect("http://localhost:8080/Apple_store");
         } else {
-            request.getRequestDispatcher("/shop/loginad.jsp").forward(request, response);
+            request.getRequestDispatcher("/admin/loginad.jsp").forward(request, response);
         }
         //request.getRequestDispatcher("/shop/login.jsp").forward(request, response);
     }
@@ -62,7 +62,7 @@ public class LoginControlAd extends HttpServlet {
         Users a = dao.login(username, passMD5);
         if (a == null) {
             request.setAttribute("mess", "Sai tên đăng nhập hoặc mật khẩu");
-            request.getRequestDispatcher("/shop/loginad.jsp").forward(request, response);
+            request.getRequestDispatcher("/admin/loginad.jsp").forward(request, response);
         } else {
             HttpSession session = request.getSession();
             int user = a.getIsUser();
@@ -73,7 +73,7 @@ public class LoginControlAd extends HttpServlet {
                 response.sendRedirect("http://localhost:8080/Apple_store/admin");
             } else {
                 request.setAttribute("mess", "Bạn phải là Admin");
-                request.getRequestDispatcher("/shop/loginad.jsp").forward(request, response);
+                request.getRequestDispatcher("/admin/loginad.jsp").forward(request, response);
             }
             //response.sendRedirect("http://localhost:8080/Apple_store");
         }

@@ -19,13 +19,15 @@
 
     <title>Sign Up</title>
 </head>
-<body>
+<body  style="
+    background-image: url(https://static.vecteezy.com/system/resources/previews/002/037/924/original/abstract-blue-background-with-beautiful-fluid-shapes-free-vector.jpg);
+">
 
 
 <div class="d-md-flex half">
-    <div class="bg" style="background-image: url('${root}asset/img/images/iphone.webp');"></div>
+<%--     <div class="bg" style="background-image: url('${root}asset/img/images/iphone.webp');"></div>
     <div class="contents">
-
+ --%>
         <div class="container">
             <div class="row align-items-center justify-content-center">
                 <div class="col-md-12">
@@ -78,7 +80,7 @@
                 </div>
             </div>
         </div>
-    </div>
+<!--     </div> -->
 
 
 </div>
@@ -86,7 +88,6 @@
 <script src="${root}asset/js/Validator.js"></script>
 
 <script>
-
     document.addEventListener('DOMContentLoaded', function () {
         // Mong muốn của chúng ta
         //   Đăng ký

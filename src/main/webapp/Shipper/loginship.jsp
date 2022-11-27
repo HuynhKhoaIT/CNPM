@@ -18,23 +18,25 @@
     <!-- Style -->
     <link rel="stylesheet" href="${root}asset/cssacc/style.css">
 
-    <title>Login</title>
+    <title>Login Shipper</title>
 </head>
-<body>
-
+<body  style="
+    background-image: url(https://static.vecteezy.com/system/resources/previews/002/037/924/original/abstract-blue-background-with-beautiful-fluid-shapes-free-vector.jpg);
+">
+ 
 
 <div class="d-md-flex half">
-    <div class="bg" style="background-image: url('${root}asset/img/ipad.webp');"></div>
-    <div class="contents">
+<%--     <div class="bg" style="background-image: url('${root}asset/img/ip14-s.webp');"></div>
+    <div class="contents"> --%>
 
         <div class="container">
             <div class="row align-items-center justify-content-center">
                 <div class="col-md-12">
                     <div class="form-block mx-auto">
                         <div class="text-center mb-5">
-                            <h3 class="text-uppercase">Login ADMIN <strong>APPLEStore</strong></h3>
+                            <h3 class="text-uppercase">Đăng nhập SHIPPER <strong>APPLEStore</strong></h3>
                         </div>
-                        <form action="loginad" method="POST" id="form-2">
+                        <form action="loginship" method="POST" id="form-7">
                             <div class="form-group first">
                                 <p class="form-message">${mess}</p>
                                 <label for="username">Tên đăng nhập</label>
@@ -48,6 +50,7 @@
                                        placeholder="Mật khẩu của bạn..." id="password">
                                 <span class="form-message"></span>
                             </div>
+
 
                             <button class="btn btn-block py-2 btn-primary" type="submit">Đăng nhập</button>
 
@@ -64,12 +67,12 @@
                 </div>
             </div>
         </div>
-    </div>
+<!--     </div> -->
 </div>
 
 
 </div>
-<!--
+
   <script src="${root}asset/js/Validator.js"></script>
 
   <script>
@@ -78,7 +81,7 @@
         // Mong muốn của chúng ta
       //   Đăng nhập
         Validator({
-          form: '#form-2',
+          form: '#form-7',
           formGroupSelector: '.form-group',
           errorSelector: '.form-message',
           rules: [
@@ -92,6 +95,5 @@
 
   </script>
 
--->
 </body>
 </html>
