@@ -19,9 +19,10 @@
 </head>
 <body>
 <div class="main">
+	<c:set var="items" value="${listlsp}" scope="request"/>
     <div class="content">
            <div class="row">
-           	<h3>Khách hàng: Nguyễn Huỳnh Khoa</h3>
+           	<h3>Khách hàng: ${sessionScope.a.getTenKH()}</h3>
            	<div class="table-responsive">
             <table class="table m-0">
                 <thead>
@@ -32,21 +33,22 @@
                 </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td><a href="#">1</a></td>
-                        <td>Đã Xác nhận</td>
-                        <td>1300000</td>
-                    </tr>
-                    <tr>
-                        <td><a href="#">2</a></td>
-                        <td>Đã Giao</td>
-                        <td>1500000</td>
-                    </tr>
+                    <c:forEach items = "${listDonHang }" var="list"> 
+	                    <tr>
+	                        <td><a href = "/Apple_store/User_OrderDetail?id=${list.getMaDH()}">${list.getMaDH()}</a></td>
+	                        <c:forEach items = "${listTrangThai }" var = "o">
+	                        	<c:if test="${list.maTrangThai == o.maTrangThai}">
+	                        		<td>${o.tenTrangThai}</td>
+	                        	</c:if>
+	                        </c:forEach>
+	                        <td>${list.getTongTien()}</td>
+	                    </tr>
+                	</c:forEach>
                 </tbody>
             </table>
            </div>
-    </div>
-
+    	</div>
+	</div>
 </div>
 </body>
 </html>

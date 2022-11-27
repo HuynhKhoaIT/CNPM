@@ -3,6 +3,8 @@ package Control;
 import DAO.DonHangDAO;
 import DAO.KhachHangDAO;
 import Model.DonHang;
+import Model.SendMailXacNhanDonHang;
+import Model.Users;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
@@ -26,11 +28,9 @@ public class Ad_invoice extends HttpServlet {
         DonHangDAO donhangDAO = new DonHangDAO();
 
         String maDH = request.getParameter("maDH");
-
+        
         donhangDAO.trangthai(maDH);
         
-        
-
         response.sendRedirect("/Apple_store/admin/AllOrder");
 
     }

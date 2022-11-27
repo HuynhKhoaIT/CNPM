@@ -35,9 +35,9 @@ public class SendMail {
                     Message.RecipientType.TO,
                     InternetAddress.parse(email)
             );
-            message.setSubject("Account Verification");
-            message.setText("Dear " + name + ","
-                    + "\n\n Your code to verify your account is: " + veri);
+            message.setSubject("XÁC NHẬN TÀI KHOẢN");
+            message.setText("Chào " + name + ","
+                    + "\n\n Mã xác nhận tài khoản của bạn là: " + veri);
 
             Transport.send(message);
 

@@ -30,12 +30,12 @@
                         <div class="text-center mb-5">
                             <h3 class="text-uppercase">TÌNH TRẠNG ĐƠN HÀNG</h3>
                         </div>
-                        <form action="order-tatus" method="POST" id="form-2">
+                        <form action="searchorder" method="POST" id="form-2">
                             <div class="form-group first">
-                                <p class="form-message">${mess}</p>
-                                <label for="username">Email của bạn</label>
-                                <input type="text" name="username" class="form-control"
-                                       placeholder="Email của bạn" id="username">
+                                <p class="form-message-1">${mess}</p>
+                                <label for="email">Email của bạn</label>
+                                <input type="text" name="email" class="form-control"
+                                       placeholder="Email của bạn" id="email">
                                 <span class="form-message"></span>
                             </div>
                             <button class="btn btn-block py-2 btn-primary" type="submit">Tìm Kiếm</button>

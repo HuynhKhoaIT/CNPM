@@ -362,6 +362,27 @@ public class DonHangDAO {
         }
         return list;
     }
+    
+    public List<DonHang> loadOrderByEmail(String email) {
+        String querry = "select * from DonHang where Email=?";
+        List<DonHang> list = new ArrayList<DonHang>();
+        try {
+
+            conn = new ConnectJDBC().getConnection();
+            ps = conn.prepareStatement(querry);
+            ps.setString(1, email);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                list.add(new DonHang(rs.getInt(1), rs.getInt(2), rs.getInt(3), rs.getInt(4), rs.getDate(5),
+                        rs.getInt(6), rs.getString(7), rs.getDate(8), rs.getInt(9), rs.getString(10), rs.getString(11),
+                        rs.getString(12)));
+
+            }
+
+        } catch (Exception e) {
+        }
+        return list;
+    }
 
     public int totalPriceAllOrderByMonth(int month) {
         String querry = "select * from DonHang where MaTrangThai=4 and MONTH(ThoiGian)=?";
@@ -491,6 +512,9 @@ public class DonHangDAO {
 
     public static void main(String[] args) {
         DonHangDAO donHangDAO = new DonHangDAO();
-        System.out.println(donHangDAO.getDonHangByMaDH("1"));
+        List<DonHang> list = donHangDAO.loadOrderByEmail("20110662@student.hcmute.edu.vn");
+        for(DonHang o: list) {
+        	System.out.print(o);
+        }
     }
 }

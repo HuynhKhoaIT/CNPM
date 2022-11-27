@@ -13,7 +13,7 @@ import jakarta.mail.internet.InternetAddress;
 import jakarta.mail.internet.MimeMessage;
 
 public class SendMailXacNhanDonHang {
-	public boolean sendMail(String email, int veri, String name) {
+	public boolean sendMail(String email, String name) {
         boolean test = false;
 
 
@@ -41,9 +41,11 @@ public class SendMailXacNhanDonHang {
                     Message.RecipientType.TO,
                     InternetAddress.parse(email)
             );
-            message.setSubject("Pass Verification");
-            message.setText("Dear " + name + ","
-                    + "\n\n Your code to verify your password is: " + veri);
+            message.setSubject("THEO DÕI TRẠNG THÁI ĐƠN HÀNG");
+            message.setText("Chào " + name + ","
+            		+ "n\n Cảm ơn bạn đã chọn mua hàng trên trang web của chúng tôi."
+                    + "\n\n Hãy theo dõi đơn hàng của bạn qua: http://localhost:8080/Apple_store/shop/searchorder "
+                    + "\n\n Thân ái.");
 
             Transport.send(message);
 
