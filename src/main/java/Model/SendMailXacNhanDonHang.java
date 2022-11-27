@@ -44,7 +44,7 @@ public class SendMailXacNhanDonHang {
             message.setSubject("THEO DÕI TRẠNG THÁI ĐƠN HÀNG");
             message.setText("Chào " + name + ","
             		+ "n\n Cảm ơn bạn đã chọn mua hàng trên trang web của chúng tôi."
-                    + "\n\n Hãy theo dõi đơn hàng của bạn qua: http://localhost:8080/Apple_store/shop/searchorder "
+                    + "\n\n Hãy theo dõi đơn hàng của bạn qua: http://localhost:8080/Apple_store/shop/searchorder"
                     + "\n\n Thân ái.");
 
             Transport.send(message);
