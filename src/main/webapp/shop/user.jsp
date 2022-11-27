@@ -27,11 +27,11 @@
 
     <!-- /.row -->
     <div class="content">
-        <div class="pro-container">
-            <div class="user-profile">
-                <div class="subnav">
+        <div class="container">
+            <div class="row" style="width: 100%;">
+                <div class="subnav col-md-3 col-3">
                     <div class="avatar-user navcard">
-                        <img
+                        <img style="width: 100%;"
                                 src="${root}asset/dist/img/user1-128x128.jpg"
                                 alt="User">
                     </div>
@@ -43,8 +43,7 @@
                             <li class="js-orders-btn"><a>Đơn hàng</a></li>
                             <form action="logout" method="POST">
                                 <li class="js-logout-btn">
-                                    <button type="submit"
-                                            style="margin: 0; background-color: #000; color: #fff; padding: 10px 58px;">
+                                    <button type="submit" class="logout-shop">
                                         Đăng xuất
                                     </button>
                                 </li>
@@ -54,7 +53,7 @@
                     </form>
 
                 </div>
-                <div class="tab-content js-content-tab">
+                <div class="tab-content js-content-tab col-md-9 col-9">
 
 
                     <form action="UserPage" class="cus-form" method="post">
@@ -95,13 +94,13 @@
                             </li>
                         </ul>
                         <div class="pro-btn-container">
-                            <button type="submit" class="save">Save changes</button>
-                            <button class="cancel">Cancel</button>
+                            <button type="submit" class="save">Lưu thông tin</button>
+                            <button class="cancel">Hủy</button>
                         </div>
                     </form>
 
                 </div>
-                <div class="tab-password display-off js-password-tab">
+                <div class="tab-password display-off js-password-tab col-md-9 col-9">
                     <form action="PasswordChange" class="cus-form" method="post">
                         <ul class="form">
                             <li class="row"><label class="label">Mật khẩu hiện
@@ -128,10 +127,10 @@
                             </li>
                         </ul>
 
-                        <div class="show-password">
+                        <!-- <div class="show-password">
                             <input type="checkbox" onclick="show_password()">
                             <p>Hiện mật khẩu</p>
-                        </div>
+                        </div> -->
                         <div class="pro-btn-container">
                             <button type="submit" class="save">Save changes</button>
                             <button class="cancel">Cancel</button>
@@ -139,42 +138,29 @@
                     </form>
 
                 </div>
-                <div class="tab-orders display-off js-orders-tab">
-
-                    <div class="items" style="background-color: #CCCCCC;">
-
-                        <div class="items-info float-left">
-                            <a> Mã đơn hàng</a>
-                        </div>
-
-                        <div class="items-info float-left">
-                            <div class="items-type float-left">
-
-                                <h3 class="items-name">Trạng thái</h3>
-
-
-                            </div>
-
-                            <div class="items-price float-left">
-                                <p class="end-price">Tổng tiền</p>
-                            </div>
-
-                            <div class="items-amount float-left">
-                                <p>Thời gian</p>
-                            </div>
-                        </div>
+                <div class="tab-orders display-off js-orders-tab col-md-9 col-9">
+                <div class="row title-order">
+	                 <div class="items-info col-md-3 col-4 ">
+	                      Mã đơn hàng
+	                 </div>
+                    <div class="items-type col-md-3 col-4">
+                        Trạng thái
                     </div>
-                    <c:forEach items="${allOrderDonHangs}" var="i">
+                    <div class="items-price col-md-3 col-4">
+                        Tổng tiền
+                    </div>
+                    <div class="items-amount col-md-3">
+                        Thời gian
+                    </div>
+            	</div>
+            	 <div class="row detail-order">
+	                 <c:forEach items="${allOrderDonHangs}" var="i">
                         <div class="items">
-
-                            <div class="items-info float-left">
-                                <a href="${root}User_OrderDetail?id=${i.getMaDH()}">${i.getMaDH()}</a>
-                            </div>
-
-                            <div class="items-info float-left">
-                                <div class="items-type float-left">
-
-
+                            <div class="items-info row" >
+	                            <div class="items-info col-md-3 col-4">
+	                               <a href="${root}User_OrderDetail?id=${i.getMaDH()}">${i.getMaDH()}</a>
+	                            </div>
+                                <div class="items-type col-md-3 col-4">
                                     <c:choose>
                                         <c:when test="${i.getMaTrangThai()==1}">
                                             <h3 class="items-name">Chưa xác nhận</h3>
@@ -183,26 +169,26 @@
                                             <h3 class="items-name">Đã xác nhận</h3>
                                         </c:when>
                                         <c:when test="${i.getMaTrangThai()==3}">
-                                            <h3 class="items-name">Đang giao hàng</h3>
+                                            <h3 class="items-name">Đang giao</h3>
                                         </c:when>
                                         <c:otherwise>
-                                            <h3 class="items-name">Đã nhận hàng</h3>
+                                            <h3 class="items-name">Đã nhận</h3>
                                         </c:otherwise>
                                     </c:choose>
-
-
                                 </div>
 
-                                <div class="items-price float-left">
-                                    <p class="end-price">${i.getTongTien()}VND</p>
+                                <div class="items-price col-md-3 col-4">
+                                    <p class="end-price" data-type="money">${i.getTongTien()}</p>
                                 </div>
-
-                                <div class="items-amount float-left">
+                                <div class="items-amount col-md-3">
                                     <p>${i.getThoiGian()}</p>
                                 </div>
                             </div>
                         </div>
                     </c:forEach>
+            	</div>
+                    
+                    
 
                 </div>
             </div>
