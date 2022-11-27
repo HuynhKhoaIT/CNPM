@@ -34,7 +34,7 @@
                         </div>
                         <form action="login" method="POST" id="form-2">
                             <div class="form-group first">
-                                <p class="form-message">${mess}</p>
+                                <p class="form-message-1">${mess}</p>
                                 <label for="username">Tên đăng nhập</label>
                                 <input type="text" name="username" class="form-control"
                                        placeholder="Tên đăng nhập của bạn..." id="username">
