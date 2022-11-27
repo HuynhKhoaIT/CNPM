@@ -1,6 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<c:url value="/" var="root" />
+<c:url value="/" var="root"/>
 <div id="header">
     <div id="header-top">
         <div class="container">
@@ -41,7 +41,8 @@
                     <form action="search" method="get">
                         <div class="form-search">
                             <i class="ti-search"></i>
-                            <input name="txt" type="text" class="search-input" placeholder="Bạn đang tìm sản phẩm, tin tức, ...">
+                            <input name="txt" type="text" class="search-input"
+                                   placeholder="Bạn đang tìm sản phẩm, tin tức, ...">
                         </div>
                     </form>
                 </div>
@@ -83,7 +84,8 @@
                 <div class="header-item">
                     <ul>
                         <c:forEach items="${requestScope.items}" var="o">
-                            <li><a href="http://localhost:8080/Apple_store/loaisp?maloai=${o.maLoai}" class="nav-sub">${o.tenLoai}</a></li>
+                            <li><a href="http://localhost:8080/Apple_store/loaisp?maloai=${o.maLoai}"
+                                   class="nav-sub">${o.tenLoai}</a></li>
                         </c:forEach>
                         <li><a href="${root}blog" class="nav-sub">Tin Tức</a></li>
                     </ul>
@@ -105,7 +107,7 @@
         <div class="mn-content">
             <div class="mn-top flex flex-between">
                 <div class="mn-logo">
-                    <a href="/"><img src="${root}asset/img/logo-fstu.webp" alt="logo-fstu" /> </a>
+                    <a href="/"><img src="${root}asset/img/logo-fstu.webp" alt="logo-fstu"/> </a>
                 </div>
                 <span class="js-close-menu">
                    <i class="ti-close"> </i>
@@ -114,7 +116,7 @@
             <c:set var="danhmuc" value="${maDM}"/>
             <div class="mn-body">
                 <ul>
-                    <c:forEach items="${listlsp}" var="o" >
+                    <c:forEach items="${listlsp}" var="o">
                         <li><a class="b-b-600" href="loaisp?maloai=${o.maLoai}" class="nav-sub">${o.tenLoai}</a></li>
                     </c:forEach>
                     <li class="b-b-600"><a href="${root}blog">Tin tức</a></li>
@@ -136,6 +138,7 @@
     }
 
     menuClose.addEventListener("click", closeMenuTicket);
+
     function closeMenuTicket() {
         sideMenu.classList.remove('open')
     }

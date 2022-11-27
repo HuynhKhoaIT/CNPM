@@ -1,6 +1,6 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ page contentType="text/html;charset=UTF-8" language="java"%>
-<c:url value="/" var="root" />
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<c:url value="/" var="root"/>
 <!DOCTYPE html>
 <html>
 <head>
@@ -23,8 +23,9 @@
 
 
 <div class="d-md-flex half">
-<%--     <div class="bg" style="background-image: url('${root}asset/img/images/iphone.webp');"></div>
-    <div class="contents"> --%>
+    <div class="bg" style="background-image: url('${root}asset/img/images/iphone.webp');"></div>
+    <div class="contents">
+
         <div class="container">
             <div class="row align-items-center justify-content-center">
                 <div class="col-md-12">
@@ -36,7 +37,8 @@
                             <p class="form-message">${mess}</p>
                             <div class="form-group first">
                                 <label for="verify">Mã xác nhận</label>
-                                <input type="text" name="verify" class="form-control" placeholder="Mã xác nhận" id="verify">
+                                <input type="text" name="verify" class="form-control" placeholder="Mã xác nhận"
+                                       id="verify">
                                 <span class="form-message"></span>
                             </div>
 
@@ -46,7 +48,9 @@
                 </div>
             </div>
         </div>
- <!--    </div> -->
+    </div>
+
+
 </div>
 
 <%--<script src="${root}asset/js/Validator.js"></script>--%>

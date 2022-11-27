@@ -12,9 +12,9 @@ import java.nio.file.Paths;
 import java.util.List;
 
 @WebServlet(name = "Ad_TaoBaiViet", value = "/admin/Ad_TaoBaiViet")
-@MultipartConfig(fileSizeThreshold = 1024*1024*2,
-        maxFileSize = 1024*1024*10,
-        maxRequestSize = 1024*1024*50)
+@MultipartConfig(fileSizeThreshold = 1024 * 1024 * 2,
+        maxFileSize = 1024 * 1024 * 10,
+        maxRequestSize = 1024 * 1024 * 50)
 
 public class Ad_AddBlog extends HttpServlet {
     @Override
@@ -24,34 +24,29 @@ public class Ad_AddBlog extends HttpServlet {
         response.setContentType("text/html; charset=UTF-8");
 
         BaiViet baiViet;
-        String maBV="";
+        String maBV = "";
         String action = request.getParameter("action");
-        if(action == null)
-        {
-            action ="";
+        if (action == null) {
+            action = "";
         }
-        if(action.equals("delete"))
-        {
+        if (action.equals("delete")) {
             maBV = request.getParameter("maBV");
             BaiVietDAO baiVietDAO = new BaiVietDAO();
             baiVietDAO.deleteBaiViet(maBV);
             response.sendRedirect("Ad_Blog");
-        }
-        else {
-            if(action.equals("modify"))
-            {
+        } else {
+            if (action.equals("modify")) {
                 maBV = request.getParameter("maBV");
                 BaiVietDAO baiVietDAO = new BaiVietDAO();
                 baiViet = baiVietDAO.getBaiVietByID(maBV);
-            }
-            else
-            {
+            } else {
                 baiViet = new BaiViet();
             }
-            request.setAttribute("baiViet",baiViet);
-            request.getRequestDispatcher("/admin/add_blog.jsp").forward(request,response);
+            request.setAttribute("baiViet", baiViet);
+            request.getRequestDispatcher("/admin/add_blog.jsp").forward(request, response);
         }
     }
+
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setCharacterEncoding("UTF-8");
@@ -64,25 +59,23 @@ public class Ad_AddBlog extends HttpServlet {
         String oldImage = request.getParameter("oldImage");
         Part part = request.getPart("image");
         String anh;
-        if(part.getSubmittedFileName()==null || part.getSubmittedFileName().equals("")){
+        if (part.getSubmittedFileName() == null || part.getSubmittedFileName().equals("")) {
             anh = oldImage;
-        }else{
+        } else {
             String realPath = request.getServletContext().getRealPath("/uploads");
             String filename
                     = Paths.get(part.getSubmittedFileName()).getFileName().toString();
-            if(!Files.exists(Paths.get(realPath))){
+            if (!Files.exists(Paths.get(realPath))) {
                 Files.createDirectories(Paths.get(realPath));
             }
-            part.write(realPath+"/"+filename);
-            anh = "uploads/"+filename;
+            part.write(realPath + "/" + filename);
+            anh = "uploads/" + filename;
         }
         BaiVietDAO baiVietDAO = new BaiVietDAO();
-        if(maBV.equals("") || maBV == null || maBV.equals("0"))
-        {
-            baiVietDAO.addBaiViet(tieude,chitiet,anh);
-        }
-        else {
-            baiVietDAO.updateBaiViet(tieude,chitiet,anh,maBV);
+        if (maBV.equals("") || maBV == null || maBV.equals("0")) {
+            baiVietDAO.addBaiViet(tieude, chitiet, anh);
+        } else {
+            baiVietDAO.updateBaiViet(tieude, chitiet, anh, maBV);
         }
         response.sendRedirect("Ad_Blog");
     }

@@ -35,25 +35,24 @@ public class Ship_PageControl extends HttpServlet {
 		session.removeAttribute("acc");
 		if (session.getAttribute("accship") == null) {
 			response.sendRedirect("http://localhost:8080/Apple_store/shop/loginship");
-		}
-		else {
-			Users shipper = (Users)session.getAttribute("accship");
+		} else {
+			Users shipper = (Users) session.getAttribute("accship");
 			// don hang dang giao cua shipper :
 
 			DonHangDAO donHangDAO = new DonHangDAO();
-			List<DonHang> listDangGiao = donHangDAO.getOrderOfShipper(String.valueOf(shipper.getMaKH()),"3");
+			List<DonHang> listDangGiao = donHangDAO.getOrderOfShipper(String.valueOf(shipper.getMaKH()), "3");
 
 			// So luong don hang moi co the xac nhan de giao
-			List<DonHang> listCoTheNhanGiao  = donHangDAO.getOrderTheoTrangThai("2");
+			List<DonHang> listCoTheNhanGiao = donHangDAO.getOrderTheoTrangThai("2");
 			int SLCoTheNhanGiao = listCoTheNhanGiao.size();
 
 			// So luong don hang da giao cau Shipper
-			List<DonHang> listDonHangDaGiaoCuaShiper = donHangDAO.getOrderOfShipper(String.valueOf(shipper.getMaKH()),"4");
+			List<DonHang> listDonHangDaGiaoCuaShiper = donHangDAO.getOrderOfShipper(String.valueOf(shipper.getMaKH()), "4");
 			int SLDonHangDaGiao = listDonHangDaGiaoCuaShiper.size();
 
-			request.setAttribute("listDangGiao",listDangGiao);
-			request.setAttribute("SLCoTheNhanGiao",SLCoTheNhanGiao);
-			request.setAttribute("SLDonHangDaGiao",SLDonHangDaGiao);
+			request.setAttribute("listDangGiao", listDangGiao);
+			request.setAttribute("SLCoTheNhanGiao", SLCoTheNhanGiao);
+			request.setAttribute("SLDonHangDaGiao", SLDonHangDaGiao);
 
 
 			request.getRequestDispatcher("/Shipper/shipper.jsp").forward(request, response);

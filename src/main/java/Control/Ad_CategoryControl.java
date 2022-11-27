@@ -20,29 +20,30 @@ import Model.SanPham;
  */
 @WebServlet(urlPatterns = {"/admin/category"})
 public class Ad_CategoryControl extends HttpServlet {
-	protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		request.setCharacterEncoding("UTF-8");
-		response.setCharacterEncoding("UTF-8");
-		response.setContentType("text/html; charset=UTF-8");
+    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        request.setCharacterEncoding("UTF-8");
+        response.setCharacterEncoding("UTF-8");
+        response.setContentType("text/html; charset=UTF-8");
 
-		String maloai=request.getParameter("maloai");
-        String madm=request.getParameter("madm");
+        String maloai = request.getParameter("maloai");
+        String madm = request.getParameter("madm");
 
         SanPhamDAO sanphamdao = new SanPhamDAO();
         LoaispDAO loaispDAO = new LoaispDAO();
         List<LoaiSP> listlsp = loaispDAO.getAllloaisp();
         List<DanhMuc> listdm = sanphamdao.getAlldanhmuc(maloai);
-        
-        
+
+
         request.setAttribute("listlsp", listlsp);
         request.setAttribute("listdm", listdm);
 
-		request.getRequestDispatcher("/admin/category.jsp").forward(request, response);
+        request.getRequestDispatcher("/admin/category.jsp").forward(request, response);
 
-	}
-	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		processRequest(req, resp);
-	}
-	
+    }
+
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        processRequest(req, resp);
+    }
+
 }

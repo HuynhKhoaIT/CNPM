@@ -26,29 +26,37 @@ public class ShiperNewOrder extends HttpServlet {
         DonHangDAO dao = new DonHangDAO();
 
         HttpSession session = request.getSession();
-        Users users = (Users)session.getAttribute("acc");
-        String title = "";
 
-        String tt = request.getParameter("tt");
-        if(tt.equals("2"))
-        {
-            list = dao.getOrderTheoTrangThai("2");
-            title="Đơn hàng mới";
-
-        }else {
-            list = dao.getOrderOfShipper(String.valueOf(users.getMaKH()),tt);
-            if(tt.equals("3"))
-            {
-                title="Đơn đang giao";
-            }
-            else {
-                title="Đơn đã giao";
-            }
+        session.removeAttribute("accad");
+        session.removeAttribute("acc");
+        if (session.getAttribute("accship") == null) {
+            response.sendRedirect("http://localhost:8080/Apple_store/shop/loginship");
         }
+        else {
+            Users users = (Users) session.getAttribute("accship");
+            String title = "";
 
-        request.setAttribute("title",title);
-        request.setAttribute("list",list);
-        request.getRequestDispatcher("/Shipper/newOrders.jsp").forward(request, response);
+            String tt = request.getParameter("tt");
+            if(tt.equals("2"))
+            {
+                list = dao.getOrderTheoTrangThai("2");
+                title="Đơn hàng mới";
+
+            }else {
+                list = dao.getOrderOfShipper(String.valueOf(users.getMaKH()),tt);
+                if(tt.equals("3"))
+                {
+                    title="Đơn đang giao";
+                }
+                else {
+                    title="Đơn đã giao";
+                }
+            }
+
+            request.setAttribute("title",title);
+            request.setAttribute("list",list);
+            request.getRequestDispatcher("/Shipper/newOrders.jsp").forward(request, response);
+        }
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response)

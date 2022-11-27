@@ -96,9 +96,9 @@
 												<c:forEach var="i" begin="0" end="11">
 													<tr>
 														<td>${i+1}</td>
-														<td>${doanhThu[i]}VND</td>
-														<td>${ChiPhi[i]}VND</td>
-														<td>${doanhThu[i]-ChiPhi[i]}VND</td>
+														<td data-type="money">${doanhThu[i]}</td>
+														<td data-type="money">${ChiPhi[i]}</td>
+														<td data-type="money">${doanhThu[i]-ChiPhi[i]}</td>
 													</tr>
 												</c:forEach>
 											</tbody>
@@ -122,9 +122,9 @@
 												<c:forEach var="i" begin="0" end="2">
 													<tr>
 														<td>${i+1}</td>
-														<td>${doanhThuQuy[i]}VND</td>
-														<td>${ChiPhiQuy[i]}VND</td>
-														<td>${doanhThuQuy[i]-ChiPhiQuy[i]}VND</td>
+														<td data-type="money">${doanhThuQuy[i]}</td>
+														<td data-type="money">${ChiPhiQuy[i]}</td>
+														<td data-type="money">${doanhThuQuy[i]-ChiPhiQuy[i]}</td>
 													</tr>
 												</c:forEach>
 
@@ -149,9 +149,9 @@
 												<c:forEach var="i" begin="0" end="5">
 													<tr>
 														<td>${year[i]}</td>
-														<td>${doanhThuNam[i]}VND</td>
-														<td>${ChiPhiNam[i]}VND</td>
-														<td>${doanhThuNam[i]-ChiPhiNam[i]}VND</td>
+														<td data-type="money">${doanhThuNam[i]}</td>
+														<td data-type="money">${ChiPhiNam[i]}</td>
+														<td data-type="money">${doanhThuNam[i]-ChiPhiNam[i]}</td>
 													</tr>
 												</c:forEach>
 												

@@ -7,7 +7,7 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<c:url value="/" var="root" />
+<c:url value="/" var="root"/>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,7 +16,8 @@
     <title>AdminLTE 3 | DataTables</title>
 
     <!-- Google Font: Source Sans Pro -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="${root}plugins/fontawesome-free/css/all.min.css">
     <!-- DataTables -->
@@ -29,11 +30,11 @@
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
     <!-- Navbar -->
-    <%@include file="./ad_header.jsp"%>
+    <%@include file="./ad_header.jsp" %>
     <!-- /.navbar -->
 
     <!-- Main Sidebar Container -->
-	<%@include file="./sidebar.jsp"%>
+    <%@include file="./sidebar.jsp" %>
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
         <!-- Content Header (Page header) -->
@@ -80,7 +81,8 @@
                                         <th>Danh mục</th>
                                         <th>Số lượng</th>
                                         <!-- <th>Ngày nhập</th> -->
-                                    </tr> grade</th>
+                                    </tr>
+                                    grade</th>
                                     </tr>
                                     </thead>
                                     <tbody>
@@ -201,7 +203,7 @@
         <!-- /.content -->
     </div>
     <!-- /.content-wrapper -->
-    <%@include file="./ad_footer.jsp"%>
+    <%@include file="./ad_footer.jsp" %>
 
     <!-- Control Sidebar -->
     <aside class="control-sidebar control-sidebar-dark">
@@ -210,6 +212,6 @@
     <!-- /.control-sidebar -->
 </div>
 <!-- ./wrapper -->
-<%@include file="./jqueryScript.jsp"%>
+<%@include file="./jqueryScript.jsp" %>
 </body>
 </html>

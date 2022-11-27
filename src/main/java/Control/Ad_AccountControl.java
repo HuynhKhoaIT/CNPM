@@ -34,11 +34,12 @@ public class Ad_AccountControl extends HttpServlet {
         List<TrangThai> listTrangThai = trangThaiDAO.getAllTrangThai();
 
 
-        request.setAttribute("listTrangThai",listTrangThai);
-        request.setAttribute("listDonHang",listDonHang);
-        request.setAttribute("khachHang",khachHang);
-        request.getRequestDispatcher("/admin/account.jsp").forward(request,response);
+        request.setAttribute("listTrangThai", listTrangThai);
+        request.setAttribute("listDonHang", listDonHang);
+        request.setAttribute("khachHang", khachHang);
+        request.getRequestDispatcher("/admin/account.jsp").forward(request, response);
     }
+
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 

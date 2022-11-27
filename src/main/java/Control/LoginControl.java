@@ -17,69 +17,66 @@ import java.io.IOException;
  */
 @WebServlet("/shop/login")
 public class LoginControl extends HttpServlet {
-	private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
 
-	/**
-	 * @see HttpServlet#HttpServlet()
-	 */
-	public LoginControl() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public LoginControl() {
+        super();
+        // TODO Auto-generated constructor stub
+    }
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		request.setCharacterEncoding("UTF-8");
-		response.setCharacterEncoding("UTF-8");
-		response.setContentType("text/html; charset=UTF-8");
-		HttpSession session = request.getSession();
-		if (session.getAttribute("acc") != null) {
-			response.sendRedirect("http://localhost:8080/Apple_store");
-		}
-		else {
-			request.getRequestDispatcher("/shop/loginuser.jsp").forward(request, response);
-		}
-		//request.getRequestDispatcher("/shop/login.jsp").forward(request, response);
-	}
+    /**
+     * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+     */
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        // TODO Auto-generated method stub
+        request.setCharacterEncoding("UTF-8");
+        response.setCharacterEncoding("UTF-8");
+        response.setContentType("text/html; charset=UTF-8");
+        HttpSession session = request.getSession();
+        if (session.getAttribute("acc") != null) {
+            response.sendRedirect("http://localhost:8080/Apple_store");
+        } else {
+            request.getRequestDispatcher("/shop/loginuser.jsp").forward(request, response);
+        }
+        //request.getRequestDispatcher("/shop/login.jsp").forward(request, response);
+    }
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.setCharacterEncoding("UTF-8");
-		response.setCharacterEncoding("UTF-8");
-		response.setContentType("text/html; charset=UTF-8");
+    /**
+     * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+     */
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.setCharacterEncoding("UTF-8");
+        response.setCharacterEncoding("UTF-8");
+        response.setContentType("text/html; charset=UTF-8");
 
-		String username = request.getParameter("username");
-		String password = request.getParameter("password");
+        String username = request.getParameter("username");
+        String password = request.getParameter("password");
 
-		MD5 lib = new MD5();
-		String passMD5 = lib.md5(password);
+        MD5 lib = new MD5();
+        String passMD5 = lib.md5(password);
 
-		LoginDAO dao = new LoginDAO();
-		Users a = dao.login(username, passMD5);
-		if(a == null) {
-			request.setAttribute("mess", "Sai tên đăng nhập hoặc mật khẩu");
-			request.getRequestDispatcher("/shop/loginuser.jsp").forward(request, response);
-		}
-		else {
-			HttpSession session = request.getSession();
-			session.setAttribute("acc", a);
-			int user = a.getIsUser();
-			int admin = a.getIsAdmin();
-			int shipper = a.getIsShiper();
-			if (user==1 && admin == 0 && shipper == 0) {
-				response.sendRedirect("http://localhost:8080/Apple_store");
-			}
-			else {
-				request.setAttribute("mess", "Bạn phải là User");
-				request.getRequestDispatcher("/shop/loginuser.jsp").forward(request, response);
-			}
-			//response.sendRedirect("http://localhost:8080/Apple_store");
-		}
-	}
+        LoginDAO dao = new LoginDAO();
+        Users a = dao.login(username, passMD5);
+        if (a == null) {
+            request.setAttribute("mess", "Sai tên đăng nhập hoặc mật khẩu");
+            request.getRequestDispatcher("/shop/loginuser.jsp").forward(request, response);
+        } else {
+            HttpSession session = request.getSession();
+            session.setAttribute("acc", a);
+            int user = a.getIsUser();
+            int admin = a.getIsAdmin();
+            int shipper = a.getIsShiper();
+            if (user == 1 && admin == 0 && shipper == 0) {
+                response.sendRedirect("http://localhost:8080/Apple_store");
+            } else {
+                request.setAttribute("mess", "Bạn phải là User");
+                request.getRequestDispatcher("/shop/loginuser.jsp").forward(request, response);
+            }
+            //response.sendRedirect("http://localhost:8080/Apple_store");
+        }
+    }
 
 }

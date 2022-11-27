@@ -16,9 +16,10 @@ import Model.BaiViet;
 import Model.DanhMuc;
 import Model.LoaiSP;
 import Model.SanPham;
+
 @WebServlet(urlPatterns = {"/blog"})
-public class BlogControl extends HttpServlet{
-	protected void processRequest(HttpServletRequest request, HttpServletResponse response)
+public class BlogControl extends HttpServlet {
+    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         request.setCharacterEncoding("UTF-8");
         response.setCharacterEncoding("UTF-8");
@@ -28,18 +29,19 @@ public class BlogControl extends HttpServlet{
         List<BaiViet> listblog = baivietdao.getAllBaiVietTop4();
         BaiViet baiViet = baivietdao.getBaiViet();
         LoaispDAO loaispDAO = new LoaispDAO();
-		List<LoaiSP> listlsp = loaispDAO.getAllloaisp();
+        List<LoaiSP> listlsp = loaispDAO.getAllloaisp();
 
-		request.setAttribute("listlsp",listlsp);
-        
+        request.setAttribute("listlsp", listlsp);
+
         request.setAttribute("listblog", listblog);
         request.setAttribute("baiViet", baiViet);
         request.getRequestDispatcher("/shop/blog.jsp").forward(request, response);
-        
+
     }
-	@Override
-	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		processRequest(req, resp);
-	}
+
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        processRequest(req, resp);
+    }
 
 }
