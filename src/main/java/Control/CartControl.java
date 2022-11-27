@@ -24,7 +24,7 @@ public class CartControl extends HttpServlet {
         HttpSession session = request.getSession();
       
         Users users = (Users) session.getAttribute("acc");
-
+        
         SanPhamDAO dao = new SanPhamDAO();
         List<SanPham> list = dao.getAll();
         Cookie[] arr = request.getCookies();
