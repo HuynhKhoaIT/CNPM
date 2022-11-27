@@ -55,7 +55,7 @@
                             <div class="card-header">
                                 <h3 class="card-title">Tất cả banner</h3>
                                 <div class="card-add">
-                                    <a href="${root}admin/Ad_TaoBaiViet" class="">
+                                    <a href="${root}admin/Ad_AddBanner" class="">
                                         <p>Thêm banner</p>
                                         <p>${mess}</p>
                                     </a>
@@ -67,20 +67,18 @@
                                     <thead>
                                     <tr>
                                         <th>Tiêu đề</th>
-                                        <th>Thời gian</th>
-                                        <th>Sửa</th>
+<%--                                        <th>Sửa</th>--%>
                                         <th>Xóa</th>
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    <c:forEach items="${listBaiViet}" var="l">
+                                    <c:forEach items="${listBaner}" var="l">
                                         <tr>
                                             <td>
-                                                <a href="${root}/BlogDetailControl?maBV=${l.maBV}">${l.tieuDeBV}</a>
+                                                <a>${l.tieuDeB}</a>
                                             </td>
-                                            <td>${l.ngayTao}</td>
-                                            <td><a href="Ad_TaoBaiViet?maBV=${l.maBV}&action=modify">Sửa</a></td>
-                                            <td><a href="Ad_TaoBaiViet?maBV=${l.maBV}&action=delete"
+<%--                                            <td><a href="/Apple_store/admin/Ad_AddBanner?maB=${l.maB}&action=modify">Sửa</a></td>--%>
+                                            <td><a href="/Apple_store/admin/Ad_AddBanner?maB=${l.maB}&action=delete"
                                                    style="color: red;">Xóa</a></td>
                                         </tr>
                                     </c:forEach>

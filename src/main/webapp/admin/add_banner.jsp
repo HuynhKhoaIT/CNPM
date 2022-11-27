@@ -60,19 +60,18 @@
                             </div>
                             <!-- /.card-header -->
                             <!-- form start -->
-                            <form id="addBlogForm" action="Ad_TaoBaiViet" method="post" enctype="multipart/form-data">
-                                <input type="hidden" name="maBV" value="${baiViet.maBV}">
+                            <form id="addBlogForm" action="Ad_AddBanner" method="post" enctype="multipart/form-data">
+                                <input type="hidden" name="maB" value="${banner.maB}">
                                 <div class="card-body">
                                     <div class="form-group">
                                         <label for="exampleInputName1">Tiêu đề</label>
                                         <input type="text" class="form-control" id="exampleInputName1"
-                                               placeholder="Enter name" name="tieude" value="${baiViet.tieuDeBV}"/>
+                                               placeholder="Enter name" name="tieude" value="${banner.tieuDeB}"/>
                                     </div>
                                     <div class="form-group">
-                                        <label>banner</label>
                                         <form action="/action_page.php">
                                             <input type="file" name="image"/><br><br>
-                                            <input type="hidden" value="${baiViet.anh}" name="oldImage">
+                                            <input type="hidden" value="${banner.anh}" name="oldImage">
                                         </form>
                                     </div>
                                 </div>

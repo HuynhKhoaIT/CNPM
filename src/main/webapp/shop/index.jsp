@@ -22,7 +22,7 @@
 
     <div id="slider">
         <a href="" class="slider-img">
-            <img src="${root}asset/img/br.webp" alt=""/>
+            <img src="${banner}" alt=""/>
         </a>
     </div>
 
