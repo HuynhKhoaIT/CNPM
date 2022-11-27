@@ -128,10 +128,9 @@
                 <i class="fas fa-expand-arrows-alt"></i>
             </a>
         </li>
-        <form action="logout" method="POST">
+        <form action="logoutad" method="POST">
             <li class="js-logout-btn logout-admin">
-                <button type="submit"
-                >
+                <button type="submit">
                     Đăng xuất
                 </button>
             </li>
