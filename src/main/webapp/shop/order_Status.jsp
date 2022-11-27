@@ -41,7 +41,7 @@
 	                        		<td>${o.tenTrangThai}</td>
 	                        	</c:if>
 	                        </c:forEach>
-	                        <td>${list.getTongTien()}</td>
+	                        <td data-type="money">${list.getTongTien()}</td>
 	                    </tr>
                 	</c:forEach>
                 </tbody>
@@ -51,4 +51,11 @@
 	</div>
 </div>
 </body>
+<script>
+
+    document.querySelectorAll('[data-type="money"]').forEach(item => {
+
+        item.innerHTML = new Intl.NumberFormat('vi-VN', {style: 'currency', currency: 'vnd'}).format(item.innerHTML);
+    })
+</script>
 </html>
