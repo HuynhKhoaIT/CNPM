@@ -87,6 +87,7 @@ public class Ad_AddCategory extends HttpServlet {
             danhMucDAO.updateDanhMuc(maLoai, tenDM, maDM);
         }
         response.sendRedirect("http://localhost:8080/Apple_store/admin/category");
+        // thong bao
     }
 
 }

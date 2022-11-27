@@ -63,10 +63,11 @@
                                 <div class="card-add">
                                     <a href="${root}admin/Ad_TaoBaiViet" class="">
                                         <p>Thêm bài viết</p>
-                                        <p>${mess}</p>
                                     </a>
                                 </div>
                             </div>
+
+
                             <!-- /.card-header -->
                             <div class="card-body">
                                 <table id="example1" class="table table-bordered table-striped">
@@ -106,6 +107,7 @@
         </section>
         <!-- /.content -->
     </div>
+
     <!-- /.content-wrapper -->
     <%@include file="./ad_footer.jsp" %>
     <!-- Control Sidebar -->
@@ -117,4 +119,15 @@
 <!-- ./wrapper -->
 <%@include file="./jqueryScript.jsp" %>
 </body>
+
+<input type="hidden" value="${sessionScope.getAlert}" id = "Alert">
+<c:remove var="getAlert"/>
 </html>
+<script>
+    $(document).ready(function(){
+        var Alert = document.getElementById("Alert");
+        if(Alert && Alert.value){
+            alert(Alert.value);
+        }
+    });
+</script>

@@ -25,14 +25,36 @@ public class SearchControl extends HttpServlet {
         response.setCharacterEncoding("UTF-8");
         response.setContentType("text/html; charset=UTF-8");
 
-        String txtSearch = request.getParameter("txt");
+        String sort_raw = request.getParameter("sort"); //1
 
         SanPhamDAO sanPhamDAO = new SanPhamDAO();
-        List<SanPham> list = sanPhamDAO.searchByName(txtSearch);
+
+        List<SanPham> list ;
+
+        int sort = 0;
+        if (sort_raw != null) {
+            sort = Integer.parseInt(sort_raw);//1
+        }
+
+        String txtSearch = request.getParameter("txt");
+
+
+
+        if (sort == 0) {
+            list = sanPhamDAO.searchByName(txtSearch);
+        } else if (sort == 1) {
+            list = sanPhamDAO.searchByNameTang(txtSearch);
+        } else {
+            list = sanPhamDAO.searchByNameGiam(txtSearch);
+        }
+
         LoaispDAO loaispDAO = new LoaispDAO();
         List<LoaiSP> listlsp = loaispDAO.getAllloaisp();
 
         request.setAttribute("listlsp", listlsp);
+
+        request.setAttribute("sort", sort);
+
 
         request.setAttribute("listSearch", list);
         request.setAttribute("txtS", txtSearch);

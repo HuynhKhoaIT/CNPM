@@ -276,26 +276,28 @@
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    <c:forEach var="i" begin="0" end="${size-1 }">
-                                        <tr>
-                                            <td>
-                                                <a href="admin/Ad_invoiceControl?maDH=${list[i].getMaDH()}">${list[i].getMaDH()}</a>
-                                            </td>
-                                            <td>${listName[i]}</td>
-                                            <c:choose>
-                                                <c:when test="${list[i].getMaTrangThai()==1}">
-                                                    <td><span class="badge badge-success">Chưa Xác Nhận</span></td>
-                                                </c:when>
-                                                <c:otherwise>
-                                                    <td><span class="badge badge-success">Đã Xác Nhận</span></td>
-                                                </c:otherwise>
-                                            </c:choose>
-                                            <td>
-                                                <div class="sparkbar" data-color="#00a65a"
-                                                     data-height="20">${list[i].getThoiGian()}</div>
-                                            </td>
-                                        </tr>
-                                    </c:forEach>
+                                    <c:if  test="${size > 0}">
+                                        <c:forEach var="i" begin="0" end="${size-1 }">
+                                            <tr>
+                                                <td>
+                                                    <a href="admin/Ad_invoiceControl?maDH=${list[i].getMaDH()}">${list[i].getMaDH()}</a>
+                                                </td>
+                                                <td>${listName[i]}</td>
+                                                <c:choose>
+                                                    <c:when test="${list[i].getMaTrangThai()==1}">
+                                                        <td><span class="badge badge-success">Chưa Xác Nhận</span></td>
+                                                    </c:when>
+                                                    <c:otherwise>
+                                                        <td><span class="badge badge-success">Đã Xác Nhận</span></td>
+                                                    </c:otherwise>
+                                                </c:choose>
+                                                <td>
+                                                    <div class="sparkbar" data-color="#00a65a"
+                                                         data-height="20">${list[i].getThoiGian()}</div>
+                                                </td>
+                                            </tr>
+                                        </c:forEach>
+                                    </c:if>
                                     </tbody>
                                 </table>
                             </div>

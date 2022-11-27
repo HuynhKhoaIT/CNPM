@@ -2,6 +2,7 @@ package Control;
 
 import DAO.BaiVietDAO;
 import Model.BaiViet;
+import jakarta.mail.Session;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
@@ -22,7 +23,6 @@ public class Ad_Blog extends HttpServlet {
         request.setAttribute("listBaiViet", listBaiViet);
         request.getRequestDispatcher("/admin/blog.jsp").forward(request, response);
     }
-
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 

@@ -34,6 +34,7 @@ public class Ad_PageControl extends HttpServlet {
         session.removeAttribute("acc");
         if (session.getAttribute("accad") == null) {
             response.sendRedirect("http://localhost:8080/Apple_store/shop/loginad");
+            // thong bao
         } else {
             List<DonHang> list = new ArrayList<DonHang>();
             DonHangDAO dao = new DonHangDAO();
@@ -78,8 +79,6 @@ public class Ad_PageControl extends HttpServlet {
             request.getRequestDispatcher("/admin/admin.jsp").forward(request, response);
         }
     }
-
-
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         // TODO Auto-generated method stub
 

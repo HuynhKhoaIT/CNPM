@@ -42,12 +42,30 @@
                     <div class="content-sort">
                         <div class="text">Sắp xếp theo:</div>
                         <div class="dropdown">
-                            <button class="btn btn-outline" type="button" data-toggle="dropdown">Bán chạy nhất
-                                <span class="caret"></span></button>
+                            <c:if test="${sort == ''}">
+                                <button class="btn btn-outline" type="button" data-toggle="dropdown">Mới Nhất
+                                    <span class="caret"></span>
+                                </button>
+                            </c:if>
+                            <c:if test="${sort == -1}">
+                                <button class="btn btn-outline" type="button" data-toggle="dropdown">Giá cao đến
+                                    thấp
+                                    <span class="caret"></span>
+                                </button>
+                            </c:if>
+                            <c:if test="${sort == 1}">
+                                <button class="btn btn-outline" type="button" data-toggle="dropdown">Giá thấp
+                                    đến cao
+                                    <span class="caret"></span>
+                                </button>
+                            </c:if>
                             <ul class="dropdown-menu">
-                                <li><a href="#">Bán chạy nhất</a></li>
-                                <li><a href="#">Giá thấp đến cao</a></li>
-                                <li><a href="#">Giá cao đến thấp</a></li>
+                                <li class="tab-item"><a href="search?sort=0&txt=${txtS}">Mới
+                                    Nhất</a></li>
+                                <li class="tab-item"><a href="search?sort=1&txt=${txtS}">Giá
+                                    cao đến thấp</a></li>
+                                <li class="tab-item"><a href="search?sort=-1&txt=${txtS}">Giá
+                                    thấp đến cao</a></li>
                             </ul>
                         </div>
                     </div>

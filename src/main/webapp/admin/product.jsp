@@ -134,4 +134,14 @@
 <!-- ./wrapper -->
 <%@include file="./jqueryScript.jsp" %>
 </body>
+<input type="hidden" value="${sessionScope.getAlert}" id = "Alert">
+<c:remove var="getAlert"/>
 </html>
+<script>
+    $(document).ready(function(){
+        var Alert = document.getElementById("Alert");
+        if(Alert && Alert.value){
+            alert(Alert.value);
+        }
+    });
+</script>

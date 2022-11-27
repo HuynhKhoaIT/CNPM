@@ -407,7 +407,47 @@ public class SanPhamDAO {
     public List<SanPham> searchByName(String txtSearch) {
         List<SanPham> list = new ArrayList<>();
         String query = "select *from SanPham \r\n"
-                + "where [TenSP] like ? ";
+                + "where [TenSP] like ? and SanPham.isDeleted=0 order by MaSP desc ";
+        try {
+            conn = new ConnectJDBC().getConnection();
+            ps = conn.prepareStatement(query);
+            ps.setString(1, "%" + txtSearch + "%");
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                list.add(new SanPham(rs.getInt(1), rs.getInt(2),
+                        rs.getString(3), rs.getString(4),
+                        rs.getInt(5), rs.getInt(6), rs.getInt(7), rs.getInt(8),
+                        rs.getString(9), rs.getString(10),
+                        rs.getInt(11), rs.getInt(12)));
+            }
+        } catch (Exception e) {
+        }
+        return list;
+    }
+    public List<SanPham> searchByNameTang(String txtSearch) {
+        List<SanPham> list = new ArrayList<>();
+        String query = "select *from SanPham \r\n"
+                + "where [TenSP] like ? and SanPham.isDeleted=0 order by GiaBanThuong ASC ";
+        try {
+            conn = new ConnectJDBC().getConnection();
+            ps = conn.prepareStatement(query);
+            ps.setString(1, "%" + txtSearch + "%");
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                list.add(new SanPham(rs.getInt(1), rs.getInt(2),
+                        rs.getString(3), rs.getString(4),
+                        rs.getInt(5), rs.getInt(6), rs.getInt(7), rs.getInt(8),
+                        rs.getString(9), rs.getString(10),
+                        rs.getInt(11), rs.getInt(12)));
+            }
+        } catch (Exception e) {
+        }
+        return list;
+    }
+    public List<SanPham> searchByNameGiam(String txtSearch) {
+        List<SanPham> list = new ArrayList<>();
+        String query = "select *from SanPham \r\n"
+                + "where [TenSP] like ? and SanPham.isDeleted=0 order by GiaBanThuong desc ";
         try {
             conn = new ConnectJDBC().getConnection();
             ps = conn.prepareStatement(query);
