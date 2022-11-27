@@ -32,7 +32,7 @@
                 <div class="col-md-12">
                     <div class="form-block mx-auto">
                         <div class="text-center mb-5">
-                            <h3 class="text-uppercase">Login SHIPPER <strong>APPLEStore</strong></h3>
+                            <h3 class="text-uppercase">Đăng nhập SHIPPER <strong>APPLEStore</strong></h3>
                         </div>
                         <form action="loginship" method="POST" id="form-2">
                             <div class="form-group first">

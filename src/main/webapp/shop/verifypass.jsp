@@ -30,7 +30,7 @@
             <div class="col-md-12">
                 <div class="form-block mx-auto">
                     <div class="text-center mb-5">
-                        <h3 class="text-uppercase">Verify <strong>APPLEStore</strong></h3>
+                        <h3 class="text-uppercase">Xác nhận đổi mật khẩu <strong>APPLEStore</strong></h3>
                     </div>
                     <form action="verifypass" method="post" id="form-5">
                         <p class="form-message">${mess}</p>
