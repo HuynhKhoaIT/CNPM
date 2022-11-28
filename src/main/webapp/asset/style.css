@@ -1559,3 +1559,26 @@ img.avatar-blog {
     padding: 4px 8px;
 }
 
+.title_order_stt{
+    background: #0664f9;
+    color: #fff;
+}
+
+.title_order_stt th{
+    border-right: 2px solid #fff;
+    border-bottom: 1px solid #fff;
+    text-align: center
+}
+
+.content_order_stt{
+    background: #ccc;
+}
+.content_order_stt td{
+    border-right: 2px solid #000;
+    border-bottom: 1px solid #000;
+    text-align: center;
+}
+.content_order_stt td:nth-child(1) {
+    border-left: 2px solid #000;
+    border-bottom: 1px solid #000;
+}

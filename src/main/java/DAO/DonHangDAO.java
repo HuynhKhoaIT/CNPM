@@ -152,6 +152,40 @@ public class DonHangDAO {
         }
         return list;
     }
+    public List<DonHang> getAllDonHangByEmail(String id) {
+        List<DonHang> list = new ArrayList<>();
+        String query = "Select * From DonHang where Email = ?";
+        try {
+            conn = new ConnectJDBC().getConnection();
+            ps = conn.prepareStatement(query);
+            ps.setString(1, id);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                list.add(new DonHang(rs.getInt(1), rs.getInt(2), rs.getInt(3), rs.getInt(4), rs.getDate(5),
+                        rs.getInt(6), rs.getString(7), rs.getDate(8), rs.getInt(9), rs.getString(10), rs.getString(11),
+                        rs.getString(12)));
+            }
+        } catch (Exception e) {
+        }
+        return list;
+    }
+    public List<DonHang> getAllDonHangByPhone(String id) {
+        List<DonHang> list = new ArrayList<>();
+        String query = "Select * From DonHang where SoDienThoai = ?";
+        try {
+            conn = new ConnectJDBC().getConnection();
+            ps = conn.prepareStatement(query);
+            ps.setString(1, id);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                list.add(new DonHang(rs.getInt(1), rs.getInt(2), rs.getInt(3), rs.getInt(4), rs.getDate(5),
+                        rs.getInt(6), rs.getString(7), rs.getDate(8), rs.getInt(9), rs.getString(10), rs.getString(11),
+                        rs.getString(12)));
+            }
+        } catch (Exception e) {
+        }
+        return list;
+    }
 
     public DonHang getDonHangByMaDH(String id) {
         String query = "Select * From DonHang where MaDH = ?";
@@ -189,6 +223,7 @@ public class DonHangDAO {
         }
         return list;
     }
+
 
     public List<DonHang> loadOrderByMonth(int month,int year) {
         String querry = "select  * from DonHang where MaTrangThai = 4 and MONTH(ThoiGian)=? and year(ThoiGian)=? ";

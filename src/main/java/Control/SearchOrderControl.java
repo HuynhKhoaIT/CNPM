@@ -1,6 +1,8 @@
 package Control;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -8,8 +10,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import DAO.DonHangDAO;
 import DAO.LoginDAO;
+import Model.DonHang;
 import Model.Users;
+import Util.CheckValue;
 
 /**
  * Servlet implementation class SearchOrderControl
@@ -45,13 +50,20 @@ public class SearchOrderControl extends HttpServlet {
         String email = request.getParameter("email");
         
         HttpSession session = request.getSession();
-        
-        LoginDAO dao = new LoginDAO();
-        
-        Users a = dao.CheckUsers(email);
-        
-        if (a == null) {
-        	request.setAttribute("mess", "Email không tồn tại");
+
+		List<DonHang> a = new ArrayList<>();
+
+		DonHangDAO donHangDAO = new DonHangDAO();
+
+
+		if(!CheckValue.isNumeric(email)){
+			a = donHangDAO.getAllDonHangByEmail(email);
+		}
+		else {
+			a =donHangDAO.getAllDonHangByPhone(email);
+		}
+        if (a == null || a.size() ==0) {
+        	request.setAttribute("mess", "không tồn tại");
             request.getRequestDispatcher("/shop/search_order.jsp").forward(request, response);
         }
         else {

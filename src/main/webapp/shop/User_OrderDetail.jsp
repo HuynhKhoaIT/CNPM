@@ -18,13 +18,13 @@
     <title>Insert title here</title>
 </head>
 <body>
-<div class="main">
+<div class="main" >
     <c:set var="items" value="${listlsp}" scope="request"/>
     <div class="card-body p-0">
-        <div class="table-responsive">
+        <div class="table-responsive" style="font-size: 24px;">
             <table class="table m-0">
                 <thead>
-                <tr>
+                <tr class="title_order_stt">
                     <th>ID đơn hàng</th>
                     <th>Sản phẩm</th>
                     <th>Số lượng</th>
@@ -33,7 +33,7 @@
                 </thead>
                 <tbody>
                 <c:forEach var="i" begin="0" end="${size-1 }">
-                    <tr>
+                    <tr class="content_order_stt">
                         <td>${listDetail[i].getMaDH()}</td>
                         <td>${listName[i]}</td>
                         <td>${listDetail[i].getSoLuong()}</td>
@@ -44,8 +44,13 @@
 
                 </tbody>
             </table>
+
+        </div>
+        <div class="row" style="margin-top: 20px;
+    margin-right: 10px;
+    justify-content: flex-end;">
             <a href="${root}">
-            	<button class="btn-continuel">Tiếp Tục Mua Hàng</button>
+                <button class="btn-continuel">Tiếp Tục Mua Hàng</button>
             </a>
         </div>
     </div>

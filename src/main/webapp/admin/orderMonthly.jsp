@@ -39,7 +39,35 @@
 
     <!-- Main Sidebar Container -->
     <%@include file="./sidebar.jsp" %>
+    <style>
+        /*style mở ra một khu vực để viết mã CSS*/
 
+        .top-cart{
+            overflow: hidden;
+            border: 1px solid #ccc;
+            background-color: #f1f1f1;
+            padding-top: 0;
+            padding-bottom: 0;
+        }
+
+        .order-btn{
+            line-height: 47.11px;
+            padding: 0 10px;
+
+        }
+        .sell-btn{
+            line-height: 47.11px;
+            padding: 0 10px;
+
+        }
+
+        .sell-btn:hover,
+        .order-btn:hover{
+            cursor: pointer;
+            background-color: #ddd;
+        }
+
+    </style>
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
         <!-- Content Header (Page header) -->
@@ -65,53 +93,16 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-12">
-                        <div class="card"></div>
                         <div class="card">
-                            <div class="card-header">
-                                <h3 class="card-title">Danh sách sản phẩm bán chạy trong tháng ${month }</h3>
-                            </div>
-                            <!-- /.card-header -->
-                            <div class="card-body">
-                                <table id="example1" class="table table-bordered table-striped">
-                                    <thead>
-                                    <tr>
-                                        <th>Mã Sản Phẩm</th>
-                                        <th>Tên Sản Phẩm</th>
-                                        <th>Số Lượng Bán</th>
-                                        <th>Tổng Tiền</th>
-                                        
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                    <c:if test="${size>0 }">
-                                    <c:forEach items="${listspbc}" var="i" >
-                                        <tr>	
-                                            <td>
-                                                <a href="">${i.maSP}</a>
-                                            </td>
+                            <div class="card-header top-cart">
 
-                                           
-                                            <td><a
-                                                    href="">${i.tenSP}</a>
-                                            </td>
-                                            <td>${i.soluong}</td>
-                                            <td data-type="money">${i.tongtien}</td>
-                                            
-                                        </tr>
-                                    </c:forEach>
-                                    </c:if>
-                                    </tbody>
+                                <h3 class="card-title order-btn">Tất cả đơn hàng của tháng ${month }</h3>
 
-                                    
-                                </table>
-                            </div>
-                            <!-- /.card-body -->
-                        </div>
-                        <!-- /.card -->
 
-                        <div class="card">
-                            <div class="card-header">
-                                <h3 class="card-title">Tất cả đơn hàng của tháng ${month }</h3>
+                                <a href="${root}admin/SellMonthly?month=${month}">
+                                    <h3 class="card-title sell-btn">Danh sách sản phẩm bán chạy trong tháng ${month }</h3>
+                                </a>
+
                             </div>
                             <!-- /.card-header -->
                             <div class="card-body">

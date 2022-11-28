@@ -19,6 +19,7 @@ import Model.DonHang;
 import Model.LoaiSP;
 import Model.TrangThai;
 import Model.Users;
+import Util.CheckValue;
 
 /**
  * Servlet implementation class OrderStatusControl
@@ -50,14 +51,21 @@ public class OrderStatusControl extends HttpServlet {
         DonHangDAO dao = new DonHangDAO();
         
         List<DonHang> listDonHang = dao.loadOrderByEmail(email);
+
+        if(!CheckValue.isNumeric(email)){
+            listDonHang = dao.getAllDonHangByEmail(email);
+        }
+        else {
+            listDonHang =dao.getAllDonHangByPhone(email);
+        }
         
         request.setAttribute("listDonHang", listDonHang);
 		
-        LoginDAO dao2 = new LoginDAO();
-        
-        Users a = dao2.CheckUsers(email);
-        
-        session.setAttribute("a", a);
+//        LoginDAO dao2 = new LoginDAO();
+//
+//        Users a = dao2.CheckUsers(email);
+//
+//        session.setAttribute("a", a);
         
         TrangThaiDAO dao3 = new TrangThaiDAO();
         

@@ -24,7 +24,7 @@
 	<c:set var="items" value="${listlsp}" scope="request"/>
     <div class="content">
            <div class="row" style="justify-content: space-between;">
-           	<h3>Khách hàng: ${sessionScope.a.getTenKH()}</h3>
+<%--           	<h3>Khách hàng: ${sessionScope.a.getTenKH()}</h3>--%>
            	<a href="${root}">
             	<button class="btn-continuel">Tiếp Tục Mua Hàng</button>
             </a>
@@ -35,7 +35,9 @@
                     <th>Mã đơn hàng</th>
                     <th>Trạng thái</th>
                     <th>Ngày mua</th>
+                    <th>Ngày nhận</th>
                     <th>Tổng Tiền</th>
+                    <th>Địa chỉ</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -48,7 +50,10 @@
 	                        	</c:if>
 	                        </c:forEach>
 	                         <td>${list.thoiGian}</td>
+                            <td>${list.ngayNhanHang}</td>
+
 	                        <td data-type="money">${list.getTongTien()}</td>
+                            <td>${list.diaChi}</td>
 	                    </tr>
                 	</c:forEach>
                 </tbody>
