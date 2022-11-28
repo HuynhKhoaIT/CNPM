@@ -7,7 +7,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.time.LocalDate;
-import java.time.Year;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -131,27 +130,7 @@ public class DonHangDAO {
         }
         return list;
     }
-    public List<SPBanChay> getsanphambanchaytheothang(int thang) {
-        List<SPBanChay> list = new ArrayList<>();
-        String query = "select ChiTietDonHang.MaSP as MaSP,TenSP,sum(ChiTietDonHang.SoLuong) as Soluong, sum(ChiTietDonHang.TongTien) as Tongtien from \r\n"
-        		+ "(ChiTietDonHang inner join  SanPham on ChiTietDonHang.MaSP =SanPham.MaSP)\r\n"
-        		+ "inner join DonHang on ChiTietDonHang.MaDH=DonHang.MaDH\r\n"
-        		+ "where MONTH(NgayNhanHang)= ? and YEAR(NgayNhanHang)=2022\r\n"
-        		+ "group by ChiTietDonHang.MaSP,TenSP\r\n"
-        		+ "order by Soluong DESC\r\n";
-        		
-        try {
-            conn = new ConnectJDBC().getConnection();
-            ps = conn.prepareStatement(query);
-            ps.setInt(1, thang);
-            rs = ps.executeQuery();
-            while (rs.next()) {
-                list.add(new SPBanChay(rs.getInt(1), rs.getString(2), rs.getInt(3), rs.getInt(4)));
-            }
-        } catch (Exception e) {
-        }
-        return list;
-    }
+
     public DonHang getDonHangByMaDH(String id) {
         String query = "Select * From DonHang where MaDH = ?";
         try {
@@ -189,14 +168,15 @@ public class DonHangDAO {
         return list;
     }
 
-    public List<DonHang> loadOrderByMonth(int month) {
-        String querry = "select  * from DonHang where MaTrangThai = 4 and MONTH(ThoiGian)=? ";
+    public List<DonHang> loadOrderByMonth(int month,int year) {
+        String querry = "select  * from DonHang where MaTrangThai = 4 and MONTH(ThoiGian)=? and year(ThoiGian)=? ";
         List<DonHang> list = new ArrayList<DonHang>();
         try {
 
             conn = new ConnectJDBC().getConnection();
             ps = conn.prepareStatement(querry);
             ps.setInt(1, month);
+            ps.setInt(2, year);
             rs = ps.executeQuery();
             while (rs.next()) {
                 list.add(new DonHang(rs.getInt(1), rs.getInt(2), rs.getInt(3), rs.getInt(4), rs.getDate(5),
@@ -210,8 +190,8 @@ public class DonHangDAO {
         return list;
     }
 
-    public List<DonHang> loadOrderByQuy(int quy) {
-        String querry = "select  * from DonHang where MaTrangThai = 4 and MONTH(ThoiGian)>=? and MONTH(ThoiGian)<=?";
+    public List<DonHang> loadOrderByQuy(int quy,int year) {
+        String querry = "select  * from DonHang where MaTrangThai = 4 and MONTH(ThoiGian)>=? and MONTH(ThoiGian)<=? and year(ThoiGian)=?";
         List<DonHang> list = new ArrayList<DonHang>();
         try {
 
@@ -220,12 +200,15 @@ public class DonHangDAO {
             if (quy == 1) {
                 ps.setInt(1, 1);
                 ps.setInt(2, 4);
+                ps.setInt(3, year);
             } else if (quy == 2) {
                 ps.setInt(1, 5);
                 ps.setInt(2, 8);
+                ps.setInt(3, year);
             } else {
                 ps.setInt(1, 9);
                 ps.setInt(2, 12);
+                ps.setInt(3, year);
             }
             rs = ps.executeQuery();
             while (rs.next()) {
@@ -384,15 +367,13 @@ public class DonHangDAO {
         return list;
     }
     public List<DonHang> loadAllOrderByMonth(int month) {
-        String querry = "select * from DonHang where MaTrangThai = 4 and MONTH(ThoiGian)=? and Year(ThoiGian)=?";
-        int year = Year.now().getValue();
+        String querry = "select * from DonHang where MONTH(ThoiGian)=?";
         List<DonHang> list = new ArrayList<DonHang>();
         try {
 
             conn = new ConnectJDBC().getConnection();
             ps = conn.prepareStatement(querry);
             ps.setInt(1, month);
-            ps.setInt(2, year);
             rs = ps.executeQuery();
             while (rs.next()) {
                 list.add(new DonHang(rs.getInt(1), rs.getInt(2), rs.getInt(3), rs.getInt(4), rs.getDate(5),
@@ -407,7 +388,7 @@ public class DonHangDAO {
     }
     
     public List<DonHang> loadAllOrderByQuy(int quy) {
-        String querry = "select * from DonHang where MaTrangThai = 4 and MONTH(ThoiGian)>=? and MONTH(ThoiGian)<=? and  year(ThoiGian) = ?";
+        String querry = "select * from DonHang where MONTH(ThoiGian)>=? and MONTH(ThoiGian)<=?";
         List<DonHang> list = new ArrayList<DonHang>();
         try {
 
@@ -423,8 +404,6 @@ public class DonHangDAO {
                 ps.setInt(1, 9);
                 ps.setInt(2, 12);
             }
-            int year = Year.now().getValue();
-            ps.setInt(3, year);
             rs = ps.executeQuery();
             while (rs.next()) {
                 list.add(new DonHang(rs.getInt(1), rs.getInt(2), rs.getInt(3), rs.getInt(4), rs.getDate(5),
@@ -439,7 +418,7 @@ public class DonHangDAO {
     }
     
     public List<DonHang> loadAllOrderByYear(int year) {
-        String querry = "select * from DonHang where MaTrangThai = 4 and year(ThoiGian)=?";
+        String querry = "select * from DonHang where year(ThoiGian)=?";
         List<DonHang> list = new ArrayList<DonHang>();
         try {
 
@@ -480,14 +459,15 @@ public class DonHangDAO {
         return list;
     }
 
-    public int totalPriceAllOrderByMonth(int month) {
-        String querry = "select * from DonHang where MaTrangThai=4 and MONTH(ThoiGian)=?";
+    public int totalPriceAllOrderByMonth(int month,int year) {
+        String querry = "select  * from DonHang where MaTrangThai = 4 and MONTH(ThoiGian)=? and year(ThoiGian)=?";
         int total = 0;
         try {
 
             conn = new ConnectJDBC().getConnection();
             ps = conn.prepareStatement(querry);
             ps.setInt(1, month);
+            ps.setInt(2, year);
             rs = ps.executeQuery();
             while (rs.next()) {
                 total = total + rs.getInt(4);
@@ -499,8 +479,8 @@ public class DonHangDAO {
         return total;
     }
 
-    public int totalPriceAllOrderByQuy(int quy) {
-        String querry = "select  * from DonHang where MaTrangThai = 4 and MONTH(ThoiGian)>=? and MONTH(ThoiGian)<=?";
+    public int totalPriceAllOrderByQuy(int quy,int year) {
+        String querry = "select  * from DonHang where MaTrangThai = 4 and MONTH(ThoiGian)>=? and MONTH(ThoiGian)<=? and year(ThoiGian)=?";
         int total = 0;
         try {
 
@@ -509,12 +489,15 @@ public class DonHangDAO {
             if (quy == 1) {
                 ps.setInt(1, 1);
                 ps.setInt(2, 4);
+                ps.setInt(3, year);
             } else if (quy == 2) {
                 ps.setInt(1, 5);
                 ps.setInt(2, 8);
+                ps.setInt(3, year);
             } else {
                 ps.setInt(1, 9);
                 ps.setInt(2, 12);
+                ps.setInt(3, year);
             }
             rs = ps.executeQuery();
             while (rs.next()) {
@@ -608,10 +591,9 @@ public class DonHangDAO {
 
     public static void main(String[] args) {
         DonHangDAO donHangDAO = new DonHangDAO();
-        List<SPBanChay> list = donHangDAO.getsanphambanchaytheothang(11);
-        for(SPBanChay o: list) {
-        	System.out.print(o.toString());
-        	
+        List<DonHang> list = donHangDAO.loadAllOrderByYear(2022);
+        for(DonHang o: list) {
+        	System.out.print(o);
         }
     }
 }
