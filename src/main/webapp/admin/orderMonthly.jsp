@@ -66,6 +66,47 @@
                 <div class="row">
                     <div class="col-12">
                         <div class="card"></div>
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title">Danh sách sản phẩm bán chạy trong tháng ${month }</h3>
+                            </div>
+                            <!-- /.card-header -->
+                            <div class="card-body">
+                                <table id="example1" class="table table-bordered table-striped">
+                                    <thead>
+                                    <tr>
+                                        <th>Mã Sản Phẩm</th>
+                                        <th>Tên Sản Phẩm</th>
+                                        <th>Số Lượng Bán</th>
+                                        <th>Tổng Tiền</th>
+                                        
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <c:if test="${size>0 }">
+                                    <c:forEach items="${listspbc}" var="i" >
+                                        <tr>	
+                                            <td>
+                                                <a href="">${i.maSP}</a>
+                                            </td>
+
+                                           
+                                            <td><a
+                                                    href="">${i.tenSP}</a>
+                                            </td>
+                                            <td>${i.soluong}</td>
+                                            <td data-type="money">${i.tongtien}</td>
+                                            
+                                        </tr>
+                                    </c:forEach>
+                                    </c:if>
+                                    </tbody>
+
+                                    
+                                </table>
+                            </div>
+                            <!-- /.card-body -->
+                        </div>
                         <!-- /.card -->
 
                         <div class="card">
@@ -114,8 +155,10 @@
                                     <tfoot></tfoot>
                                 </table>
                             </div>
+                            
                             <!-- /.card-body -->
                         </div>
+                        
                         <!-- /.card -->
                     </div>
                     <!-- /.col -->

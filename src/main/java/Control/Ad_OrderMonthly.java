@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import DAO.DonHangDAO;
 import DAO.KhachHangDAO;
 import Model.DonHang;
+import Model.SPBanChay;
 
 @WebServlet("/admin/OrderMonthly")
 public class Ad_OrderMonthly extends HttpServlet {
@@ -34,8 +35,9 @@ public class Ad_OrderMonthly extends HttpServlet {
             String tenTK = dao2.getKhachHangByMaKH(o.getMaKH()).getTenTK();
             ten.add(tenTK);
         }
-
+        List<SPBanChay> listspbc=dao.getsanphambanchaytheothang(month);
         request.setAttribute("ten", ten);
+        request.setAttribute("listspbc", listspbc);
         request.setAttribute("size", list.size());
         request.setAttribute("list", list);
         request.setAttribute("month", month);

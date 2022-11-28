@@ -131,7 +131,27 @@ public class DonHangDAO {
         }
         return list;
     }
-
+    public List<SPBanChay> getsanphambanchaytheothang(int thang) {
+        List<SPBanChay> list = new ArrayList<>();
+        String query = "select ChiTietDonHang.MaSP as MaSP,TenSP,sum(ChiTietDonHang.SoLuong) as Soluong, sum(ChiTietDonHang.TongTien) as Tongtien from \r\n"
+        		+ "(ChiTietDonHang inner join  SanPham on ChiTietDonHang.MaSP =SanPham.MaSP)\r\n"
+        		+ "inner join DonHang on ChiTietDonHang.MaDH=DonHang.MaDH\r\n"
+        		+ "where MONTH(NgayNhanHang)= ? and YEAR(NgayNhanHang)=2022\r\n"
+        		+ "group by ChiTietDonHang.MaSP,TenSP\r\n"
+        		+ "order by Soluong DESC\r\n";
+        		
+        try {
+            conn = new ConnectJDBC().getConnection();
+            ps = conn.prepareStatement(query);
+            ps.setInt(1, thang);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                list.add(new SPBanChay(rs.getInt(1), rs.getString(2), rs.getInt(3), rs.getInt(4)));
+            }
+        } catch (Exception e) {
+        }
+        return list;
+    }
     public DonHang getDonHangByMaDH(String id) {
         String query = "Select * From DonHang where MaDH = ?";
         try {
@@ -588,9 +608,10 @@ public class DonHangDAO {
 
     public static void main(String[] args) {
         DonHangDAO donHangDAO = new DonHangDAO();
-        List<DonHang> list = donHangDAO.loadAllOrderByYear(2022);
-        for(DonHang o: list) {
-        	System.out.print(o);
+        List<SPBanChay> list = donHangDAO.getsanphambanchaytheothang(11);
+        for(SPBanChay o: list) {
+        	System.out.print(o.toString());
+        	
         }
     }
 }
