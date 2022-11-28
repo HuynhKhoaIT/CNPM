@@ -70,7 +70,7 @@
 
                         <div class="card">
                             <div class="card-header">
-                                <h3 class="card-title">Đơn hàng theo tháng</h3>
+                                <h3 class="card-title">Tất cả đơn hàng của năm ${year }</h3>
                             </div>
                             <!-- /.card-header -->
                             <div class="card-body">
@@ -82,57 +82,33 @@
                                         <th>Mã Đơn Hàng</th>
                                         <th>Tổng Tiền</th>
                                         <th>Thời Gian</th>
-                                        <th>Tình Trạng</th>
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    <c:forEach var="i" begin="0" end="${size-1 }">
-                                        <tr>
-                                            <td>
-                                                <a href="Ad_AccountControl?maKH=${list[i].getMaKH()}">${list[i].getMaKH()}</a>
-                                            </td>
-
-                                            <c:choose>
-
-                                                <c:when test="${ten[i] == null}">
-                                                    <td>Chưa đăng ký</td>
-                                                </c:when>
-                                                <c:otherwise>
-                                                    <td>Thành viên</td>
-                                                </c:otherwise>
-                                            </c:choose>
-                                            <td><a
-                                                    href="Ad_invoiceControl?maDH=${list[i].getMaDH()}">${list[i].getMaDH()}</a>
-                                            </td>
-                                            <td data-type="money">${list[i].getTongTien()}</td>
-                                            <td>${list[i].getThoiGian()}</td>
-                                            <c:forEach items="${listTrangThai}" var="tt">
-                                                <c:if test="${tt.maTrangThai == list[i].getMaTrangThai()}">
-                                                    <c:if test="${list[i].getMaTrangThai() == 1}">
-                                                        <td><span class="badge badge-success">${tt.tenTrangThai}</span>
-                                                        </td>
-                                                    </c:if>
-                                                    <c:if test="${list[i].getMaTrangThai() == 2}">
-                                                        <td><span class="badge badge-success"
-                                                                  style="background : black">${tt.tenTrangThai}</span>
-                                                        </td>
-                                                    </c:if>
-                                                    <c:if test="${list[i].getMaTrangThai() == 3}">
-                                                        <td><span class="badge badge-success"
-                                                                  style="background : blue">${tt.tenTrangThai}</span>
-                                                        </td>
-                                                    </c:if>
-                                                    <c:if test="${list[i].getMaTrangThai() == 4}">
-                                                        <td><span class="badge badge-success"
-                                                                  style="background : red">${tt.tenTrangThai}</span>
-                                                        </td>
-                                                    </c:if>
-                                                </c:if>
-
-
-                                            </c:forEach>
-                                        </tr>
-                                    </c:forEach>
+                                    <c:if test="${size>0 }">
+	                                    <c:forEach var="i" begin="0" end="${size-1 }">
+	                                        <tr>
+	                                            <td>
+	                                                <a href="Ad_AccountControl?maKH=${list[i].getMaKH()}">${list[i].getMaKH()}</a>
+	                                            </td>
+	
+	                                            <c:choose>
+	
+	                                                <c:when test="${ten[i] == null}">
+	                                                    <td>Chưa đăng ký</td>
+	                                                </c:when>
+	                                                <c:otherwise>
+	                                                    <td>Thành viên</td>
+	                                                </c:otherwise>
+	                                            </c:choose>
+	                                            <td><a
+	                                                    href="Ad_invoiceControl?maDH=${list[i].getMaDH()}">${list[i].getMaDH()}</a>
+	                                            </td>
+	                                            <td data-type="money">${list[i].getTongTien()}</td>
+	                                            <td>${list[i].getThoiGian()}</td>
+	                                        </tr>
+	                                    </c:forEach>
+                                    </c:if>
                                     </tbody>
 
                                     <tfoot></tfoot>

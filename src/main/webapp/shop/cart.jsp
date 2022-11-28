@@ -248,6 +248,11 @@
                         Tục Mua Hàng
                     </button>
                 </a>
+                <a href="${root}shop/searchorder">
+                    <button class="btn-cart" style="margin: 10px 0;">
+                        Theo dõi đơn hàng
+                    </button>
+                </a>
             </div>
 
         </div>

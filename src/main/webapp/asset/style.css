@@ -168,7 +168,7 @@
 
 #slider .slider-img img{
     display: block;
-    max-width: 100%;
+    width: 100%;
 }
 
 #content{
@@ -1549,5 +1549,13 @@ img.avatar-blog {
 .btn-cart:hover{
     background: blue;
     color: #fff;
+}
+
+.btn-continuel{
+    background: #0664f9;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    padding: 4px 8px;
 }
 

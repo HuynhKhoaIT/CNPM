@@ -128,7 +128,7 @@
             <div class="mn-body">
                 <ul>
                     <c:forEach items="${listlsp}" var="o">
-                        <li><a class="b-b-600" href="loaisp?maloai=${o.maLoai}" class="nav-sub">${o.tenLoai}</a></li>
+                        <li><a class="b-b-600" href="http://localhost:8080/Apple_store/loaisp?maloai=${o.maLoai}" class="nav-sub">${o.tenLoai}</a></li>
                     </c:forEach>
                     <li class="b-b-600"><a href="${root}blog">Tin tức</a></li>
                 </ul>

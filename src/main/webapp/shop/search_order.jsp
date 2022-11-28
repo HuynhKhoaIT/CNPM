@@ -20,7 +20,9 @@
 
     <title>Login</title>
 </head>
-<body>
+<body style="
+    background-image: url(https://static.vecteezy.com/system/resources/previews/002/037/924/original/abstract-blue-background-with-beautiful-fluid-shapes-free-vector.jpg);
+">
 
     <div class="content">
         <div class="container">

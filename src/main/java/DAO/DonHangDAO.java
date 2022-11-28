@@ -7,6 +7,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.time.LocalDate;
+import java.time.Year;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -362,6 +363,81 @@ public class DonHangDAO {
         }
         return list;
     }
+    public List<DonHang> loadAllOrderByMonth(int month) {
+        String querry = "select * from DonHang where MaTrangThai = 4 and MONTH(ThoiGian)=? and Year(ThoiGian)=?";
+        int year = Year.now().getValue();
+        List<DonHang> list = new ArrayList<DonHang>();
+        try {
+
+            conn = new ConnectJDBC().getConnection();
+            ps = conn.prepareStatement(querry);
+            ps.setInt(1, month);
+            ps.setInt(2, year);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                list.add(new DonHang(rs.getInt(1), rs.getInt(2), rs.getInt(3), rs.getInt(4), rs.getDate(5),
+                        rs.getInt(6), rs.getString(7), rs.getDate(8), rs.getInt(9), rs.getString(10), rs.getString(11),
+                        rs.getString(12)));
+
+            }
+
+        } catch (Exception e) {
+        }
+        return list;
+    }
+    
+    public List<DonHang> loadAllOrderByQuy(int quy) {
+        String querry = "select * from DonHang where MaTrangThai = 4 and MONTH(ThoiGian)>=? and MONTH(ThoiGian)<=? and  year(ThoiGian) = ?";
+        List<DonHang> list = new ArrayList<DonHang>();
+        try {
+
+            conn = new ConnectJDBC().getConnection();
+            ps = conn.prepareStatement(querry);
+            if (quy == 1) {
+                ps.setInt(1, 1);
+                ps.setInt(2, 4);
+            } else if (quy == 2) {
+                ps.setInt(1, 5);
+                ps.setInt(2, 8);
+            } else {
+                ps.setInt(1, 9);
+                ps.setInt(2, 12);
+            }
+            int year = Year.now().getValue();
+            ps.setInt(3, year);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                list.add(new DonHang(rs.getInt(1), rs.getInt(2), rs.getInt(3), rs.getInt(4), rs.getDate(5),
+                        rs.getInt(6), rs.getString(7), rs.getDate(8), rs.getInt(9), rs.getString(10), rs.getString(11),
+                        rs.getString(12)));
+
+            }
+
+        } catch (Exception e) {
+        }
+        return list;
+    }
+    
+    public List<DonHang> loadAllOrderByYear(int year) {
+        String querry = "select * from DonHang where MaTrangThai = 4 and year(ThoiGian)=?";
+        List<DonHang> list = new ArrayList<DonHang>();
+        try {
+
+            conn = new ConnectJDBC().getConnection();
+            ps = conn.prepareStatement(querry);
+            ps.setInt(1, year);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                list.add(new DonHang(rs.getInt(1), rs.getInt(2), rs.getInt(3), rs.getInt(4), rs.getDate(5),
+                        rs.getInt(6), rs.getString(7), rs.getDate(8), rs.getInt(9), rs.getString(10), rs.getString(11),
+                        rs.getString(12)));
+
+            }
+
+        } catch (Exception e) {
+        }
+        return list;
+    }
     
     public List<DonHang> loadOrderByEmail(String email) {
         String querry = "select * from DonHang where Email=?";
@@ -512,7 +588,7 @@ public class DonHangDAO {
 
     public static void main(String[] args) {
         DonHangDAO donHangDAO = new DonHangDAO();
-        List<DonHang> list = donHangDAO.loadOrderByEmail("20110662@student.hcmute.edu.vn");
+        List<DonHang> list = donHangDAO.loadAllOrderByYear(2022);
         for(DonHang o: list) {
         	System.out.print(o);
         }
