@@ -62,7 +62,7 @@ public class LoginControlShip extends HttpServlet {
         Users a = dao.login(username, passMD5);
         if (a == null) {
             request.setAttribute("mess", "Sai tên đăng nhập hoặc mật khẩu");
-            request.getRequestDispatcher("/Shipper/loginuser.jsp").forward(request, response);
+            request.getRequestDispatcher("/Shipper/loginship.jsp").forward(request, response);
         } else {
             HttpSession session = request.getSession();
             int user = a.getIsUser();

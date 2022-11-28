@@ -109,7 +109,7 @@
                             <c:forEach items="${listsp}" var="o">
                                 <div class="product">
                                     <div class="product-img">
-                                        <a href="" class="img-a">
+                                        <a href="ProductDetailControl?maSP=${o.maSP}" class="img-a">
                                             <img src="${root}${o.anh}" alt="">
                                         </a>
                                     </div>

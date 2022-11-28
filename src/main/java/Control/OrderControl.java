@@ -64,8 +64,8 @@ public class OrderControl extends HttpServlet {
         DonHangDAO donHangDAO = new DonHangDAO();
         donHangDAO.addOrder(khachHang, cart, name_raw, phone_raw, email_raw, address_raw);
         
-        SendMailXacNhanDonHang sm = new SendMailXacNhanDonHang();
-        boolean test = sm.sendMail(khachHang.getEmail(), khachHang.getTenKH());
+//        SendMailXacNhanDonHang sm = new SendMailXacNhanDonHang();
+//        boolean test = sm.sendMail(khachHang.getEmail(), khachHang.getTenKH());
         
         Cookie c = new Cookie("cart", "");
         c.setMaxAge(0);

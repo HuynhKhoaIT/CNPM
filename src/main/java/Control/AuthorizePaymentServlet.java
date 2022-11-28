@@ -35,7 +35,7 @@ public class AuthorizePaymentServlet extends HttpServlet {
         int tong = 0;
         for (int i = 0; i < nameSP.length; i++) {
             items.add(new Item(nameSP[i], Integer.parseInt(quantity[i]), Integer.parseInt(totalPrice[i]) / 23000));
-            tong = tong + Integer.parseInt(totalPrice[i])*Integer.parseInt(quantity[i]) / 23000;
+            tong = tong + (Integer.parseInt(totalPrice[i])/23000)*Integer.parseInt(quantity[i]) ;
         }
         System.out.println(tong);
         System.out.println(totalString);

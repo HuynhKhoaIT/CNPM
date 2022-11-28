@@ -118,7 +118,7 @@
         <div class="mn-content">
             <div class="mn-top flex flex-between">
                 <div class="mn-logo">
-                    <a href="/"><img src="${root}asset/img/logo-fstu.webp" alt="logo-fstu"/> </a>
+                    <a href="/"><img src="${root}asset/img/logoPNG.png"/> </a>
                 </div>
                 <span class="js-close-menu">
                    <i class="ti-close"> </i>

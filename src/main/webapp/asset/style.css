@@ -1358,6 +1358,9 @@ and (max-width: 767px) {
 
 /* responsive dien thoai */
 @media (max-width: 480px) {
+    .detail-blog img{
+        width: 100% !important;
+    }
     #category .product {
         height: 534px;
         background: #fff;
@@ -1581,4 +1584,8 @@ img.avatar-blog {
 .content_order_stt td:nth-child(1) {
     border-left: 2px solid #000;
     border-bottom: 1px solid #000;
+}
+
+.detail-blog img{
+    width: 100% !important;
 }
