@@ -25,7 +25,9 @@ public class Ad_OrderMonthly extends HttpServlet {
         
         List<DonHang> list = new ArrayList<DonHang>();
         DonHangDAO dao = new DonHangDAO();
-        list = dao.loadAllOrderByMonth(month);
+        if(dao.loadAllOrderByMonth(month)!=null) {
+        	list = dao.loadAllOrderByMonth(month);
+        }
         List<String> ten = new ArrayList<String>();
         for (DonHang o : list) {
             KhachHangDAO dao2 = new KhachHangDAO();

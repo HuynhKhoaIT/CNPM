@@ -85,28 +85,30 @@
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    <c:forEach var="i" begin="0" end="${size-1 }">
-                                        <tr>
-                                            <td>
-                                                <a href="Ad_AccountControl?maKH=${list[i].getMaKH()}">${list[i].getMaKH()}</a>
-                                            </td>
-
-                                            <c:choose>
-
-                                                <c:when test="${ten[i] == null}">
-                                                    <td>Chưa đăng ký</td>
-                                                </c:when>
-                                                <c:otherwise>
-                                                    <td>Thành viên</td>
-                                                </c:otherwise>
-                                            </c:choose>
-                                            <td><a
-                                                    href="Ad_invoiceControl?maDH=${list[i].getMaDH()}">${list[i].getMaDH()}</a>
-                                            </td>
-                                            <td data-type="money">${list[i].getTongTien()}</td>
-                                            <td>${list[i].getThoiGian()}</td>
-                                        </tr>
-                                    </c:forEach>
+                                    <c:if test="${size>0 }">
+	                                    <c:forEach var="i" begin="0" end="${size-1 }">
+	                                        <tr>
+	                                            <td>
+	                                                <a href="Ad_AccountControl?maKH=${list[i].getMaKH()}">${list[i].getMaKH()}</a>
+	                                            </td>
+	
+	                                            <c:choose>
+	
+	                                                <c:when test="${ten[i] == null}">
+	                                                    <td>Chưa đăng ký</td>
+	                                                </c:when>
+	                                                <c:otherwise>
+	                                                    <td>Thành viên</td>
+	                                                </c:otherwise>
+	                                            </c:choose>
+	                                            <td><a
+	                                                    href="Ad_invoiceControl?maDH=${list[i].getMaDH()}">${list[i].getMaDH()}</a>
+	                                            </td>
+	                                            <td data-type="money">${list[i].getTongTien()}</td>
+	                                            <td>${list[i].getThoiGian()}</td>
+	                                        </tr>
+	                                    </c:forEach>
+                                    </c:if>
                                     </tbody>
 
                                     <tfoot></tfoot>

@@ -85,7 +85,9 @@
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    <c:forEach var="i" begin="0" end="${size-1 }">
+                                  
+                                    <c:if test="${size>0 }">
+                                    	<c:forEach var="i" begin="0" end="${size-1 }">
                                         <tr>
                                             <td>
                                                 <a href="Ad_AccountControl?maKH=${list[i].getMaKH()}">${list[i].getMaKH()}</a>
@@ -107,6 +109,9 @@
                                             <td>${list[i].getThoiGian()}</td>
                                         </tr>
                                     </c:forEach>
+                                 
+                                    </c:if>
+                                    
                                     </tbody>
 
                                     <tfoot></tfoot>

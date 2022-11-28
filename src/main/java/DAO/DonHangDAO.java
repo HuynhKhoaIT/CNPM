@@ -7,6 +7,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.time.LocalDate;
+import java.time.Year;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -363,13 +364,15 @@ public class DonHangDAO {
         return list;
     }
     public List<DonHang> loadAllOrderByMonth(int month) {
-        String querry = "select * from DonHang where MONTH(ThoiGian)=?";
+        String querry = "select * from DonHang where MaTrangThai = 4 and MONTH(ThoiGian)=? and Year(ThoiGian)=?";
+        int year = Year.now().getValue();
         List<DonHang> list = new ArrayList<DonHang>();
         try {
 
             conn = new ConnectJDBC().getConnection();
             ps = conn.prepareStatement(querry);
             ps.setInt(1, month);
+            ps.setInt(2, year);
             rs = ps.executeQuery();
             while (rs.next()) {
                 list.add(new DonHang(rs.getInt(1), rs.getInt(2), rs.getInt(3), rs.getInt(4), rs.getDate(5),
@@ -384,7 +387,7 @@ public class DonHangDAO {
     }
     
     public List<DonHang> loadAllOrderByQuy(int quy) {
-        String querry = "select * from DonHang where MONTH(ThoiGian)>=? and MONTH(ThoiGian)<=?";
+        String querry = "select * from DonHang where MaTrangThai = 4 and MONTH(ThoiGian)>=? and MONTH(ThoiGian)<=? and  year(ThoiGian) = ?";
         List<DonHang> list = new ArrayList<DonHang>();
         try {
 
@@ -400,6 +403,8 @@ public class DonHangDAO {
                 ps.setInt(1, 9);
                 ps.setInt(2, 12);
             }
+            int year = Year.now().getValue();
+            ps.setInt(3, year);
             rs = ps.executeQuery();
             while (rs.next()) {
                 list.add(new DonHang(rs.getInt(1), rs.getInt(2), rs.getInt(3), rs.getInt(4), rs.getDate(5),
@@ -414,7 +419,7 @@ public class DonHangDAO {
     }
     
     public List<DonHang> loadAllOrderByYear(int year) {
-        String querry = "select * from DonHang where year(ThoiGian)=?";
+        String querry = "select * from DonHang where MaTrangThai = 4 and year(ThoiGian)=?";
         List<DonHang> list = new ArrayList<DonHang>();
         try {
 
