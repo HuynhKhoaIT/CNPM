@@ -51,7 +51,7 @@
                             </div>
                             <div class="form-group last mb-3">
                                 <label for="email">Email</label>
-                                <input type="text" name="email" class="form-control" placeholder="Mật khẩu của bạn..."
+                                <input type="text" name="email" class="form-control" placeholder="Email của bạn..."
                                        id="email">
                                 <span class="form-message"></span>
                             </div>
