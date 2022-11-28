@@ -15,6 +15,7 @@ public class DonHangDAO {
     PreparedStatement ps = null;
     ResultSet rs = null;
 
+    
     public void addOrder(Users khachHang, Cart cart, String name, String phone, String email, String address) {
         LocalDate curDate = LocalDate.now();
         String date = curDate.toString();
@@ -64,6 +65,27 @@ public class DonHangDAO {
         }
     }
 
+    public List<SPBanChay> getsanphambanchaytheothang(int thang) {
+        List<SPBanChay> list = new ArrayList<>();
+        String query = "select ChiTietDonHang.MaSP as MaSP,TenSP,sum(ChiTietDonHang.SoLuong) as Soluong, sum(ChiTietDonHang.TongTien) as Tongtien from \r\n"
+        		+ "(ChiTietDonHang inner join  SanPham on ChiTietDonHang.MaSP =SanPham.MaSP)\r\n"
+        		+ "inner join DonHang on ChiTietDonHang.MaDH=DonHang.MaDH\r\n"
+        		+ "where MONTH(NgayNhanHang)= ? and YEAR(NgayNhanHang)=2022\r\n"
+        		+ "group by ChiTietDonHang.MaSP,TenSP\r\n"
+        		+ "order by Soluong DESC\r\n";
+        		
+        try {
+            conn = new ConnectJDBC().getConnection();
+            ps = conn.prepareStatement(query);
+            ps.setInt(1, thang);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                list.add(new SPBanChay(rs.getInt(1), rs.getString(2), rs.getInt(3), rs.getInt(4)));
+            }
+        } catch (Exception e) {
+        }
+        return list;
+    }
     public void addOrderPayPal(Users khachHang, Cart cart, String name, String phone, String email, String address) {
         LocalDate curDate = LocalDate.now();
         String date = curDate.toString();
