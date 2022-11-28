@@ -2,6 +2,7 @@ package Control;
 
 import java.io.IOException;
 import java.sql.Date;
+import java.time.LocalDate;
 import java.time.Year;
 import java.util.ArrayList;
 import java.util.List;
@@ -31,6 +32,8 @@ public class Ad_SaleReport extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
+    	LocalDate today = LocalDate.now();
+		int yearNow = today.getYear();
         List<Integer> ChiPhi = new ArrayList<Integer>();
         List<Integer> doanhThu = new ArrayList<Integer>();
         for (int j = 1; j <= 12; j++) {
@@ -38,7 +41,7 @@ public class Ad_SaleReport extends HttpServlet {
 
             List<DonHang> list2 = new ArrayList<DonHang>();
             DonHangDAO dao2 = new DonHangDAO();
-            list2 = dao2.loadOrderByMonth(j);
+            list2 = dao2.loadOrderByMonth(j,yearNow);
             List<ChiTietDonHang> chititet = new ArrayList<ChiTietDonHang>();
             int totalChiPhi = 0;
             for (DonHang o : list2) {
@@ -54,7 +57,7 @@ public class Ad_SaleReport extends HttpServlet {
             }
 
 
-            int total = new DonHangDAO().totalPriceAllOrderByMonth(j);
+            int total = new DonHangDAO().totalPriceAllOrderByMonth(j,yearNow);
             ChiPhi.add(totalChiPhi);
             doanhThu.add(total);
 
@@ -66,7 +69,7 @@ public class Ad_SaleReport extends HttpServlet {
 
             List<DonHang> list2 = new ArrayList<DonHang>();
             DonHangDAO dao2 = new DonHangDAO();
-            list2 = dao2.loadOrderByQuy(j);
+            list2 = dao2.loadOrderByQuy(j,yearNow);
             List<ChiTietDonHang> chititet = new ArrayList<ChiTietDonHang>();
             int totalChiPhi = 0;
             for (DonHang o : list2) {
@@ -81,7 +84,7 @@ public class Ad_SaleReport extends HttpServlet {
                 }
             }
 
-            int total = new DonHangDAO().totalPriceAllOrderByQuy(j);
+            int total = new DonHangDAO().totalPriceAllOrderByQuy(j,yearNow);
             ChiPhiQuy.add(totalChiPhi);
             doanhThuQuy.add(total);
 
