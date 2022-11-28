@@ -4,7 +4,7 @@ import DAO.*;
 import Model.DanhMuc;
 import Model.LoaiSP;
 import Model.SanPham;
-import org.apache.commons.io.FileUtils;
+
 
 import javax.servlet.*;
 import javax.servlet.http.*;

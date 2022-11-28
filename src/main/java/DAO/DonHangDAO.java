@@ -191,7 +191,7 @@ public class DonHangDAO {
     }
 
     public List<DonHang> loadOrderByQuy(int quy) {
-        String querry = "select  * from DonHang where MaTrangThai = 4 and MONTH(ThoiGian)>=8 and MONTH(ThoiGian)<=12";
+        String querry = "select  * from DonHang where MaTrangThai = 4 and MONTH(ThoiGian)>=? and MONTH(ThoiGian)<=?";
         List<DonHang> list = new ArrayList<DonHang>();
         try {
 
