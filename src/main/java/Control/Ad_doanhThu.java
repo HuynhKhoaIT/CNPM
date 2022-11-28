@@ -1,7 +1,10 @@
 package Control;
 
 import java.io.IOException;
+import java.sql.Date;
+import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -22,81 +25,88 @@ import Model.SanPham;
  */
 @WebServlet("/Ad_doanhThu")
 public class Ad_doanhThu extends HttpServlet {
-    private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 1L;
 
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        // TODO Auto-generated method stub
-        List<Integer> ChiPhi = new ArrayList<Integer>();
-        List<Integer> doanhThu = new ArrayList<Integer>();
-        for (int j = 1; j <= 12; j++) {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		
+		LocalDate today = LocalDate.now();
+		int year = today.getYear();
+		List<Integer> ChiPhi = new ArrayList<Integer>();
+		List<Integer> doanhThu = new ArrayList<Integer>();
+		for (int j = 1; j <= 12; j++) {
 
-            List<DonHang> list2 = new ArrayList<DonHang>();
-            DonHangDAO dao2 = new DonHangDAO();
-            list2 = dao2.loadOrderByMonth(j);
-            List<ChiTietDonHang> chititet = new ArrayList<ChiTietDonHang>();
-            int totalChiPhi = 0;
-            for (DonHang o : list2) {
+			List<DonHang> list2 = new ArrayList<DonHang>();
+			DonHangDAO dao2 = new DonHangDAO();
+			list2 = dao2.loadOrderByMonth(j,year);
+			List<ChiTietDonHang> chititet = new ArrayList<ChiTietDonHang>();
+			int totalChiPhi = 0;
+			for (DonHang o : list2) {
 
-                ChiTietDonHangDAO d = new ChiTietDonHangDAO();
-                chititet = d.getChiTietSanPhamID(o.getMaDH());
-                for (ChiTietDonHang i : chititet) {
-                    SanPham SP = new SanPham();
-                    SanPhamDAO a = new SanPhamDAO();
-                    SP = a.getProductById(i.getMaSP());
-                    totalChiPhi = totalChiPhi + i.getSoLuong() * SP.getGiaGoc();
-                }
-            }
+				ChiTietDonHangDAO d = new ChiTietDonHangDAO();
+				chititet = d.getChiTietSanPhamID(o.getMaDH());
+				for (ChiTietDonHang i : chititet) {
+					SanPham SP = new SanPham();
+					SanPhamDAO a = new SanPhamDAO();
+					SP = a.getProductById(i.getMaSP());
+					totalChiPhi = totalChiPhi + i.getSoLuong() * SP.getGiaGoc();
+				}
+			}
 
-            int total = new DonHangDAO().totalPriceAllOrderByMonth(j);
-            ChiPhi.add(totalChiPhi);
-            doanhThu.add(total);
+			int total = new DonHangDAO().totalPriceAllOrderByMonth(j,year);
+			ChiPhi.add(totalChiPhi);
+			doanhThu.add(total);
 
-        }
+		}
 
-        List<Integer> ChiPhiQuy = new ArrayList<Integer>();
-        List<Integer> doanhThuQuy = new ArrayList<Integer>();
-        for (int j = 1; j <= 3; j++) {
+		List<Integer> ChiPhiQuy = new ArrayList<Integer>();
+		List<Integer> doanhThuQuy = new ArrayList<Integer>();
+		List<Integer> loiNhuanQuy = new ArrayList<Integer>();
+		for (int j = 1; j <= 3; j++) {
 
-            List<DonHang> list2 = new ArrayList<DonHang>();
-            DonHangDAO dao2 = new DonHangDAO();
-            list2 = dao2.loadOrderByQuy(j);
-            List<ChiTietDonHang> chititet = new ArrayList<ChiTietDonHang>();
-            int totalChiPhi = 0;
-            for (DonHang o : list2) {
+			List<DonHang> list2 = new ArrayList<DonHang>();
+			DonHangDAO dao2 = new DonHangDAO();
+			list2 = dao2.loadOrderByQuy(j,year);
+			List<ChiTietDonHang> chititet = new ArrayList<ChiTietDonHang>();
+			int totalChiPhi = 0;
+			for (DonHang o : list2) {
 
-                ChiTietDonHangDAO d = new ChiTietDonHangDAO();
-                chititet = d.getChiTietSanPhamID(o.getMaDH());
-                for (ChiTietDonHang i : chititet) {
-                    SanPham SP = new SanPham();
-                    SanPhamDAO a = new SanPhamDAO();
-                    SP = a.getProductById(i.getMaSP());
-                    totalChiPhi = totalChiPhi + i.getSoLuong() * SP.getGiaGoc();
-                }
-            }
+				ChiTietDonHangDAO d = new ChiTietDonHangDAO();
+				chititet = d.getChiTietSanPhamID(o.getMaDH());
+				for (ChiTietDonHang i : chititet) {
+					SanPham SP = new SanPham();
+					SanPhamDAO a = new SanPhamDAO();
+					SP = a.getProductById(i.getMaSP());
+					totalChiPhi = totalChiPhi + i.getSoLuong() * SP.getGiaGoc();
+				}
+			}
 
-            int total = new DonHangDAO().totalPriceAllOrderByQuy(j);
-            ChiPhiQuy.add(totalChiPhi);
-            doanhThuQuy.add(total);
+			int total = new DonHangDAO().totalPriceAllOrderByQuy(j,year);
+			loiNhuanQuy.add(total - totalChiPhi);
+			ChiPhiQuy.add(totalChiPhi);
+			doanhThuQuy.add(total);
 
-        }
+		}
 
-        request.setAttribute("ChiPhi", ChiPhi);
-        request.setAttribute("doanhThu", doanhThu);
-        request.setAttribute("ChiPhiQuy", ChiPhiQuy);
-        request.setAttribute("doanhThuQuy", doanhThuQuy);
-        request.setAttribute("size", doanhThu.size());
-        request.getRequestDispatcher("/admin/doanhthu.jsp").forward(request, response);
-    }
+	
 
-    /**
-     * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
-     * response)
-     */
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        // TODO Auto-generated method stub
-        doGet(request, response);
-    }
+		request.setAttribute("ChiPhi", ChiPhi);
+		request.setAttribute("doanhThu", doanhThu);
+		request.setAttribute("ChiPhiQuy", ChiPhiQuy);
+		request.setAttribute("doanhThuQuy", doanhThuQuy);
+		request.setAttribute("loinhuanQuy", loiNhuanQuy);
+		request.setAttribute("size", doanhThu.size());
+		request.getRequestDispatcher("/admin/doanhthu.jsp").forward(request, response);
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		doGet(request, response);
+	}
 
 }
