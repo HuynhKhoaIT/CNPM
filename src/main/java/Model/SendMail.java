@@ -11,8 +11,8 @@ public class SendMail {
         boolean test = false;
 
 
-        final String fromEmail = "nhomcongnghephanmem1@gmail.com";
-        final String passEmail = "gkzeixfkhdwtqdvl";
+        final String fromEmail = "golikelikego3@gmail.com";
+        final String passEmail = "ngqhpdwjyevyjdho";
 
         Properties prop = new Properties();
         prop.put("mail.smtp.host", "smtp.gmail.com");
