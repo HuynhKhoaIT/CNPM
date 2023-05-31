@@ -402,59 +402,27 @@ public class SanPhamDAO {
         return list;
     }
 
-//    public List<SanPham> searchByName(String txtSearch) {
-//        List<SanPham> list = new ArrayList<>();
-//        String query = "select *from SanPham \r\n"
-//                + "where [TenSP] like ? and SanPham.isDeleted=0 order by MaSP desc ";
-//        try {
-//            conn = new ConnectJDBC().getConnection();
-//            ps = conn.prepareStatement(query);
-//            ps.setString(1, "%" + txtSearch + "%");
-//            rs = ps.executeQuery();
-//            while (rs.next()) {
-//                list.add(new SanPham(rs.getInt(1), rs.getInt(2),
-//                        rs.getString(3), rs.getString(4),
-//                        rs.getInt(5), rs.getInt(6), rs.getInt(7), rs.getInt(8),
-//                        rs.getString(9), rs.getString(10),
-//                        rs.getInt(11), rs.getInt(12)));
-//            }
-//        } catch (Exception e) {
-//        }
-//        return list;
-//    }
-public List<SanPham> searchByName(String txtSearch) {
-    List<SanPham> list = new ArrayList<>();
-    String query = "SELECT * FROM SanPham WHERE [TenSP] LIKE '%" + txtSearch + "%' AND SanPham.isDeleted = 0 ORDER BY MaSP DESC";
-
-    try {
-        conn = new ConnectJDBC().getConnection();
-        Statement stmt = conn.createStatement();
-        ResultSet rs = stmt.executeQuery(query);
-
-        while (rs.next()) {
-            list.add(new SanPham(rs.getInt(1), rs.getInt(2),
-                    rs.getString(3), rs.getString(4),
-                    rs.getInt(5), rs.getInt(6), rs.getInt(7), rs.getInt(8),
-                    rs.getString(9), rs.getString(10),
-                    rs.getInt(11), rs.getInt(12)));
-        }
-
-        rs.close();
-        stmt.close();
-    } catch (Exception e) {
-        e.printStackTrace();
-    } finally {
+    public List<SanPham> searchByName(String txtSearch) {
+        List<SanPham> list = new ArrayList<>();
+        String query = "select *from SanPham \r\n"
+                + "where [TenSP] like ? and SanPham.isDeleted=0 order by MaSP desc ";
         try {
-            if (conn != null) {
-                conn.close();
+            conn = new ConnectJDBC().getConnection();
+            ps = conn.prepareStatement(query);
+            ps.setString(1, "%" + txtSearch + "%");
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                list.add(new SanPham(rs.getInt(1), rs.getInt(2),
+                        rs.getString(3), rs.getString(4),
+                        rs.getInt(5), rs.getInt(6), rs.getInt(7), rs.getInt(8),
+                        rs.getString(9), rs.getString(10),
+                        rs.getInt(11), rs.getInt(12)));
             }
-        } catch (SQLException e) {
-            e.printStackTrace();
+        } catch (Exception e) {
         }
+        return list;
     }
 
-    return list;
-}
     public List<SanPham> searchByNameTang(String txtSearch) {
         List<SanPham> list = new ArrayList<>();
         String query = "select *from SanPham \r\n"
