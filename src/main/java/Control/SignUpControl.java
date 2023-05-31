@@ -50,6 +50,16 @@ public class SignUpControl extends HttpServlet {
         String password = request.getParameter("password");
         String repassword = request.getParameter("repassword");
 
+        boolean isStrong = isPasswordStrong(password);
+
+        if (isStrong) {
+            System.out.println("Mật khẩu đủ mạnh");
+        } else {
+            System.out.println("Mật khẩu không đủ mạnh. Vui lòng nhập mật khẩu khác.");
+            request.setAttribute("mess", "Mật khẩu không đủ mạnh. Vui lòng nhập mật khẩu khác.");
+            request.getRequestDispatcher("/shop/signup.jsp").forward(request, response);
+        }
+
         MD5 lib = new MD5();
         String passMD5 = lib.md5(password);
         String repassMD5 = lib.md5(repassword);
@@ -84,5 +94,35 @@ public class SignUpControl extends HttpServlet {
             request.getRequestDispatcher("/shop/signup.jsp").forward(request, response);
         }
     }
+    public static boolean isPasswordStrong(String password) {
+        // Kiểm tra độ dài
+        if (password.length() < 12) {
+            return false;
+        }
 
+        // Kiểm tra chữ hoa, chữ thường, số và ký hiệu
+        boolean hasUppercase = false;
+        boolean hasLowercase = false;
+        boolean hasDigit = false;
+        boolean hasSpecialChar = false;
+
+        for (char c : password.toCharArray()) {
+            if (Character.isUpperCase(c)) {
+                hasUppercase = true;
+            } else if (Character.isLowerCase(c)) {
+                hasLowercase = true;
+            } else if (Character.isDigit(c)) {
+                hasDigit = true;
+            } else {
+                // Kiểm tra ký tự đặc biệt (bạn có thể thay đổi danh sách ký hiệu tùy ý)
+                String specialChars = "!@#$%^&*()_+{}:\"<>?|[];',./~`-=";
+                if (specialChars.contains(String.valueOf(c))) {
+                    hasSpecialChar = true;
+                }
+            }
+        }
+
+        // Kiểm tra xem có đủ các yêu cầu không
+        return hasUppercase && hasLowercase && hasDigit && hasSpecialChar;
+    }
 }
