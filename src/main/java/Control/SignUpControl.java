@@ -56,7 +56,8 @@ public class SignUpControl extends HttpServlet {
             System.out.println("Mật khẩu đủ mạnh");
         } else {
             System.out.println("Mật khẩu không đủ mạnh. Vui lòng nhập mật khẩu khác.");
-            request.setAttribute("mess", "Mật khẩu không đủ mạnh. Vui lòng nhập mật khẩu khác.");
+            request.setAttribute("mess", "Mật khẩu không đủ mạnh. Vui lòng nhập mật khẩu khác." +
+                    "mật khẩu có tối thiểu 12 ký tự bao gồm ký tự in hoa, ký tự thường, và 1 ký tự đặc biệt");
             request.getRequestDispatcher("/shop/signup.jsp").forward(request, response);
         }
 
